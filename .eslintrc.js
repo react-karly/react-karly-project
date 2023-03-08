@@ -21,7 +21,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "import"],
   rules: {
     "no-console": "warn",
     "react/prop-types": "off",
@@ -41,6 +41,36 @@ module.exports = {
         noSortAlphabetically: false,
         reservedFirst: true,
         multiline: "last",
+      },
+    ],
+    "import/order": [
+      "warn",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent", "index"],
+          "type",
+          "unknown",
+        ],
+        pathGroups: [
+          {
+            pattern: "{react*,react*/**}",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "{./**/*.module.css,./**/*.css}",
+            group: "unknown",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["react", "unknown"],
+        "newlines-between": "always-and-inside-groups",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
       },
     ],
   },
