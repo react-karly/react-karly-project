@@ -14,6 +14,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:import/recommended",
+    "plugin:react-hooks/recommended",
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -24,6 +25,8 @@ module.exports = {
   },
   plugins: ["react", "import"],
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "no-console": "warn",
     "react/prop-types": "off",
     "react/button-has-type": "warn",
