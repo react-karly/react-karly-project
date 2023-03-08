@@ -14,7 +14,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext .jsx,.js",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier src --check",
+    "format:fix": "prettier src --write"
   },
   "dependencies": {
     "react": "^18.2.0",
