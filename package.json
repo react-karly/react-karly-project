@@ -17,7 +17,9 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier src --check",
     "format:fix": "prettier src --write",
-    "hint": "htmlhint *.html -c .htmlhintrc"
+    "hint": "htmlhint *.html -c .htmlhintrc",
+    "stylelint": "stylelint \"src/**/*.{css,js,jsx}\"",
+    "stylelint:fix": "npm run stylelint -- --fix"
   },
   "dependencies": {
     "react": "^18.2.0",
