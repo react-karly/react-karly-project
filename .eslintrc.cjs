@@ -15,6 +15,7 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:import/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -23,7 +24,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "import"],
+  plugins: ["react", "import", "jsx-a11y"],
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -75,6 +76,18 @@ module.exports = {
           order: "asc",
           caseInsensitive: true,
         },
+      },
+    ],
+    "jsx-a11y/anchor-has-content": [
+      "warn",
+      {
+        components: ["Link"],
+      },
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        components: ["Link"],
       },
     ],
   },
