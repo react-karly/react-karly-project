@@ -1,8 +1,8 @@
 ---
 name: "\U0001F41E BUG REPORT"
 about: 버그 발생/수정 시 작성하여 도움 요청
-title: ''
-labels: ''
+title: "\U0001F41E [23.03.dd] 제목 작성 #이슈번호"
+labels: fix
 assignees: ''
 
 ---
