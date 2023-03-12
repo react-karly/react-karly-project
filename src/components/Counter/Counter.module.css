@@ -1,0 +1,15 @@
+.counter-container {
+  border: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+}
+.counter-container span {
+  margin: var(--spacing-xs);
+}
+.button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
