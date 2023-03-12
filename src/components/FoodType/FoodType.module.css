@@ -1,0 +1,29 @@
+.food-type-container {
+  border-bottom: 1px solid var(--black);
+  padding: var(--spacing-base) 0;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.title {
+  margin: 0;
+  margin-left: var(--spacing-sm);
+}
+.button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
