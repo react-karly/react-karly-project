@@ -14,3 +14,88 @@ legend {
   overflow: hidden;
   clip-path: polygon(0 0, 0 0, 0 0);
 }
+
+
+
+
+/* 헤더 */
+.header {
+  background-color: grey;
+}
+
+.main-banner{
+  width: 100%;
+}
+
+
+main{
+  max-width: 1050px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 이 상품 어때요 전체 영역 */
+.recommend-products {
+  background-color: yellow;
+
+}
+
+
+
+/* 이 상품 어때요 h2텍스트 */
+.recommend-products-title {
+  background-color: rgb(20, 225, 51);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 52px;
+  margin-bottom: 40px;
+}
+
+
+
+/* 퍼플 위크 배너 */
+.line-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.line-banner-image {
+  width: 100%;
+}
+
+
+/* 놓치면 후회할 가격 전체 영역 */
+.sale-products {
+  background-color: salmon;
+  margin-bottom: 40px;
+
+}
+
+
+/* 놓치면 후회할 가격 h2텍스트 */
+.sale-products-title {
+  background-color: rgb(20, 225, 51);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+
+
+/* 푸터 */
+.footer {
+  background-color: grey;
+}
