@@ -242,4 +242,4 @@ function Footer(props) {
   );
 }
 
-export default Footer;
+export { Footer };
