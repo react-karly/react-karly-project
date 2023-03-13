@@ -1,44 +1,52 @@
 import styles from './App.module.css';
-import mainBannerPrice from "./assets/main/banner05.png";
-import mainBannerFruit from "./assets/main/banner01.png";
-import mainBannerCard from "./assets/main/banner02.png";
-import mainBannerPurple from "./assets/main/banner03.png";
-import jjolmyeon from "./assets/main/product01.png"
-import sunCushion from "./assets/main/product02.png"
-import hyeonmi from "./assets/main/product03.png"
-import frosch from "./assets/main/product04.png"
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './style.css';
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import mainBannerPrice from './assets/main/banner05.png';
+import mainBannerFruit from './assets/main/banner01.png';
+import mainBannerCard from './assets/main/banner02.png';
+import mainBannerPurple from './assets/main/banner03.png';
+import jjolmyeon from './assets/main/product01.png';
+import sunCushion from './assets/main/product02.png';
+import hyeonmi from './assets/main/product03.png';
+import frosch from './assets/main/product04.png';
 
 function App() {
   return (
     <div>
-      <header className={styles.header}><h1>헤더 영역</h1></header>
+      <header className={styles.header}>
+        <h1>헤더 영역</h1>
+      </header>
 
       <main className={styles.main}>
         <nav className={styles.nav}>
           <h2 className={styles['a11y-hidden']}>메인베너</h2>
-          <ul className={styles['main-banner']}>
-            <li className={styles['main-banner-item']}>
-              <a href="/">
-                <img src={mainBannerPrice} alt="이 주의 특가" />
-              </a>
-            </li>
-            <li className={styles['banner-item']}>
-              <a href="/">
-                <img src={mainBannerFruit} alt="컬리의 과일 가게" />
-              </a>
-            </li>
-            <li className={styles['banner-item']}>
-              <a href="/">
-                <img src={mainBannerCard} alt="이달의 카드 혜택" />
-              </a>
-            </li>
-            <li className={styles['banner-item']}>
-              <a href="/">
-                <img src={mainBannerPurple} alt="컬리 퍼플 위크" />
-              </a>
-            </li>
-          </ul>
+          <>
+            <Swiper 
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+                type: 'fraction',
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation, Autoplay]}
+              className={styles['main-banner']}
+            >
+              <SwiperSlide className={styles['main-banner-item']}> <a> <img src={mainBannerPrice} alt="이 주의 특가" /> </a> </SwiperSlide>
+              <SwiperSlide className={styles['main-banner-item']}> <a> <img src={mainBannerFruit} alt="컬리의 과일 가게" /> </a> </SwiperSlide>
+              <SwiperSlide className={styles['main-banner-item']}> <a> <img src={mainBannerCard} alt="이달의 카드 혜택" /> </a> </SwiperSlide>
+              <SwiperSlide className={styles['main-banner-item']}> <a> <img src={mainBannerPurple} alt="컬리 퍼플 위크" /> </a> </SwiperSlide>
+            </Swiper>
+          </>
+
         </nav>
 
         <section className={styles['recommend-products']}>
@@ -119,7 +127,9 @@ function App() {
         </section>
       </main>
 
-      <footer className={styles.footer}>푸터<h1>푸터 영역</h1></footer>
+      <footer className={styles.footer}>
+        푸터<h1>푸터 영역</h1>
+      </footer>
     </div>
   );
 }
