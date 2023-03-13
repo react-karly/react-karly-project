@@ -1,24 +1,18 @@
 import React from 'react';
-import foodType from './FoodType.module.css';
+import styles from './FoodType.module.css';
 import frozenImg from '@/assets/cart/Type=Frozen.png';
 import normalImg from '@/assets/cart/Type=Normal.png';
 import directionDown from '@/assets/cart/Direction=Down.png';
 import refrigeratedImg from '@/assets/cart/Type=Refrigerated.png';
-import CartListItem from '../CartListItem/CartListItem';
+import { CartListItem } from '../CartListItem/CartListItem';
 
 function FoodType({ type }) {
-  const typeInfo =
-    type === 'refrigerated'
-      ? { src: refrigeratedImg, title: '냉장 식품' }
-      : type === 'frozen'
-      ? { src: frozenImg, title: '냉동 식품' }
-      : { src: normalImg, title: '상온 식품' };
   return (
-    <div className={foodType['food-type-container']}>
-      <div type="button" className={foodType.wrapper}>
-        <img src={typeInfo.src} alt="" width="30" height="30" />
-        <h3 className={foodType.title}>{typeInfo.title}</h3>
-        <button type="button" className={foodType.button}>
+    <div className={styles['food-type-container']}>
+      <div type="button" className={styles.wrapper}>
+        <img src={type.src} alt="" width="30" height="30" />
+        <h3 className={styles.title}>{type.title}</h3>
+        <button type="button" className={styles.button}>
           <img
             src={directionDown}
             alt="상품 리스트 열기"
@@ -27,7 +21,7 @@ function FoodType({ type }) {
           />
         </button>
       </div>
-      <ul className={foodType.list}>
+      <ul className={styles.list}>
         <CartListItem />
         <CartListItem />
       </ul>
@@ -35,4 +29,4 @@ function FoodType({ type }) {
   );
 }
 
-export default FoodType;
+export { FoodType };

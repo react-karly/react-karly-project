@@ -1,66 +1,66 @@
 import React from 'react';
-import cart from './Cart.module.css';
+import styles from './Cart.module.css';
 import app from '../../App.module.css';
-import location from '@/assets/cart/Location.png';
-import FoodType from '@/components/FoodType/FoodType';
-import unChecked from '@/assets/cart/isChecked=false.png';
 import barImg from '@/assets/cart/cart_bar.png';
-
+import location from '@/assets/cart/Location.png';
+import { FoodType } from '@/components/FoodType/FoodType';
+import unChecked from '@/assets/cart/isChecked=false.png';
+import { foodType } from '@/enum/foodType';
 function Cart(props) {
   return (
-    <div className={cart['cart-container']}>
-      <h1 className={cart.title}>장바구니</h1>
-      <article className={cart.content}>
-        <section className={cart['cart-list-wrapper']}>
+    <div className={styles['cart-container']}>
+      <h1 className={styles.title}>장바구니</h1>
+      <article className={styles.content}>
+        <section className={styles['cart-list-wrapper']}>
           <h2 className={app['a11y-hidden']}>장바구니 상품 목록</h2>
-          <div className={cart['select-box']}>
-            <button type="button" className={cart['select-button']}>
+          <div className={styles['select-box']}>
+            <button type="button" className={styles['select-button']}>
               <img
                 // 체크 되면 체크된 아이콘으로 변경
                 src={unChecked}
                 alt="전체선택"
                 width="24"
                 height="24"
-                className={cart['select-img']}
+                className={styles['select-img']}
               />
               전체선택 &#40;3&#47;3&#41;
             </button>
             <img src={barImg} alt="" width="1" height="10" />
-            <button type="button" className={cart['select-button']}>
+            <button type="button" className={styles['select-button']}>
               선택삭제
             </button>
           </div>
-          <ul className={cart['food-type-list']}>
+          <ul className={styles['food-type-list']}>
             <li>
-              <FoodType type="refrigerated" />
+              <FoodType type={foodType.refrigerated} />
             </li>
             <li>
-              <FoodType type="frozen" />
+              <FoodType type={foodType.frozen} />
             </li>
             <li>
-              <FoodType type="normal" />
+              <FoodType type={foodType.normal} />
             </li>
           </ul>
         </section>
-        <section className={cart['order-info-wrapper']}>
+        <section className={styles['order-info-wrapper']}>
           <h2 className={app['a11y-hidden']}>주문 정보</h2>
           {/* 배송지 정보 */}
-          <div className={cart['location-info']}>
-            <div className={cart['location-info-title']}>
+          <div className={styles['location-info']}>
+            <div className={styles['location-info-title']}>
               <img src={location} alt="" width="36" height="36" />
               배송지
             </div>
-            <p className={cart['location']}>
+            <p className={styles['location']}>
               서울 중랑구 면목로 42길 11 &#40;행운빌딩&#41; 603호
             </p>
-            <span className={cart['delivery-method']}>샛별배송</span>
-            <button type="button" className={cart['edit-button']}>
+            <span className={styles['delivery-method']}>샛별배송</span>
+            <button type="button" className={styles['edit-button']}>
               배송지 변경
             </button>
           </div>
           {/* 구매 금액 정보  */}
-          <div className={cart['price-info']}>
-            <div className={cart['price-detail']}>
+          <div className={styles['price-info']}>
+            <div className={styles['price-detail']}>
               <div>
                 <span>상품금액</span>
                 <span>40,680원</span>
@@ -74,23 +74,23 @@ function Cart(props) {
                 <span>+3,000원</span>
               </div>
             </div>
-            <div className={cart['price-total']}>
-              <span className={cart['total-text']}>결제예정금액</span>
-              <span className={cart['total-number']}>
+            <div className={styles['price-total']}>
+              <span className={styles['total-text']}>결제예정금액</span>
+              <span className={styles['total-number']}>
                 <strong>40,680</strong>원
               </span>
             </div>
-            <div className={cart.accumulate}>
-              <span className={cart['accumulate-label']}>적립</span>
-              <span className={cart['accumulate-desc']}>
+            <div className={styles.accumulate}>
+              <span className={styles['accumulate-label']}>적립</span>
+              <span className={styles['accumulate-desc']}>
                 최대 36원 적립 일반 0.1%
               </span>
             </div>
           </div>
-          <button type="button" className={cart['order-button']}>
+          <button type="button" className={styles['order-button']}>
             주문하기
           </button>
-          <div className={cart['additional-info']}>
+          <div className={styles['additional-info']}>
             <p>쿠폰&#47;적립금은 주문서에서 사용 가능합니다</p>
             <p>&#91;주문완료&#93; 상태일 경우에만 주문 취소 가능합니다.</p>
             <p>
