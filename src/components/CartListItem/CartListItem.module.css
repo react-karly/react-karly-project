@@ -1,0 +1,43 @@
+.cart-item-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.check-button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.product-image {
+  margin: 0 var(--spacing-xs);
+}
+
+.name {
+  margin-right: 186px;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  /* 사파리 크로스 브라우징 준수 */
+  white-space: nowrap;
+}
+
+.price {
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  margin-right: var(--spacing-xs);
+  margin-left: 76px;
+  /* 사파리 크로스 브라우징 준수 */
+  white-space: nowrap;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
