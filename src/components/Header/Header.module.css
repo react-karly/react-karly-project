@@ -1,0 +1,38 @@
+.banner {
+  color: red;
+  background-color: #5f0080;
+  text-align: center;
+}
+
+.wrapper {
+  width: 1050px;
+  margin: 0 auto;
+}
+.member {
+  display: flex;
+  justify-content: flex-end;
+}
+.member-wrapper {
+  display: flex;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+.menu-wrapper {
+  display: flex;
+}
+nav > ul {
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+}
+nav ul li:hover {
+  color: #5f0080;
+  text-decoration: underline;
+}
