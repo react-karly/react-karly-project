@@ -6,7 +6,36 @@ import location from '@/assets/cart/Location.png';
 import { FoodType } from '@/components/FoodType/FoodType';
 import unChecked from '@/assets/cart/isChecked=false.png';
 import { foodType } from '@/enum/foodType';
+
 function Cart(props) {
+  //임시 데이터
+  const products = [
+    {
+      id: 'product-1',
+      title: '[풀무원] 냉장탱탱쫄면 (4개입)',
+      price: '4980',
+      type: 'refrigerated',
+    },
+    {
+      id: 'product-2',
+      title: '[풀무원] 냉동1탱탱쫄면 (4개입)',
+      price: '4980',
+      type: 'frozen',
+    },
+    {
+      id: 'product-3',
+      title: '[풀무원] 냉동2탱탱쫄면 (4개입)',
+      price: '4980',
+      type: 'frozen',
+    },
+    {
+      id: 'product-4',
+      title: '[풀무원] 상온탱탱쫄면 (4개입)',
+      price: '4980',
+      type: 'normal',
+    },
+  ];
+
   return (
     <div className={styles['cart-container']}>
       <h1 className={styles.title}>장바구니</h1>
@@ -32,13 +61,13 @@ function Cart(props) {
           </div>
           <ul className={styles['food-type-list']}>
             <li>
-              <FoodType type={foodType.refrigerated} />
+              <FoodType type={foodType.refrigerated} productList={products} />
             </li>
             <li>
-              <FoodType type={foodType.frozen} />
+              <FoodType type={foodType.frozen} productList={products} />
             </li>
             <li>
-              <FoodType type={foodType.normal} />
+              <FoodType type={foodType.normal} productList={products} />
             </li>
           </ul>
         </section>

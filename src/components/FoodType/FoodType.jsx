@@ -7,11 +7,17 @@ import directionDown from '@/assets/cart/Direction=Down.png';
 import refrigeratedImg from '@/assets/cart/Type=Refrigerated.png';
 import { CartListItem } from '../CartListItem/CartListItem';
 
-function FoodType({ type }) {
+function FoodType({ type, productList }) {
+  const typeFilter = () => {
+    return productList.filter((product) => product.type === type.id);
+  };
+  const typeProducts = typeFilter();
+  // const processedProducts=
   const [isShowList, setIsShowList] = useState(false);
   const handleShowList = () => {
     setIsShowList((isShowList) => !isShowList);
   };
+
   return (
     <div className={styles['food-type-container']}>
       <div type="button" className={styles.wrapper}>
@@ -27,7 +33,14 @@ function FoodType({ type }) {
           />
         </button>
       </div>
-      <ul className={styles.list}>{isShowList && <CartListItem />}</ul>
+      <ul className={styles.list}>
+        {isShowList &&
+          typeProducts.map((product) => (
+            <li key={product.id} className={styles['cart-item-container']}>
+              <CartListItem />
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }

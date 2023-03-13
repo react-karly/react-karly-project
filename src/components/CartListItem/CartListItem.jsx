@@ -6,7 +6,7 @@ import productImg from '@/assets/tangtang/thumbnail.jpg';
 import unChecked from '@/assets/cart/isChecked=false.png';
 function CartListItem() {
   return (
-    <li className={styles['cart-item-container']}>
+    <>
       <button type="button" className={styles['check-button']}>
         <img src={unChecked} alt="상품선택" width="24" height="24" />
       </button>
@@ -23,7 +23,7 @@ function CartListItem() {
       <button type="button" className={styles.button}>
         <img src={close} alt="닫기" width="30" height="30" />
       </button>
-    </li>
+    </>
   );
 }
 
