@@ -32,6 +32,15 @@ main {
   margin-bottom: 40px;
 }
 
+.recommend-products-swiper{
+height: 429px;
+}
+
+.recommend-products-item__image{
+  width: 249px;
+  height: 320px;
+}
+
 /* 퍼플 위크 배너 */
 .line-banner {
   display: flex;
@@ -44,6 +53,11 @@ main {
 .line-banner-image {
   width: 100%;
 }
+
+.a11y-hidden{
+  display: none;
+}
+
 
 /* 놓치면 후회할 가격 전체 영역 */
 .sale-products {
@@ -62,6 +76,11 @@ main {
   height: 40px;
   margin-top: 60px;
   margin-bottom: 40px;
+}
+
+.sale-products-item__image{
+  width: 249px;
+  height: 320px;
 }
 
 /* 푸터 */
