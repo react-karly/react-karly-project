@@ -23,8 +23,7 @@ function Home() {
         <h1>헤더 영역</h1>
       </header>
 
-      {/* 메인베너 */}
- 
+       {/* 메인베너 */}
         <section className={styles['main-banner']}>
           <h2 className={styles['a11y-hidden']}>메인베너</h2>
 
@@ -52,9 +51,10 @@ function Home() {
 
         </section>
 
-        {/* 이 상품 어때요? */}
-        <main className={styles.main}>
+    
+       <main className={styles.main}>
             
+       {/* 이 상품 어때요? */}
         <section className={styles['recommend-products']}>
           <h2 className={styles['recommend-products-title']}>이 상품 어때요?</h2>
        
@@ -67,7 +67,7 @@ function Home() {
             <h3 className={styles['recommend-products-item__name']}>[풀무원] 탱탱쫄면 (4개입)</h3> 
             <span className={styles['recommend-products-item__price']}>4,980원</span> 
           </div> 
-          <button className={styles['recommend-products-item__info']} type="button">
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -81,7 +81,7 @@ function Home() {
             <h3 className={styles['recommend-products-item__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
             <span className={styles['recommend-products-item__price']}>32,500원</span> 
           </div> 
-          <button className={styles['recommend-products-item__info']} type="button">
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -95,7 +95,7 @@ function Home() {
             <h3 className={styles['recommend-products-item__name']}>유기농 밀키퀸 현미 4kg</h3> 
             <span className={styles['recommend-products-item__price']}>25,000원</span> 
           </div> 
-          <button className={styles['recommend-products-item__info']} type="button">
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -109,19 +109,71 @@ function Home() {
             <h3 className={styles['recommend-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
             <span className={styles['recommend-products-item__price']}>18,900원</span> 
           </div> 
-          <button className={styles['recommend-products-item__info']} type="button">
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+        <SwiperSlide 
+          className={styles['recommend-products-item']}> 
+          <a href="/">  
+          <img className={styles['recommend-products-item__image']} src={jjolmyeon} alt="풀무원 탱탱쫄면 4개입" />
+          <div className={styles['recommend-products-item__info']}>
+            <h3 className={styles['recommend-products-item__name']}>[풀무원] 탱탱쫄면 (4개입)</h3> 
+            <span className={styles['recommend-products-item__price']}>4,980원</span> 
+          </div> 
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+  
+        <SwiperSlide 
+          className={styles['recommend-products-item']}> 
+          <a href="/">  
+          <img className={styles['recommend-products-item__image']} src={sunCushion} alt="온더바디 죠르디 시카 자석 선쿠션" />
+          <div className={styles['recommend-products-item__info']}>
+            <h3 className={styles['recommend-products-item__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
+            <span className={styles['recommend-products-item__price']}>32,500원</span> 
+          </div> 
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+
+        <SwiperSlide 
+          className={styles['recommend-products-item']}> 
+          <a href="/">  
+          <img className={styles['recommend-products-item__image']} src={hyeonmi} alt="유기농 밀키퀸 현미 4kg" />
+          <div className={styles['recommend-products-item__info']}>
+            <h3 className={styles['recommend-products-item__name']}>유기농 밀키퀸 현미 4kg</h3> 
+            <span className={styles['recommend-products-item__price']}>25,000원</span> 
+          </div> 
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+
+        <SwiperSlide 
+          className={styles['recommend-products-item']}> 
+          <a href="/">  
+          <img className={styles['recommend-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
+          <div className={styles['recommend-products-item__info']}>
+            <h3 className={styles['recommend-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
+            <span className={styles['recommend-products-item__price']}>18,900원</span> 
+          </div> 
+          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
         </SwiperSlide>
         </Swiper>
 
-        
-          
-  
-
-
         </section>
+
+         {/* 퍼플 위크 */}
 
         <section className={styles['line-banner']}>
           <h2 className={styles['a11y-hidden']}>퍼플 위크</h2>
@@ -130,7 +182,7 @@ function Home() {
           </a>
         </section>
 
-
+        {/* 놓치면 후회할 가격 */}
         <section className={styles['sale-products']}>
           <h2 className={styles['sale-products-title']}> 놓치면 후회할 가격</h2>
        
@@ -143,7 +195,7 @@ function Home() {
             <h3 className={styles['sale-products-item__name']}>[풀무원] 탱탱쫄면 (4개입)</h3> 
             <span className={styles['sale-products-item__price']}>4,980원</span> 
           </div> 
-          <button className={styles['sale-products-item__info']} type="button">
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -157,7 +209,7 @@ function Home() {
             <h3 className={styles['sale-products-item__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
             <span className={styles['sale-products-item__price']}>32,500원</span> 
           </div> 
-          <button className={styles['sale-products-item__info']} type="button">
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -171,7 +223,7 @@ function Home() {
             <h3 className={styles['sale-products-item__name']}>유기농 밀키퀸 현미 4kg</h3> 
             <span className={styles['sale-products-item__price']}>25,000원</span> 
           </div> 
-          <button className={styles['sale-products-item__info']} type="button">
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -185,18 +237,71 @@ function Home() {
             <h3 className={styles['sale-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
             <span className={styles['sale-products-item__price']}>18,900원</span> 
           </div> 
-          <button className={styles['sale-products-item__info']} type="button">
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
         </SwiperSlide>
+
+        <SwiperSlide 
+          className={styles['sale-products-item']}> 
+          <a href="/">  
+          <img className={styles['sale-products-item__image']} src={jjolmyeon} alt="풀무원 탱탱쫄면 4개입" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>[풀무원] 탱탱쫄면 (4개입)</h3> 
+            <span className={styles['sale-products-item__price']}>4,980원</span> 
+          </div> 
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+  
+        <SwiperSlide 
+          className={styles['sale-products-item']}> 
+          <a href="/">  
+          <img className={styles['sale-products-item__image']} src={sunCushion} alt="온더바디 죠르디 시카 자석 선쿠션" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
+            <span className={styles['sale-products-item__price']}>32,500원</span> 
+          </div> 
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+
+        <SwiperSlide 
+          className={styles['sale-products-item']}> 
+          <a href="/">  
+          <img className={styles['sale-products-item__image']} src={hyeonmi} alt="유기농 밀키퀸 현미 4kg" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>유기농 밀키퀸 현미 4kg</h3> 
+            <span className={styles['sale-products-item__price']}>25,000원</span> 
+          </div> 
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+
+        <SwiperSlide 
+          className={styles['sale-products-item']}> 
+          <a href="/">  
+          <img className={styles['sale-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
+            <span className={styles['sale-products-item__price']}>18,900원</span> 
+          </div> 
+          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          </button> 
+          </a> 
+        </SwiperSlide>
+
         </Swiper>
 
-        
-          
-
         </section>
-
 
 
       </main>

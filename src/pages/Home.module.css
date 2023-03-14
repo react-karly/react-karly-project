@@ -32,13 +32,34 @@ main {
   margin-bottom: 40px;
 }
 
-.recommend-products-swiper{
-height: 429px;
+.recommend-products-swiper {
+  height: 429px;
 }
 
-.recommend-products-item__image{
+.recommend-products-item>a {
+  text-decoration: none;
+  color: black
+}
+
+
+.recommend-products-item__image {
   width: 249px;
   height: 320px;
+}
+
+.recommend-products-item__name{
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.recommend-products-item__price{
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.recommend-products-item__cartIconBtn{
+  all:unset;
 }
 
 /* 퍼플 위크 배너 */
@@ -54,7 +75,7 @@ height: 429px;
   width: 100%;
 }
 
-.a11y-hidden{
+.a11y-hidden {
   display: none;
 }
 
@@ -78,13 +99,36 @@ height: 429px;
   margin-bottom: 40px;
 }
 
-.sale-products-swiper{
-height: 429px;
+.sale-products-swiper {
+  height: 429px;
 }
 
-.sale-products-item__image{
+
+
+.sale-products-item>a {
+  text-decoration: none;
+  color: black
+}
+
+
+.sale-products-item__image {
   width: 249px;
   height: 320px;
+}
+
+.sale-products-item__name{
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.sale-products-item__price{
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.sale-products-item__cartIconBtn{
+  all:unset;
 }
 
 /* 푸터 */
