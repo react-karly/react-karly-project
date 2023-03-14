@@ -1,0 +1,27 @@
+@import url('@/css/theme.module.css');
+@import url('@/components/ProductDetail/reset.css');
+
+.review-move-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.review-prev-btn {
+  width: 56px;
+  height: 56px;
+  background-image: url('../../../assets/productDetail/Squre.png');
+  background-repeat: no-repeat;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.review-next-btn {
+  width: 56px;
+  height: 56px;
+  background-image: url('../../../assets/productDetail/Squre2.png');
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-bottom: 72px;
+}
