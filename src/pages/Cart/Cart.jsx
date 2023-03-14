@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Cart.module.css';
 import app from '../../App.module.css';
 import barImg from '@/assets/cart/cart_bar.png';
 import location from '@/assets/cart/Location.png';
 import { FoodType } from '@/components/FoodType/FoodType';
+import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
 import { foodType } from '@/enum/foodType';
 
@@ -12,29 +13,82 @@ function Cart(props) {
   const products = [
     {
       id: 'product-1',
+      type: 'refrigerated',
       title: '[풀무원] 냉장탱탱쫄면 (4개입)',
       price: '4980',
-      type: 'refrigerated',
+      isChecked: false,
     },
     {
       id: 'product-2',
       title: '[풀무원] 냉동1탱탱쫄면 (4개입)',
       price: '4980',
       type: 'frozen',
+      isChecked: false,
     },
     {
       id: 'product-3',
       title: '[풀무원] 냉동2탱탱쫄면 (4개입)',
       price: '4980',
       type: 'frozen',
+      isChecked: false,
     },
     {
       id: 'product-4',
       title: '[풀무원] 상온탱탱쫄면 (4개입)',
       price: '4980',
       type: 'normal',
+      isChecked: false,
     },
   ];
+
+  const [productList, setProductList] = useState(products);
+  const [isAllCheck, setIsAllCheck] = useState(true);
+  const [isAllUnCheck, setIsAllUnCheck] = useState(false);
+  const [selectedCount, setSelectedCount] = useState(products.length);
+
+  const handleAllCheck = () => {
+    setIsAllCheck((isAllCheck) => !isAllCheck);
+    setIsAllUnCheck((isAllUnCheck) => !isAllUnCheck);
+  };
+
+  const checkAllChecked = () => {
+    return productList.every((product) => product.isChecked);
+  };
+  const checkAllUnChecked = () => {
+    return productList.every((product) => !product.isChecked);
+  };
+
+  const toggleAllCheck = () => {
+    return productList.map((product) => {
+      product.isChecked = true;
+      setProductList([...productList]);
+    });
+  };
+
+  const toggleAllUnCheck = () => {
+    return productList.map((product) => {
+      product.isChecked = false;
+      setProductList([...productList]);
+    });
+  };
+  useEffect(() => {
+    if (isAllCheck) toggleAllCheck();
+    if (isAllUnCheck) toggleAllUnCheck();
+  }, [isAllCheck, isAllUnCheck]);
+
+  useEffect(() => {
+    if (checkAllChecked()) {
+      setIsAllCheck(true);
+      setSelectedCount(productList.length);
+    }
+    if (checkAllUnChecked()) {
+      setIsAllUnCheck(false);
+      setSelectedCount(0);
+    }
+    if (selectedCount === productList.length) {
+      setIsAllCheck(false);
+    }
+  }, [productList, selectedCount]);
 
   return (
     <div className={styles['cart-container']}>
@@ -43,16 +97,20 @@ function Cart(props) {
         <section className={styles['cart-list-wrapper']}>
           <h2 className={app['a11y-hidden']}>장바구니 상품 목록</h2>
           <div className={styles['select-box']}>
-            <button type="button" className={styles['select-button']}>
+            <button
+              type="button"
+              className={styles['select-button']}
+              onClick={handleAllCheck}
+            >
               <img
                 // 체크 되면 체크된 아이콘으로 변경
-                src={unChecked}
+                src={selectedCount === productList.length ? checked : unChecked}
                 alt="전체선택"
                 width="24"
                 height="24"
                 className={styles['select-img']}
               />
-              전체선택 &#40;3&#47;3&#41;
+              {`전체선택 (${selectedCount}/${products.length})`}
             </button>
             <img src={barImg} alt="" width="1" height="10" />
             <button type="button" className={styles['select-button']}>
@@ -61,13 +119,28 @@ function Cart(props) {
           </div>
           <ul className={styles['food-type-list']}>
             <li>
-              <FoodType type={foodType.refrigerated} productList={products} />
+              <FoodType
+                type={foodType.refrigerated}
+                productList={productList}
+                setProductList={setProductList}
+                setSelectedCount={setSelectedCount}
+              />
             </li>
             <li>
-              <FoodType type={foodType.frozen} productList={products} />
+              <FoodType
+                type={foodType.frozen}
+                productList={productList}
+                setProductList={setProductList}
+                setSelectedCount={setSelectedCount}
+              />
             </li>
             <li>
-              <FoodType type={foodType.normal} productList={products} />
+              <FoodType
+                type={foodType.normal}
+                productList={productList}
+                setProductList={setProductList}
+                setSelectedCount={setSelectedCount}
+              />
             </li>
           </ul>
         </section>
