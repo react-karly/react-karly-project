@@ -5,7 +5,7 @@ import style from '../../pages/Login.module.css';
 const Input = ({ title, placeholder }) => {
   return (
     <li>
-      <label className={app['input-label']}>
+      <label className={style['input-label']}>
         <span className={app['a11y-hidden']}>필수입력사항</span>
         {title}
       </label>
