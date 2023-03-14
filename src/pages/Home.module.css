@@ -36,9 +36,14 @@ main {
   height: 429px;
 }
 
+.recommend-products-item{
+  position: relative;
+}
+
 .recommend-products-item>a {
   text-decoration: none;
   color: black
+  
 }
 
 
@@ -49,17 +54,23 @@ main {
 
 .recommend-products-item__name{
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 
 .recommend-products-item__price{
   font-weight: 600;
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .recommend-products-item__cartIconBtn{
   all:unset;
+}
+
+.recommend-products-item__cartIconBtn{
+  position: absolute;
+  top : 68% ;
+  left : 76%;
 }
 
 /* 퍼플 위크 배너 */
@@ -67,7 +78,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
@@ -82,7 +93,7 @@ main {
 
 /* 놓치면 후회할 가격 전체 영역 */
 .sale-products {
-  background-color: salmon;
+  /* background-color: salmon; */
   margin-bottom: 40px;
 }
 
@@ -103,7 +114,9 @@ main {
   height: 429px;
 }
 
-
+.sale-products-item{
+  position: relative;
+}
 
 .sale-products-item>a {
   text-decoration: none;
@@ -118,20 +131,27 @@ main {
 
 .sale-products-item__name{
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 
 .sale-products-item__price{
   font-weight: 600;
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .sale-products-item__cartIconBtn{
   all:unset;
 }
 
+.sale-products-item__cartIconBtn{
+  position: absolute;
+  top : 68%;
+  left : 76%;
+}
+
 /* 푸터 */
 .footer {
   background-color: grey;
 }
+

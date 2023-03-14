@@ -58,7 +58,7 @@ function Home() {
         <section className={styles['recommend-products']}>
           <h2 className={styles['recommend-products-title']}>이 상품 어때요?</h2>
        
-        <Swiper className={styles['recommend-products-swiper']} navigation={true} spaceBetween={45} slidesPerView={4} slidesPerGroup={4} pagination={{clickable: true, type: 'fraction',}} modules={[Pagination, Navigation]} >
+        <Swiper className={styles['recommend-products-swiper']}navigation={true} spaceBetween={19} slidesPerView={4} slidesPerGroup={4} autoHeight={true} pagination={{clickable: true, type: 'false',}} modules={[Pagination, Navigation]} >
         <SwiperSlide 
           className={styles['recommend-products-item']}> 
           <a href="/">  
@@ -186,7 +186,7 @@ function Home() {
         <section className={styles['sale-products']}>
           <h2 className={styles['sale-products-title']}> 놓치면 후회할 가격</h2>
        
-        <Swiper className={styles['sale-products-swiper']} navigation={true} spaceBetween={45} slidesPerView={4} slidesPerGroup={4} pagination={{clickable: true, type: 'fraction',}} modules={[Pagination, Navigation]} >
+        <Swiper className={styles['sale-products-swiper']} navigation={true} spaceBetween={19} slidesPerView={4} slidesPerGroup={4} autoHeight={true} pagination={{clickable: true, type: 'false',}} modules={[Pagination, Navigation]} >
         <SwiperSlide 
           className={styles['sale-products-item']}> 
           <a href="/">  
@@ -307,7 +307,7 @@ function Home() {
       </main>
 
       <footer className={styles.footer}>
-        푸터<h1>푸터 영역</h1>
+        <h1>푸터 영역</h1>
       </footer>
     </>
   );
