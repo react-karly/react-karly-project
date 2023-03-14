@@ -1,12 +1,13 @@
 import React from 'react';
 import { Btn, Input } from '../components';
+import style from '../pages/Login.module.css';
 
 const Login = () => {
   return (
     <main>
-      <div>
-        <section>
-          <h2>로그인</h2>
+      <div className={style['login-container']}>
+        <section className={style['login-wrapper']}>
+          <h2 className={style['login-title']}>로그인</h2>
           <form method="GET" action="#">
             <fieldset>
               <legend>로그인 폼</legend>
