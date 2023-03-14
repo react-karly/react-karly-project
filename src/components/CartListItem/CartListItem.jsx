@@ -12,6 +12,15 @@ function CartListItem({
   setProductList,
   setSelectedCount,
 }) {
+  const handleClickPlus = () => {
+    product.quantity += 1;
+    setProductList([...productList]);
+  };
+
+  const handleClickMinus = () => {
+    product.quantity -= 1;
+    setProductList([...productList]);
+  };
   const handleClickCheckButton = () => {
     if (product.isChecked) setSelectedCount((count) => count - 1);
     else setSelectedCount((count) => count + 1);
@@ -41,7 +50,11 @@ function CartListItem({
         className={styles['product-image']}
       />
       <h4 className={styles.name}>{product.title}</h4>
-      <Counter />
+      <Counter
+        quantity={product.quantity}
+        onClickPlus={handleClickPlus}
+        onClickMinus={handleClickMinus}
+      />
       <span className={styles.price}>4,980원</span>
       <button type="button" className={styles.button}>
         <img src={close} alt="닫기" width="30" height="30" />

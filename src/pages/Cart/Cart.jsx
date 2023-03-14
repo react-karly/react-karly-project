@@ -17,6 +17,7 @@ function Cart(props) {
       title: '[풀무원] 냉장탱탱쫄면 (4개입)',
       price: '4980',
       isChecked: false,
+      quantity: 1,
     },
     {
       id: 'product-2',
@@ -24,6 +25,7 @@ function Cart(props) {
       price: '4980',
       type: 'frozen',
       isChecked: false,
+      quantity: 1,
     },
     {
       id: 'product-3',
@@ -31,6 +33,7 @@ function Cart(props) {
       price: '4980',
       type: 'frozen',
       isChecked: false,
+      quantity: 2,
     },
     {
       id: 'product-4',
@@ -38,6 +41,7 @@ function Cart(props) {
       price: '4980',
       type: 'normal',
       isChecked: false,
+      quantity: 3,
     },
   ];
 
