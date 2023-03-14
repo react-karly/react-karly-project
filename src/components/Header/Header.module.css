@@ -81,6 +81,10 @@ a {
   display: flex;
   gap: 20px;
 }
+.quick-menu img:hover {
+  filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
+    brightness(55%) contrast(131%);
+}
 
 .search-box {
   position: relative;
@@ -122,11 +126,6 @@ nav {
 }
 .dropdown img {
   margin-right: 15px;
-}
-
-.test {
-  filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
-    brightness(91%) contrast(131%);
 }
 
 .menu-wrapper {
