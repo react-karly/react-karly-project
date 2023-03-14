@@ -1,5 +1,5 @@
 import React from 'react';
-import app from '../App.module.css';
+import app from '../../App.module.css';
 
 const RegisterTOS = ({ requiredOrOptional, terms }) => {
   return (

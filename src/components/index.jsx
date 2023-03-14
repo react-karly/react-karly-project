@@ -1,10 +1,10 @@
-import Input from './Input';
-import Btn from './Btn';
-import GenderRadioBtn from './GenderRadioBtn';
-import RegisterTOS from './RegisterTOS';
-import BirthdayInput from './BirthdayInput';
-import EventRadioBtn from './EventRadioBtn';
-import Address from './Address';
+import Input from './Register/Input';
+import Btn from './Register/Btn';
+import GenderRadioBtn from './Register/GenderRadioBtn';
+import RegisterTOS from './Register/RegisterTOS';
+import BirthdayInput from './Register/BirthdayInput';
+import EventRadioBtn from './Register/EventRadioBtn';
+import Address from './Register/Address';
 
 export {
   Input,
