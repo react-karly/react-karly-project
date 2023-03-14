@@ -44,7 +44,7 @@
 }
 
 .order-info-wrapper {
-  width: 284px;
+  min-width: 284px;
 }
 
 .location-info {
