@@ -10,7 +10,8 @@
 }
 
 .name {
-  margin-right: 186px;
+  min-width: 345px;
+  margin-right: 8px;
   font-weight: var(--text-600);
   font-size: var(--text-base);
   /* 사파리 크로스 브라우징 준수 */
