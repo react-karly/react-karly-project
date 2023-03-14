@@ -1,3 +1,25 @@
+* {
+  list-style: none;
+}
+
+fieldset {
+  border: 0;
+  vertical-align: top;
+}
+
+legend,
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
 .login-container {
   width: 340px;
   margin: 0 auto;
@@ -27,6 +49,26 @@
   height: 44px;
   text-indent: var(--spacing-sm);
   margin: 0 0 var(--spacing-sm) 0;
-  border: solid 1px var(--dark-grey);
+  border: solid 1px var(--gray-300);
   border-radius: 3px;
+}
+
+.login-form ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+.login-form ul li {
+  font-size: var(--text-xs);
+}
+
+.login-form ul li:last-child::before {
+  content: '|';
+  padding: 0 var(--spacing--xxs);
 }
