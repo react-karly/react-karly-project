@@ -1,4 +1,5 @@
 .food-type-container {
+  min-width: 742px;
   border-bottom: 1px solid var(--black);
   padding: var(--spacing-base) 0;
 }
