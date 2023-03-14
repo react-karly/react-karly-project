@@ -4,6 +4,7 @@ import GenderRadioBtn from './GenderRadioBtn';
 import RegisterTOS from './RegisterTOS';
 import BirthdayInput from './BirthdayInput';
 import EventRadioBtn from './EventRadioBtn';
+import Address from './Address';
 
 export {
   Input,
@@ -12,4 +13,5 @@ export {
   RegisterTOS,
   BirthdayInput,
   EventRadioBtn,
+  Address,
 };

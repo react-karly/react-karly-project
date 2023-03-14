@@ -13,9 +13,9 @@ const EventRadioBtn = () => {
             name="extra"
             value="recommand-id"
           />
-          <label for="recommand-id">친구초대 추천인 아이디</label>
+          <label htmlFor="recommand-id">친구초대 추천인 아이디</label>
           <input type="radio" id="event" name="extra" value="event" />
-          <label for="event">참여 이벤트명</label>
+          <label htmlFor="event">참여 이벤트명</label>
         </div>
       </li>
     </div>

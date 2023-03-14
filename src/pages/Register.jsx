@@ -6,12 +6,13 @@ import {
   BirthdayInput,
   EventRadioBtn,
   GenderRadioBtn,
+  Address,
 } from '../components';
 import app from '../App.module.css';
 
 const Register = () => {
   return (
-    <main>
+    <main className="register-container">
       <section className="register">
         <h1>회원가입</h1>
         <p aria-hidden="true">필수입력사항</p>
@@ -29,14 +30,7 @@ const Register = () => {
             <Btn btnTitle="중복확인" />
             <Input title="휴대폰" placeholder="숫자만 입력해주세요." />
             <Btn btnTitle="인증번호 받기" />
-            <li>
-              <label>
-                <span className={app['a11y-hidden']}>필수입력사항</span>
-                주소
-              </label>
-              <Btn btnTitle="주소 검색" />
-              <p>배송지에 따라 상품 정보가 달라질 수 있습니다.</p>
-            </li>
+            <Address />
             <GenderRadioBtn />
             <BirthdayInput />
             <EventRadioBtn />
@@ -51,15 +45,24 @@ const Register = () => {
           </li>
           <span className={app['a11y-hidden']}>이용약관 전체 동의 선택</span>
           <input type="checkbox" id="check-all-terms" />
-          <label for="check-all-terms">전체 동의합니다.</label>
+          <label htmlFor="check-all-terms">전체 동의합니다.</label>
           <p>
             선택 항목에 동의하지 않는 경우도 회원가입 및 일반적인 서비스를
             이용할 수 있습니다.
           </p>
-          <RegisterTOS requiredOrOptional="필수" />
-          <RegisterTOS requiredOrOptional="필수" />
-          <RegisterTOS requiredOrOptional="선택" />
-          <RegisterTOS requiredOrOptional="필수" />
+          <RegisterTOS terms="이용약관 동의" requiredOrOptional="필수" />
+          <RegisterTOS
+            terms="개인정보 수집 · 이용 동의"
+            requiredOrOptional="필수"
+          />
+          <RegisterTOS
+            terms="무료배송, 할인쿠폰 등 혜택/정보 수신 동의"
+            requiredOrOptional="선택"
+          />
+          <RegisterTOS
+            terms="본인은 만 14세 이상입니다."
+            requiredOrOptional="필수"
+          />
         </ul>
       </section>
     </main>

@@ -1,10 +1,10 @@
 import React from 'react';
 import app from '../App.module.css';
 
-const RegisterTOS = ({ requiredOrOptional }) => {
+const RegisterTOS = ({ requiredOrOptional, terms }) => {
   return (
     <li>
-      <span className="a11y-hidden">
+      <span className={app['a11y-hidden']}>
         이용약관 동의 여부 ({requiredOrOptional} 항목)
       </span>
       <button>약관보기</button>
@@ -15,7 +15,9 @@ const RegisterTOS = ({ requiredOrOptional }) => {
         name="terms-of-use"
         required
       />
-      <label for="terms-of-use">이용약관 동의 ({requiredOrOptional})</label>
+      <label htmlFor="terms-of-use">
+        {terms} ({requiredOrOptional})
+      </label>
     </li>
   );
 };
