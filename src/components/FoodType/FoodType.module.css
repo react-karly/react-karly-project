@@ -27,3 +27,9 @@
   margin: 0;
   padding: 0;
 }
+
+.cart-item-container {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
