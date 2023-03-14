@@ -1,0 +1,32 @@
+.login-container {
+  width: 340px;
+  margin: 0 auto;
+  padding: 80px 0;
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+}
+
+.login-wrapper {
+  width: 340px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+}
+
+.login-title {
+  font-size: var(--text-lg);
+  font-weight: var(--text-600);
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.input {
+  width: 340px;
+  height: 44px;
+  text-indent: var(--spacing-sm);
+  margin: 0 0 var(--spacing-sm) 0;
+  border: solid 1px var(--dark-grey);
+  border-radius: 3px;
+}
