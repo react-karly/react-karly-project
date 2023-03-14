@@ -19,10 +19,11 @@
 }
 
 .price {
+  width: 127px;
   font-weight: var(--text-600);
   font-size: var(--text-base);
   margin-right: var(--spacing-xs);
-  margin-left: 76px;
+  text-align: right;
   /* 사파리 크로스 브라우징 준수 */
   white-space: nowrap;
 }

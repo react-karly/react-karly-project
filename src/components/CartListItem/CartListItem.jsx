@@ -5,6 +5,7 @@ import styles from './CartListItem.module.css';
 import productImg from '@/assets/tangtang/thumbnail.jpg';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
+import { priceTemplate } from '../../utils/priceTemplate';
 function CartListItem({
   index,
   product,
@@ -55,7 +56,9 @@ function CartListItem({
         onClickPlus={handleClickPlus}
         onClickMinus={handleClickMinus}
       />
-      <span className={styles.price}>4,980원</span>
+      <span className={styles.price}>
+        {priceTemplate(product.price * product.quantity)}원
+      </span>
       <button type="button" className={styles.button}>
         <img src={close} alt="닫기" width="30" height="30" />
       </button>
