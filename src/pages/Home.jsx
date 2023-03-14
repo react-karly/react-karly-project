@@ -120,6 +120,7 @@ function Home() {
           
   
 
+
         </section>
 
         <section className={styles['line-banner']}>
@@ -129,9 +130,10 @@ function Home() {
           </a>
         </section>
 
+
         <section className={styles['sale-products']}>
           <h2 className={styles['sale-products-title']}> 놓치면 후회할 가격</h2>
-
+       
         <Swiper className={styles['sale-products-swiper']} navigation={true} spaceBetween={45} slidesPerView={4} slidesPerGroup={4} pagination={{clickable: true, type: 'fraction',}} modules={[Pagination, Navigation]} >
         <SwiperSlide 
           className={styles['sale-products-item']}> 
@@ -150,13 +152,13 @@ function Home() {
         <SwiperSlide 
           className={styles['sale-products-item']}> 
           <a href="/">  
-          <img className={styles['sale-products__image']} src={sunCushion} alt="온더바디 죠르디 시카 자석 선쿠션" />
-          <div className={styles['sale-products__info']}>
-            <h3 className={styles['sale-products__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
-            <span className={styles['sale-products__price']}>32,500원</span> 
+          <img className={styles['sale-products-item__image']} src={sunCushion} alt="온더바디 죠르디 시카 자석 선쿠션" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>[온더바디] 죠르디 시카 자석 선쿠션</h3> 
+            <span className={styles['sale-products-item__price']}>32,500원</span> 
           </div> 
-          <button className={styles['sale-products__info']} type="button">
-          <img className={styles['sale-products__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          <button className={styles['sale-products-item__info']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
         </SwiperSlide>
@@ -178,21 +180,25 @@ function Home() {
         <SwiperSlide 
           className={styles['sale-products-item']}> 
           <a href="/">  
-          <img className={styles['sale-products-item_image']} src={frosch} alt="프로쉬 베이비 세탁세" />
-          <div className={styles['sale-products-item_info']}>
-            <h3 className={styles['sale-products-item_name']}>[프로쉬] 베이비 세탁세</h3> 
-            <span className={styles['sale-products-item_price']}>18,900원</span> 
+          <img className={styles['sale-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
+          <div className={styles['sale-products-item__info']}>
+            <h3 className={styles['sale-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
+            <span className={styles['sale-products-item__price']}>18,900원</span> 
           </div> 
-          <button className={styles['sale-products-item_info']} type="button">
-          <img className={styles['sale-products-item_cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
+          <button className={styles['sale-products-item__info']} type="button">
+          <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
         </SwiperSlide>
-
         </Swiper>
 
+        
+          
 
         </section>
+
+
+
       </main>
 
       <footer className={styles.footer}>
