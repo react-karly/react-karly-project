@@ -7,6 +7,7 @@ import { FoodType } from '@/components/FoodType/FoodType';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
 import { foodType } from '@/enum/foodType';
+import { priceTemplate } from '../../utils/priceTemplate';
 
 function Cart(props) {
   //임시 데이터
@@ -15,29 +16,33 @@ function Cart(props) {
       id: 'product-1',
       type: 'refrigerated',
       title: '[풀무원] 냉장탱탱쫄면 (4개입)',
-      price: '4980',
+      price: '2000',
       isChecked: false,
+      quantity: 1,
     },
     {
       id: 'product-2',
       title: '[풀무원] 냉동1탱탱쫄면 (4개입)',
-      price: '4980',
+      price: '3000',
       type: 'frozen',
       isChecked: false,
+      quantity: 1,
     },
     {
       id: 'product-3',
       title: '[풀무원] 냉동2탱탱쫄면 (4개입)',
-      price: '4980',
+      price: '2500',
       type: 'frozen',
       isChecked: false,
+      quantity: 2,
     },
     {
       id: 'product-4',
       title: '[풀무원] 상온탱탱쫄면 (4개입)',
-      price: '4980',
+      price: '2500',
       type: 'normal',
       isChecked: false,
+      quantity: 3,
     },
   ];
 
@@ -45,6 +50,15 @@ function Cart(props) {
   const [isAllCheck, setIsAllCheck] = useState(true);
   const [isAllUnCheck, setIsAllUnCheck] = useState(false);
   const [selectedCount, setSelectedCount] = useState(products.length);
+  const [totalPrice, setTotalPrice]=useState(0);
+
+
+  const calculateTotalPrice=()=>{
+    let total=0; 
+    const selectedProductList=productList.filter(product=>product.isChecked)
+    selectedProductList.map(({quantity, price})=>total+=(quantity*parseInt(price)))
+    setTotalPrice(total);
+  }
 
   const handleAllCheck = () => {
     setIsAllCheck((isAllCheck) => !isAllCheck);
@@ -88,7 +102,9 @@ function Cart(props) {
     if (selectedCount === productList.length) {
       setIsAllCheck(false);
     }
-  }, [productList, selectedCount]);
+
+    calculateTotalPrice();
+  }, [productList, selectedCount, totalPrice]);
 
   return (
     <div className={styles['cart-container']}>
@@ -165,21 +181,21 @@ function Cart(props) {
             <div className={styles['price-detail']}>
               <div>
                 <span>상품금액</span>
-                <span>40,680원</span>
+                <span>{`${priceTemplate(totalPrice)}원`}</span>
               </div>
               <div>
                 <span>상품할인금액</span>
-                <span>-4,651원</span>
+                <span>0원</span>
               </div>
               <div>
                 <span>배송비</span>
-                <span>+3,000원</span>
+                <span>{selectedCount===0?"0원":"+3,000원"}</span>
               </div>
             </div>
             <div className={styles['price-total']}>
               <span className={styles['total-text']}>결제예정금액</span>
               <span className={styles['total-number']}>
-                <strong>40,680</strong>원
+                <strong>{selectedCount===0?"0":priceTemplate(totalPrice+3000)}</strong>원
               </span>
             </div>
             <div className={styles.accumulate}>
