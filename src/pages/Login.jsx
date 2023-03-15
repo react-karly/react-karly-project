@@ -15,11 +15,13 @@ const Login = () => {
                 title="아이디"
                 placeholder="아이디를 입력해주세요."
                 inputClassName="login-input"
+                labelClassName="a11y-hidden"
               />
               <Input
                 title="비밀번호"
                 placeholder="비밀번호를 입력해주세요."
                 inputClassName="login-input"
+                labelClassName="a11y-hidden"
               />
               <ul>
                 <li>
