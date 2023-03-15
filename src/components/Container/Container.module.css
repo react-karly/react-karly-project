@@ -1,0 +1,7 @@
+@import url(../../css/theme.module.css);
+
+.Container {
+  width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
