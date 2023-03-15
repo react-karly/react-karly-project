@@ -5,6 +5,7 @@ import styles from './CartListItem.module.css';
 import productImg from '@/assets/tangtang/thumbnail.jpg';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
+import { priceTemplate } from '../../utils/priceTemplate';
 function CartListItem({
   index,
   product,
@@ -12,6 +13,15 @@ function CartListItem({
   setProductList,
   setSelectedCount,
 }) {
+  const handleClickPlus = () => {
+    product.quantity += 1;
+    setProductList([...productList]);
+  };
+
+  const handleClickMinus = () => {
+    product.quantity -= 1;
+    setProductList([...productList]);
+  };
   const handleClickCheckButton = () => {
     if (product.isChecked) setSelectedCount((count) => count - 1);
     else setSelectedCount((count) => count + 1);
@@ -41,8 +51,14 @@ function CartListItem({
         className={styles['product-image']}
       />
       <h4 className={styles.name}>{product.title}</h4>
-      <Counter />
-      <span className={styles.price}>4,980원</span>
+      <Counter
+        quantity={product.quantity}
+        onClickPlus={handleClickPlus}
+        onClickMinus={handleClickMinus}
+      />
+      <span className={styles.price}>
+        {priceTemplate(product.price * product.quantity)}원
+      </span>
       <button type="button" className={styles.button}>
         <img src={close} alt="닫기" width="30" height="30" />
       </button>
