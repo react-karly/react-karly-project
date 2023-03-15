@@ -1,5 +1,5 @@
 :root {
-  /* color /
+  /* color */
   --black: #000000;
   --secondary: #bd76ff;
   --white: #ffffff;
@@ -27,7 +27,7 @@
   --blue-900: #001433;
   --info-error: #f03f40;
 
-  / space  /
+  /* space  */
   --spacing-sxxs: 2px;
   --spacing--xxs: 4px;
   --spacing-xs: 8px;
@@ -46,7 +46,7 @@
   --minus-spacing-lg: -24px;
   --minus-spacing-xl: -32px;
 
-  / font-size /
+  /* font-size */
   --text-xxs: 10px;
   --text-xs: 12px;
   --text-sm: 14px;
@@ -55,7 +55,7 @@
   --text-lg: 21.33px;
   --text-xl: 37.9px;
 
-  / font-weight */
+  /* font-weight */
   --text-400: 400;
   --text-600: 600;
   --text-700: 700;
