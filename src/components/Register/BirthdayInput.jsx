@@ -1,10 +1,11 @@
 import React from 'react';
 import app from '../../App.module.css';
+import input from '../Register/Input.module.css';
 
 const BirthdayInput = () => {
   return (
     <li>
-      <p>생년월일</p>
+      <p className={input['register-label']}>생년월일</p>
       <div>
         <label htmlFor="birth-year" className={app['a11y-hidden']}>
           연도 입력(4글자)
