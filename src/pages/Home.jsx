@@ -18,7 +18,7 @@ import cartIcon from '@/assets/icons/Icon/Cart.svg';
 
 function Home() {
   return (
-    <>
+    <div>
       <header className={styles.header}>
         <h1>헤더 영역</h1>
       </header>
@@ -317,7 +317,7 @@ function Home() {
       <footer className={styles.footer}>
         <h1>푸터 영역</h1>
       </footer>
-    </>
+    </div>
   );
 }
 
