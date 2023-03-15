@@ -44,15 +44,6 @@ legend,
   margin-bottom: 44px;
 }
 
-.input {
-  width: 340px;
-  height: 44px;
-  text-indent: var(--spacing-sm);
-  margin: 0 0 var(--spacing-sm) 0;
-  border: solid 1px var(--gray-300);
-  border-radius: 3px;
-}
-
 .login-form ul {
   display: flex;
   flex-flow: row nowrap;
