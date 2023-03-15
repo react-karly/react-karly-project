@@ -1,12 +1,14 @@
-/* 헤더 */
-.header {
-  background-color: grey;
-}
-
+/* 메인 배너 스와이퍼  */
 .main-banner {
   width: 100%;
 }
 
+/* h2 숨김 처리 */
+.a11y-hidden {
+  display: none;
+}
+
+/* 메인배너 밑부분 전체 */
 main {
   max-width: 1050px;
   width: 100%;
@@ -14,63 +16,84 @@ main {
   margin-right: auto;
 }
 
-/* 이 상품 어때요 전체 영역 */
-.recommend-products {
-  background-color: yellow;
-}
 
 /* 이 상품 어때요 h2텍스트 */
 .recommend-products-title {
-  background-color: rgb(20, 225, 51);
+  /* background-color: rgb(20, 225, 51); */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  font-weight: 700;
+  font-weight: var(--text-700);
   height: 40px;
   margin-top: 52px;
   margin-bottom: 40px;
 }
 
-.recommend-products-swiper {
-  height: 429px;
-}
 
-.recommend-products-item{
+/* 이 상품 어때요 스와이퍼 item 4개 */
+.recommend-products-item {
   position: relative;
 }
 
+/* 이 상품 어때요 스와이퍼에 a태그 기본(밑줄)효과 제거 */
 .recommend-products-item>a {
   text-decoration: none;
-  color: black
-  
+  color: var(--balck);
 }
 
-
+/* 이 상품 어때요 상품 이미지 */
 .recommend-products-item__image {
   width: 249px;
   height: 320px;
 }
 
-.recommend-products-item__name{
-  font-weight: 400;
-  font-size: 14px;
+/* 이 상품 어때요 상품 이름 */
+.recommend-products-item__name {
+  font-weight: var(--text-400);
+  font-size: 13px;
   margin-bottom: 8px;
+  margin-top: 16px;
 }
 
-.recommend-products-item__price{
-  font-weight: 600;
-  font-size: 20px;
+/* 이 상품 어때요 할인% */
+.recommend-products-item__discount {
+  font-weight: var(--text-600);
+  font-size: var(--text-lg);
+  color: var(--accent-yellow);
+  margin-right: 8px;
 }
 
-.recommend-products-item__cartIconBtn{
-  all:unset;
+/* 이 상품 어때요 상품 가격 */
+.recommend-products-item__price {
+  font-weight: var(--text-600);
+  font-size: var(--text-lg);
 }
 
-.recommend-products-item__cartIconBtn{
+/*  이 상품 어때요 원가 */
+.recommend-products-item__originalPrice {
+  display: block;
+  font-weight: var(--text-400);
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+  margin-top: 8px;
+  text-decoration: line-through
+}
+
+/* 이 상품 어때요 장바구니 아이콘 버튼 */
+.recommend-products-item__cartIconBtn {
+  all: unset;
   position: absolute;
-  top : 68% ;
-  left : 76%;
+  top: 68%;
+  left: 76%;
+}
+
+/* 이 상품 어때요 장바구니 아이콘 버튼 (프로쉬만) */
+.recommend-products-item___cartIconBtn {
+  all: unset;
+  position: absolute;
+  top: 65%;
+  left: 76%;
 }
 
 /* 퍼플 위크 배너 */
@@ -82,14 +105,10 @@ main {
   margin-bottom: 40px;
 }
 
+/* 퍼플 위크 배너 이미지 */
 .line-banner-image {
   width: 100%;
 }
-
-.a11y-hidden {
-  display: none;
-}
-
 
 /* 놓치면 후회할 가격 전체 영역 */
 .sale-products {
@@ -99,59 +118,75 @@ main {
 
 /* 놓치면 후회할 가격 h2텍스트 */
 .sale-products-title {
-  background-color: rgb(20, 225, 51);
+  /* background-color: rgb(20, 225, 51); */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: var(--text-xl);
+  font-weight: var(--text-700);
   height: 40px;
   margin-top: 60px;
   margin-bottom: 40px;
 }
 
+/* 놓치면 후회할 가격 스와이퍼 전체 */
 .sale-products-swiper {
   height: 429px;
 }
 
-.sale-products-item{
+/* 놓치면 후회할 가격 item 4개 */
+.sale-products-item {
   position: relative;
 }
 
+/* 놓치면 후회할 가격 스와이퍼에 a태그 기본(밑줄)효과 제거 */
 .sale-products-item>a {
   text-decoration: none;
-  color: black
+  color: var(--black);
 }
 
-
+/* 놓치면 후회할 가격 상품 이미지 */
 .sale-products-item__image {
   width: 249px;
   height: 320px;
 }
 
-.sale-products-item__name{
-  font-weight: 400;
-  font-size: 14px;
+/* 놓치면 후회할 가격 상품 이름  */
+.sale-products-item__name {
+  font-weight: var(--text-400);
+  font-size: 13px;
   margin-bottom: 8px;
 }
 
-.sale-products-item__price{
-  font-weight: 600;
-  font-size: 20px;
+/* 놓치면 후회할 가격 상품 가격 */
+.sale-products-item__price {
+  font-weight: var(--text-600);
+  font-size: var(--text-lg);
 }
 
-.sale-products-item__cartIconBtn{
-  all:unset;
+/*  놓치면 후회할 가격 원가 */
+.sale-products-item__originalPrice {
+  display: block;
+  font-weight: 400;
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+  margin-top: 8px;
+  text-decoration: line-through
 }
 
-.sale-products-item__cartIconBtn{
+
+/* 놓치면 후회할 가격 장바구니 아이콘 버튼 */
+.sale-products-item__cartIconBtn {
+  all: unset;
   position: absolute;
-  top : 68%;
-  left : 76%;
+  top: 68%;
+  left: 76%;
 }
 
-/* 푸터 */
-.footer {
-  background-color: grey;
+/* 놓치면 후회할 가격 장바구니 아이콘 버튼 (프로쉬만) */
+.sale-products-item___cartIconBtn {
+  all: unset;
+  position: absolute;
+  top: 65%;
+  left: 76%;
 }
-

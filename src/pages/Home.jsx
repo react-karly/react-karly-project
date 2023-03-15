@@ -58,7 +58,7 @@ function Home() {
         <section className={styles['recommend-products']}>
           <h2 className={styles['recommend-products-title']}>이 상품 어때요?</h2>
        
-        <Swiper className={styles['recommend-products-swiper']}navigation={true} spaceBetween={19} slidesPerView={4} slidesPerGroup={4} autoHeight={true} pagination={{clickable: true, type: 'false',}} modules={[Pagination, Navigation]} >
+        <Swiper className={styles['recommend-products-swiper']}navigation={true} spaceBetween={19} slidesPerView={4} slidesPerGroup={4}  pagination={{clickable: true, type: 'false',}} modules={[Pagination, Navigation]} >
         <SwiperSlide 
           className={styles['recommend-products-item']}> 
           <a href="/">  
@@ -107,9 +107,11 @@ function Home() {
           <img className={styles['recommend-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
           <div className={styles['recommend-products-item__info']}>
             <h3 className={styles['recommend-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
+            <span className={styles['recommend-products-item__discount']}>24%</span>
             <span className={styles['recommend-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__originalPrice']}>24,900원</span>
           </div> 
-          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <button className={styles['recommend-products-item___cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -162,9 +164,11 @@ function Home() {
           <img className={styles['recommend-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
           <div className={styles['recommend-products-item__info']}>
             <h3 className={styles['recommend-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
+            <span className={styles['recommend-products-item__discount']}>24%</span>
             <span className={styles['recommend-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__originalPrice']}>24,900원</span>
           </div> 
-          <button className={styles['recommend-products-item__cartIconBtn']} type="button">
+          <button className={styles['recommend-products-item___cartIconBtn']} type="button">
           <img className={styles['recommend-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -235,9 +239,11 @@ function Home() {
           <img className={styles['sale-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
           <div className={styles['sale-products-item__info']}>
             <h3 className={styles['sale-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
-            <span className={styles['sale-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__discount']}>24%</span>
+            <span className={styles['recommend-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__originalPrice']}>24,900원</span>
           </div> 
-          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <button className={styles['sale-products-item___cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
@@ -291,9 +297,11 @@ function Home() {
           <img className={styles['sale-products-item__image']} src={frosch} alt="프로쉬 베이비 세탁세" />
           <div className={styles['sale-products-item__info']}>
             <h3 className={styles['sale-products-item__name']}>[프로쉬] 베이비 세탁세</h3> 
-            <span className={styles['sale-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__discount']}>24%</span>
+            <span className={styles['recommend-products-item__price']}>18,900원</span> 
+            <span className={styles['recommend-products-item__originalPrice']}>24,900원</span>
           </div> 
-          <button className={styles['sale-products-item__cartIconBtn']} type="button">
+          <button className={styles['sale-products-item___cartIconBtn']} type="button">
           <img className={styles['sale-products-item__cartIcon']}  src={cartIcon} alt="장바구니 아이콘" />
           </button> 
           </a> 
