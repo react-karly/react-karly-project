@@ -1,0 +1,13 @@
+.address-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.address-desc {
+  order: 3;
+  font-size: var(--text-xs);
+  position: relative;
+  left: 5px;
+  margin-top: var(--spacing--xxs);
+}
