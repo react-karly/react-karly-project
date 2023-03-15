@@ -2,14 +2,22 @@
   border: 1px solid var(--gray-200);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 84px;
 }
 .counter-container span {
-  margin: var(--spacing-xs);
+  text-align: center;
+  min-width: 16px;
 }
 .button {
+  cursor: pointer;
   width: 30px;
   height: 30px;
   border: none;
   background-color: transparent;
   padding: 0;
+}
+
+.button:disabled {
+  cursor: not-allowed;
 }
