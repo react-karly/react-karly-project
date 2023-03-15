@@ -1,0 +1,22 @@
+.recommend-products-item__image {
+  width: 249px;
+  height: 320px;
+}
+.recommend-products-item__name {
+  font-weight: var(--text-400);
+  font-size: 13px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+/* 이 상품 어때요 상품 가격 */
+.recommend-products-item__price {
+  font-weight: var(--text-600);
+  font-size: var(--text-lg);
+}
+/* 이 상품 어때요 장바구니 아이콘 버튼 */
+.recommend-products-item__cartIconBtn {
+  all: unset;
+  position: absolute;
+  top: 68%;
+  left: 76%;
+}
