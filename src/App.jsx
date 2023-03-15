@@ -1,5 +1,5 @@
 import './App.module.css';
-import ProductList from '../pages/ProductList/ProductList';
+import ProductList from './pages/ProductList/ProductList';
 
 function App() {
   return (
