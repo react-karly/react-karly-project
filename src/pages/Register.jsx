@@ -9,27 +9,70 @@ import {
   Address,
 } from '../components';
 import app from '../App.module.css';
+import register from '../../src/pages/Register.module.css';
+import input from '../../src/components/Register/Input.module.css';
 
 const Register = () => {
   return (
-    <main className="register-container">
-      <section className="register">
-        <h1>회원가입</h1>
-        <p aria-hidden="true">필수입력사항</p>
-        <form method="POST">
+    <main>
+      <section className={register['register']}>
+        <h1 className={register['register-title']}>회원가입</h1>
+        <p className={register['register-required']} aria-hidden="true">
+          필수입력사항
+        </p>
+        <form className={register['register-form']} method="POST">
           <ul>
-            <Input title="아이디" placeholder="아이디를 입력해주세요." />
-            <Btn btnTitle="중복확인" />
-            <Input title="비밀번호" placeholder="비밀번호를 입력해주세요." />
+            <div className={register['register-wrapper']}>
+              <Input
+                title="아이디"
+                placeholder="아이디를 입력해주세요."
+                labelClassName="register-label"
+                spanClassName="register-span"
+                inputClassName="register-input"
+              />
+              <Btn btnTitle="중복확인" buttonClassName="small-btn" />
+            </div>
+            <Input
+              title="비밀번호"
+              placeholder="비밀번호를 입력해주세요."
+              labelClassName="register-label"
+              spanClassName="register-span"
+              inputClassName="register-input"
+            />
             <Input
               title="비밀번호 확인"
               placeholder="비밀번호를 한번 더 입력해주세요."
+              labelClassName="register-label"
+              spanClassName="register-span"
+              inputClassName="register-input"
             />
-            <Input title="이름" placeholder="이름을 입력해주세요." />
-            <Input title="이메일" placeholder="예) marketkarly@karly.com" />
-            <Btn btnTitle="중복확인" />
-            <Input title="휴대폰" placeholder="숫자만 입력해주세요." />
-            <Btn btnTitle="인증번호 받기" />
+            <Input
+              title="이름"
+              placeholder="이름을 입력해주세요."
+              labelClassName="register-label"
+              spanClassName="register-span"
+              inputClassName="register-input"
+            />
+            <div className={register['register-wrapper']}>
+              <Input
+                title="이메일"
+                placeholder="예) marketkarly@karly.com"
+                labelClassName="register-label"
+                spanClassName="register-span"
+                inputClassName="register-input"
+              />
+              <Btn btnTitle="중복확인" buttonClassName="small-btn" />
+            </div>
+            <div className={register['register-wrapper']}>
+              <Input
+                title="휴대폰"
+                placeholder="숫자만 입력해주세요."
+                labelClassName="register-label"
+                spanClassName="register-span"
+                inputClassName="register-input"
+              />
+              <Btn btnTitle="인증번호 받기" buttonClassName="small-btn" />
+            </div>
             <Address />
             <GenderRadioBtn />
             <BirthdayInput />
@@ -37,7 +80,7 @@ const Register = () => {
           </ul>
           <ul className="register-terms">
             <li>
-              <p>
+              <p className={input['register-label']}>
                 <span className={app['a11y-hidden']}>필수 선택사항</span>
                 이용약관 동의
               </p>
