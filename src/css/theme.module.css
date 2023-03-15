@@ -1,4 +1,8 @@
 :root {
+<<<<<<< HEAD
+=======
+  /* color */
+>>>>>>> feature_product-list
   --black: #000000;
   --secondary: #bd76ff;
   --white: #ffffff;
@@ -27,7 +31,10 @@
   --info-error: #f03f40;
 
   /* space  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature_product-list
   --spacing-sxxs: 2px;
   --spacing--xxs: 4px;
   --spacing-xs: 8px;
