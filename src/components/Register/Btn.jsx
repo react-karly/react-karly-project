@@ -1,9 +1,12 @@
 import React from 'react';
+import style from '../Register/Btn.module.css';
 
-const Btn = ({ btnTitle }) => {
+const Btn = ({ btnTitle, buttonClassName }) => {
   return (
     <div>
-      <button type="button">{btnTitle}</button>
+      <button type="button" className={style[buttonClassName]}>
+        {btnTitle}
+      </button>
     </div>
   );
 };
