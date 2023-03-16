@@ -101,7 +101,7 @@ ul {
 .information span {
   color: var(--content);
   font-weight: var(--text-400);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
 }
 
 .additional-info {
