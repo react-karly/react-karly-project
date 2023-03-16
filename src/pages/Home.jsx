@@ -130,7 +130,7 @@ function Home() {
       </header>
       <section className={styles['main-banner']}>
         <h2 className={styles['a11y-hidden']}>메인베너</h2>
-        {/* 배너 테스트 */}
+        {/* 메인베너 */}
         <SwiperComponent
           isbanner="true"
           spaceBetween={30}
@@ -146,64 +146,6 @@ function Home() {
           modules={[Pagination, Navigation, Autoplay]}
           data={bannerMockData}
         />
-      </section>
-      {/* 메인베너 */}
-      <section className={styles['main-banner']}>
-        <h2 className={styles['a11y-hidden']}>메인베너</h2>
-
-        <Swiper
-          isbanner="true"
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-            type: 'fraction',
-          }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          modules={[Pagination, Navigation, Autoplay]}
-        >
-          <SwiperSlide className={styles['main-banner-item']}>
-            <a>
-              <img src={mainBannerPrice} alt="이 주의 특가" />
-            </a>
-          </SwiperSlide>
-          <SwiperSlide className={styles['main-banner-item']}>
-            <a>
-              <img src={mainBannerFruit} alt="컬리의 과일 가게" />
-            </a>
-          </SwiperSlide>
-          <SwiperSlide className={styles['main-banner-item']}>
-            <a>
-              <img src={mainBannerCard} alt="이달의 카드 혜택" />
-            </a>
-          </SwiperSlide>
-          <SwiperSlide className={styles['main-banner-item']}>
-            <a>
-              <img src={mainBannerPurple} alt="컬리 퍼플 위크" />
-            </a>
-          </SwiperSlide>
-          <div ref={prevRef}>
-            <img
-              className={styles['swiper-prev']}
-              src={ArrowRight}
-              alt="prevButton"
-            />
-          </div>
-          <div ref={nextRef}>
-            <img
-              className={styles['swiper-next']}
-              src={ArrowLeft}
-              alt="nextButton"
-            />
-          </div>
-        </Swiper>
       </section>
 
       <main className={styles.main}>

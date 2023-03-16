@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -15,17 +14,17 @@ export function SwiperComponent(props) {
 
   return (
     <Swiper
-      spaceBetween={props.spaceBetween}
-      centeredSlides={props.centeredSlides}
-      autoplay={props.autoplay}
-      pagination={props.pagination}
-      slidesPerGroup={props.slidesPerGroup}
-      slidesPerView={props.slidesPerView}
+      {...props}
       navigation={{
         prevEl: prevRef.current,
         nextEl: nextRef.current,
       }}
-      modules={props.module}
+      onBeforeInit={(swiper) => {
+        // 초기 설정
+        swiper.params.navigation.prevEl = prevRef.current;
+        swiper.params.navigation.nextEl = nextRef.current;
+        swiper.navigation.update();
+      }}
     >
       {props.data.map((el) => (
         <SwiperSlide key={el.id}>

@@ -4,7 +4,6 @@ import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import jjolmyeon from '@/assets/main/product01.png';
 
 export function SwiperContent({ data, isbanner }) {
-  console.log(777, data);
   return isbanner === 'true' ? (
     <a href={data.href}>
       <img src={data.src} alt={data.title} />
