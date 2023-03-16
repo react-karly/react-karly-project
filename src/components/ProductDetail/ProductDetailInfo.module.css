@@ -1,0 +1,10 @@
+@import url('../../css/theme.module.css');
+@import url('@/components/ProductDetail/reset.css');
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 1050px;
+  margin: 0 auto;
+  gap: 100px;
+}
