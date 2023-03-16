@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  Input,
-  Btn,
-  RegisterTOS,
-  BirthdayInput,
-  EventRadioBtn,
-  GenderRadioBtn,
-  Address,
-} from '../components';
-import style from '../../src/pages/Register.module.css';
+import { Btn } from '../components/Register/Btn';
+import { Input } from '../components/Register/Input';
+import { RegisterTOS } from '../components/Register/RegisterTOS';
+import { BirthdayInput } from '../components/Register/BirthdayInput';
+import { EventRadioBtn } from '../components/Register/EventRadioBtn';
+import { GenderRadioBtn } from '../components/Register/GenderRadioBtn';
+import { Address } from '../components/Register/Address';
+import style from './Register.module.css';
 
 function Register() {
   return (

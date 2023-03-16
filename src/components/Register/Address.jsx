@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from './Btn';
+import { Btn } from './Btn';
 import style from '../Register/Address.module.css';
 
 export function Address() {

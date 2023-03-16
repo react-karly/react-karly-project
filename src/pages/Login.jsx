@@ -1,5 +1,6 @@
 import React from 'react';
-import { Btn, Input } from '../components';
+import { Btn } from '../components/Register/Btn';
+import { Input } from '../components/Register/Input';
 import login from '../pages/Login.module.css';
 
 function Login() {
