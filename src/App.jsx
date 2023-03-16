@@ -1,12 +1,20 @@
-import "./App.module.css";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BaseLayout } from './components/Layout/Layout';
+import './App.module.css';
 
 function App() {
-  
   return (
-    <div className="App">
-      <h1>이름</h1>
-      test
-    </div>
+    <Router>
+      <div className="App">
+        <BaseLayout>
+          <Routes>
+            {/* <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Login />} />
+            <Route path="/signin" element={<Register />} /> */}
+          </Routes>
+        </BaseLayout>
+      </div>
+    </Router>
   );
 }
 
