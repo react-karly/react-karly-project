@@ -1,4 +1,6 @@
 import { Container } from '@/components';
+import { Footer } from '../Footer/Footer';
+import Header from '../Header/header';
 import classes from './Layout.module.css';
 
 /* Component ---------------------------------------------------------------- */
@@ -8,11 +10,11 @@ export function BaseLayout({ className, children, ...restProps }) {
 
   return (
     <div className={combineClassNames} {...restProps}>
-      {/* <Header /> */}
+      <Header />
       <main>
         <Container>{children}</Container>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

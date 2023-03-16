@@ -1,8 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BaseLayout } from './components/Layout/Layout';
 import './App.module.css';
-import ProductList from './pages/ProductList/ProductList';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Router>
+      <div className="App">
+        <BaseLayout>
+          <Routes>
+            {/* <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Login />} />
+            <Route path="/signin" element={<Register />} /> */}
+          </Routes>
+        </BaseLayout>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
