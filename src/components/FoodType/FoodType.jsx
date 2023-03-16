@@ -21,7 +21,7 @@ function FoodType({ type, productList, setProductList, setSelectedCount }) {
         <button type="button" className={styles.button}>
           <img
             src={isShowList ? directionUp : directionDown}
-            alt="상품 리스트 열기"
+            alt={isShowList? `${type.title} 리스트 닫기`:`${type.title} 리스트 열기`}
             width="18"
             height="18"
             onClick={handleShowList}

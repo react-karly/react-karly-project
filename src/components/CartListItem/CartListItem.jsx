@@ -38,7 +38,7 @@ function CartListItem({
       >
         <img
           src={product.isChecked ? checked : unChecked}
-          alt="상품선택"
+          alt={product.isChecked? "상품 선택 해제하기": "상품 선택하기"}
           width="24"
           height="24"
         />
@@ -60,7 +60,7 @@ function CartListItem({
         {priceTemplate(product.price * product.quantity)}원
       </span>
       <button type="button" className={styles.button}>
-        <img src={close} alt="닫기" width="30" height="30" />
+        <img src={close} alt={`${product.title} 삭제하기`} width="30" height="30" />
       </button>
     </>
   );

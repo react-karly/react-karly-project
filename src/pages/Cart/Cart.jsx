@@ -121,7 +121,7 @@ function Cart(props) {
               <img
                 // 체크 되면 체크된 아이콘으로 변경
                 src={selectedCount === productList.length ? checked : unChecked}
-                alt="전체선택"
+                alt={selectedCount===productList.length?"전체 선택 해제하기":"전체 선택하기"}
                 width="24"
                 height="24"
                 className={styles['select-img']}
