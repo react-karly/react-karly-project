@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Home.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -19,11 +19,25 @@ import ArrowRight from '@/assets/main/icon/Arrow.png';
 import ArrowLeft from '@/assets/main/icon/Arrow.svg';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
+import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const { readData, data, isLoading, error } = useReadData('products');
 
+  async function handleReadData() {
+    // 모든 데이터를 가져옵니다.
+    readData();
+
+    // 특정 도큐멘트 데이터만 가져옵니다.
+    // await readData('demo');
+  }
+  useEffect(() => {
+    handleReadData();
+  }, []);
+
+  console.log(2828, data);
   const bannerMockData = [
     {
       id: 1,
