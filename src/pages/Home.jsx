@@ -18,6 +18,7 @@ import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import ArrowRight from '@/assets/main/icon/Arrow.png';
 import ArrowLeft from '@/assets/main/icon/Arrow.svg';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
+import { MainPopup } from '../components/Popup/MainPopup';
 
 function Home() {
   const prevRef = useRef(null);
@@ -125,6 +126,7 @@ function Home() {
   ];
   return (
     <div>
+      <MainPopup />
       <header className={styles.header}>
         <h1>헤더 영역</h1>
       </header>
