@@ -1,12 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BaseLayout } from './components/Layout/Layout';
 import './App.module.css';
-import Login from './pages/Login';
-import Register from './pages/Register';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <div className="App">
+        <BaseLayout>
+          <Routes>
+            {/* <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Login />} />
+            <Route path="/signin" element={<Register />} /> */}
+          </Routes>
+        </BaseLayout>
+      </div>
+    </Router>
   );
 }
 

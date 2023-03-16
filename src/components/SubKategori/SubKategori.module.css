@@ -1,0 +1,44 @@
+.accordion__item {
+  display: flex;
+  gap: 8.5px;
+  height: 50px;
+}
+
+.accordion__item-text {
+  display: flex;
+  gap: 4px;
+  line-height: 160%;
+}
+
+.accordion__item-text--name {
+  color: var(--content);
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.accordion__item-text--number {
+  color: var(--gray-300);
+  font-size: 12px;
+}
+
+label {
+  width: 24px;
+  height: 24px;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+}
+
+input[type='checkbox'] {
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/productList/isChecked=false.svg');
+}
+
+input[type='checkbox']:checked {
+  background-image: url('../../assets/productList/isChecked=true.svg');
+}
