@@ -1,46 +1,41 @@
 /* h2 숨김처리 */
-.a11y-hidden{
-  display:none;
+.a11y-hidden {
+  display: none;
 }
 
 /* 팝업창 전체 영역 */
-.popup-container{
-
-background-color: #FFFFFF;
- width: 440px;
- height: 672px;
- box-shadow: 0px 8px 36px rgba(0, 0, 0, 0.2);
- border-radius: 16px;
- position: fixed;
- z-index: 100;
- top: 50%;
- left: 50%;
- transform:translate(-50%, -50%);
-
-
+.popup-container {
+  background-color: #ffffff;
+  width: 440px;
+  height: 672px;
+  box-shadow: 0px 8px 36px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* 제니 이미지 */
-.popup__img{
-display: block;
-width: 440px;
-height: 586px;
-border-radius: 16px 16px 0 0;
+.popup__img {
+  display: block;
+  width: 440px;
+  height: 586px;
+  border-radius: 16px 16px 0 0;
 }
 
 /* 버튼 2개 묶은거 */
-.popup-wrapper{
-  background-color: #E1E1E1;
-  /* display: flex; */
+.popup-wrapper {
+  background-color: #e1e1e1;
   position: relative;
-  gap:1px;
+  gap: 1px;
   border-radius: 0 0 16px 16px;
 }
 
-
-.not-today-btn{
-  background-color: #FFFFFF;
-  /* border-width: 2px; */
+/* 오늘 하루 안보기 버튼 */
+.not-today-btn {
+  background-color: #ffffff;
   border: 0;
   display: block;
   width: 219px;
@@ -49,13 +44,12 @@ border-radius: 16px 16px 0 0;
   font-weight: 400;
   border-radius: 0 0 0 16px;
   cursor: pointer;
-
 }
 
-.close-btn{
-  background-color:#FFFFFF;
-  border:0;
-  /* border-width: 2px; */
+/* 닫기 버튼 */
+.close-btn {
+  background-color: #ffffff;
+  border: 0;
   display: block;
   width: 219px;
   height: 86px;
@@ -64,8 +58,6 @@ border-radius: 16px 16px 0 0;
   border-radius: 0 0 16px 0;
   position: absolute;
   cursor: pointer;
-
-  top:0;
-  right: 0px;
-
+  top: 0;
+  right: 0;
 }
