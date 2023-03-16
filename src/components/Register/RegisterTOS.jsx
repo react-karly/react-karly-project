@@ -1,10 +1,10 @@
 import React from 'react';
-import app from '../../App.module.css';
+import style from '../Register/RegisterTOS.module.css';
 
-const RegisterTOS = ({ requiredOrOptional, terms }) => {
+export function RegisterTOS({ requiredOrOptional, terms }) {
   return (
     <li>
-      <span className={app['a11y-hidden']}>
+      <span className={style['a11y-hidden']}>
         이용약관 동의 여부 ({requiredOrOptional} 항목)
       </span>
       <button>약관보기</button>
@@ -20,6 +20,4 @@ const RegisterTOS = ({ requiredOrOptional, terms }) => {
       </label>
     </li>
   );
-};
-
-export default RegisterTOS;
+}

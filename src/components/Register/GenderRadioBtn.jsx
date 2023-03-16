@@ -1,15 +1,13 @@
 import React from 'react';
-import input from '../Register/Input.module.css';
-import gender from '../Register/GenderRadioBtn.module.css';
-import app from '../../App.module.css';
+import style from '../Register/GenderRadioBtn.module.css';
 
-const GenderRadioBtn = () => {
+export function GenderRadioBtn() {
   return (
     <li>
-      <p className={input['register-label']}>성별</p>
-      <div className={gender['gender-wrapper']}>
+      <p className={style['register-label']}>성별</p>
+      <div className={style['gender-wrapper']}>
         <input
-          className={app['a11y-hidden']}
+          className={style['a11y-hidden']}
           type="radio"
           id="gender-male"
           name="gender"
@@ -17,7 +15,7 @@ const GenderRadioBtn = () => {
         />
         <label htmlFor="gender-male">남자</label>
         <input
-          className={app['a11y-hidden']}
+          className={style['a11y-hidden']}
           type="radio"
           id="gender-female"
           name="gender"
@@ -25,7 +23,7 @@ const GenderRadioBtn = () => {
         />
         <label htmlFor="gender-female">여자</label>
         <input
-          className={app['a11y-hidden']}
+          className={style['a11y-hidden']}
           type="radio"
           id="gender-none"
           name="gender"
@@ -35,6 +33,4 @@ const GenderRadioBtn = () => {
       </div>
     </li>
   );
-};
-
-export default GenderRadioBtn;
+}

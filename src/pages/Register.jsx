@@ -8,25 +8,23 @@ import {
   GenderRadioBtn,
   Address,
 } from '../components';
-import app from '../App.module.css';
-import register from '../../src/pages/Register.module.css';
-import input from '../../src/components/Register/Input.module.css';
+import style from '../../src/pages/Register.module.css';
 
-const Register = () => {
+function Register() {
   return (
     <main>
-      <section className={register['register']}>
-        <h1 className={register['register-title']}>회원가입</h1>
-        <p className={register['register-required']} aria-hidden="true">
+      <section className={style['register']}>
+        <h1 className={style['register-title']}>회원가입</h1>
+        <p className={style['register-required']} aria-hidden="true">
           필수입력사항
         </p>
-        <form className={register['register-form']} method="POST">
+        <form className={style['register-form']} method="POST">
           <ul>
-            <div className={register['register-wrapper']}>
+            <div className={style['register-wrapper']}>
               <Input
                 title="아이디"
                 placeholder="아이디를 입력해주세요."
-                labelClassName="register-label"
+                labelClassName="register-label-required"
                 spanClassName="register-span"
                 inputClassName="register-input"
               />
@@ -35,39 +33,39 @@ const Register = () => {
             <Input
               title="비밀번호"
               placeholder="비밀번호를 입력해주세요."
-              labelClassName="register-label"
+              labelClassName="register-label-required"
               spanClassName="register-span"
               inputClassName="register-input"
             />
             <Input
               title="비밀번호 확인"
               placeholder="비밀번호를 한번 더 입력해주세요."
-              labelClassName="register-label"
+              labelClassName="register-label-required"
               spanClassName="register-span"
               inputClassName="register-input"
             />
             <Input
               title="이름"
               placeholder="이름을 입력해주세요."
-              labelClassName="register-label"
+              labelClassName="register-label-required"
               spanClassName="register-span"
               inputClassName="register-input"
             />
-            <div className={register['register-wrapper']}>
+            <div className={style['register-wrapper']}>
               <Input
                 title="이메일"
                 placeholder="예) marketkarly@karly.com"
-                labelClassName="register-label"
+                labelClassName="register-label-required"
                 spanClassName="register-span"
                 inputClassName="register-input"
               />
               <Btn btnTitle="중복확인" buttonClassName="small-btn" />
             </div>
-            <div className={register['register-wrapper']}>
+            <div className={style['register-wrapper']}>
               <Input
                 title="휴대폰"
                 placeholder="숫자만 입력해주세요."
-                labelClassName="register-label"
+                labelClassName="register-label-required"
                 spanClassName="register-span"
                 inputClassName="register-input"
               />
@@ -78,17 +76,17 @@ const Register = () => {
             <BirthdayInput />
             <EventRadioBtn />
           </ul>
-          <ul className="register-terms">
+          <ul className={style['register-terms']}>
             <li>
-              <p className={input['register-label']}>
-                <span className={app['a11y-hidden']}>필수 선택사항</span>
+              <p className={style['register-label-required']}>
+                <span className={style['a11y-hidden']}>필수 선택사항</span>
                 이용약관 동의
               </p>
             </li>
             <li>
               <ul>
                 <li>
-                  <span className={app['a11y-hidden']}>
+                  <span className={style['a11y-hidden']}>
                     이용약관 전체 동의 여부
                   </span>
                   <p>
@@ -119,6 +117,6 @@ const Register = () => {
       </section>
     </main>
   );
-};
+}
 
 export default Register;

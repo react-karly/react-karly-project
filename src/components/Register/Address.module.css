@@ -1,3 +1,12 @@
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
 .address-wrapper {
   display: inline-block;
   vertical-align: middle;
@@ -10,4 +19,17 @@
   position: relative;
   left: 5px;
   margin-top: var(--spacing--xxs);
+}
+
+.register-label-required,
+.register-label-required p {
+  width: 139px;
+  height: 44px;
+  font-weight: var(--text-600);
+  margin: 0 var(--spacing--xxs);
+  padding-left: var(--spacing--xxs);
+  display: inline-block;
+  line-height: 44px;
+  vertical-align: middle;
+  position: relative;
 }

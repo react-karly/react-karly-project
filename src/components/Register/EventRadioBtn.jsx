@@ -1,15 +1,14 @@
 import React from 'react';
-import app from '../../App.module.css';
-import input from '../Register/Input.module.css';
+import style from '../Register/EventRadioBtn.module.css';
 
-const EventRadioBtn = () => {
+export function EventRadioBtn() {
   return (
     <div>
       <li>
-        <p className={input['register-label']}>추가입력 사항</p>
-        <div>
+        <p className={style['register-label']}>추가입력 사항</p>
+        <div className={style['event-wrapper']}>
           <input
-            className={app['a11y-hidden']}
+            className={style['a11y-hidden']}
             type="radio"
             id="recommand-id"
             name="extra"
@@ -17,7 +16,7 @@ const EventRadioBtn = () => {
           />
           <label htmlFor="recommand-id">친구초대 추천인 아이디</label>
           <input
-            className={app['a11y-hidden']}
+            className={style['a11y-hidden']}
             type="radio"
             id="event"
             name="extra"
@@ -28,6 +27,4 @@ const EventRadioBtn = () => {
       </li>
     </div>
   );
-};
-
-export default EventRadioBtn;
+}

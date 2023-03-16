@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../Register/Btn.module.css';
 
-const Btn = ({ btnTitle, buttonClassName }) => {
+export function Btn({ btnTitle, buttonClassName }) {
   return (
     <div>
       <button type="button" className={style[buttonClassName]}>
@@ -9,6 +9,4 @@ const Btn = ({ btnTitle, buttonClassName }) => {
       </button>
     </div>
   );
-};
-
-export default Btn;
+}

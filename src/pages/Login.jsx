@@ -2,7 +2,7 @@ import React from 'react';
 import { Btn, Input } from '../components';
 import login from '../pages/Login.module.css';
 
-const Login = () => {
+function Login() {
   return (
     <main>
       <div className={login['login-container']}>
@@ -39,6 +39,6 @@ const Login = () => {
       </div>
     </main>
   );
-};
+}
 
 export default Login;

@@ -1,13 +1,12 @@
 import React from 'react';
-import app from '../../App.module.css';
-import input from '../Register/Input.module.css';
+import style from '../Register/BirthdayInput.module.css';
 
-const BirthdayInput = () => {
+export function BirthdayInput() {
   return (
     <li>
-      <p className={input['register-label']}>생년월일</p>
-      <div>
-        <label htmlFor="birth-year" className={app['a11y-hidden']}>
+      <p className={style['register-label']}>생년월일</p>
+      <div className={style['register-birth-wrapper']}>
+        <label htmlFor="birth-year" className={style['a11y-hidden']}>
           연도 입력(4글자)
         </label>
         <input
@@ -19,8 +18,10 @@ const BirthdayInput = () => {
           placeholder="YYYY"
           aria-hidden="true"
         />
-        <span aria-hidden="true">/</span>
-        <label htmlFor="birth-month" className={app['a11y-hidden']}>
+        <span aria-hidden="true" className={style['birth-between']}>
+          /
+        </span>
+        <label htmlFor="birth-month" className={style['a11y-hidden']}>
           월 입력(2글자)
         </label>
         <input
@@ -32,8 +33,10 @@ const BirthdayInput = () => {
           placeholder="MM"
           aria-hidden="true"
         />
-        <span aria-hidden="true">/</span>
-        <label htmlFor="birth-day" className={app['a11y-hidden']}>
+        <span aria-hidden="true" className={style['birth-between']}>
+          /
+        </span>
+        <label htmlFor="birth-day" className={style['a11y-hidden']}>
           일 입력(2글자)
         </label>
         <input
@@ -48,6 +51,4 @@ const BirthdayInput = () => {
       </div>
     </li>
   );
-};
-
-export default BirthdayInput;
+}
