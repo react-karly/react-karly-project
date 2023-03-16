@@ -14,7 +14,7 @@ function Counter({ quantity, onClickPlus, onClickMinus }) {
       >
         <img
           src={quantity === 1 ? disabledMinus : minus}
-          alt="수량 감소"
+          alt={quantity === 1 ? "수량 감소 비활성화" : "수량 감소"}
           width="30"
           height="30"
         />
