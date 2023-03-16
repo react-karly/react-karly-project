@@ -94,7 +94,7 @@ function Footer(props) {
 
               <span>
                 입점문의 :
-                <span className={styles['text-color']}>입점문의하기</span>
+                <span>입점문의하기</span>
               </span>
               <span className={styles['bar-icon']}>|</span>
               <span>
