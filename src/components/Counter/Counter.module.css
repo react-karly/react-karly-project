@@ -19,7 +19,7 @@
 .counter-container span {
   text-align: center;
   min-width: 16px;
-  margin-top: 11px;
+  /* margin-top: 11px; */
 }
 
 .button:disabled {
