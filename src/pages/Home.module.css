@@ -1,6 +1,7 @@
 /* 메인 배너 스와이퍼  */
 .main-banner {
   width: 100%;
+  min-width: 1050px;
 }
 
 /* h2 숨김 처리 */
@@ -9,8 +10,11 @@
 }
 
 /* 메인배너 밑부분 전체 */
+.main {
+  width: 1050px;
+}
 main {
-  max-width: 1050px;
+  /* max-width: 1050px; */
   width: 100%;
   margin-left: auto;
   margin-right: auto;
