@@ -1,3 +1,17 @@
+.banner-img {
+  width: 100%;
+}
+.sale-price {
+  color: #fa622f;
+  padding-right: 10px;
+}
+.origin-price {
+  color: #898989;
+  font-weight: 300;
+  font-size: 13px;
+  text-decoration: line-through;
+  margin-left: 2px;
+}
 .recommend-products-item__image {
   width: 249px;
   height: 320px;
@@ -7,6 +21,17 @@
   font-size: 13px;
   margin-bottom: 8px;
   margin-top: 16px;
+
+  width: 250px;
+  height: 30px;
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  white-space: nowrap;
+  line-height: 1.2em;
 }
 /* 이 상품 어때요 상품 가격 */
 .recommend-products-item__price {
