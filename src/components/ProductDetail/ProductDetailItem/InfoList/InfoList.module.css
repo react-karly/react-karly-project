@@ -1,0 +1,35 @@
+.info-list {
+  width: 560px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1px solid var(--gray-100);
+  /* border-top: 1px solid var(--gray-100); */
+  color: var(--gray-400);
+  font-weight: 350;
+}
+
+.info-list-border {
+  border-top: 1px solid var(--gray-100);
+}
+
+.info-list-title {
+  display: inline-block;
+  width: 120px;
+  font-size: 12px;
+}
+
+.info-list-contents {
+  font-size: 12px;
+  display: block;
+  width: 350px;
+}
+
+.content-text-box {
+  display: block;
+  flex-flow: column nowrap;
+  width: 400px;
+  font-size: 12px;
+  word-wrap: break-word;
+}
