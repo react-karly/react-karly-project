@@ -4,6 +4,8 @@
   display: flex;
   top: 72px;
   height: 500px;
+  position: sticky;
+  top: 10px;
 }
 
 .navigator {

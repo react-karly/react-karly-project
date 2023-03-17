@@ -1,6 +1,6 @@
 import styles from './ListSideMenu.module.css';
-import Arrow from '../../assets/cart/arrow.svg';
-import Down from '../../assets/productList/Direction=Down.png';
+import Arrow from '../../../assets/cart/arrow.svg';
+import Down from '../../../assets/productList/Direction=Down.png';
 
 import { MENU_LIST } from './MenuList';
 import { Kategori } from '../Kategori/Kategori';

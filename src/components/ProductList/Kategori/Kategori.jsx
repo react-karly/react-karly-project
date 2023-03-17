@@ -1,5 +1,5 @@
 import styles from './Kategori.module.css';
-import Down from '../../assets/cart/Direction=Down.png';
+import Down from '../../../assets/cart/Direction=Down.png';
 
 import { SubKategori } from '../SubKategori/SubKategori';
 

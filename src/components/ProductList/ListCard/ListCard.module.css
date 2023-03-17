@@ -46,10 +46,10 @@ li {
 
 .cart-icon {
   position: absolute;
-  right: 15px;
-  bottom: 210px;
+  right: 10px;
+  bottom: 200px;
   border: none;
-  background: url('../../assets/icons/Icon/Cart.svg') no-repeat;
+  background: url('../../../assets/icons/Icon/Cart.svg') no-repeat;
   width: 45px;
   height: 45px;
   cursor: pointer;

@@ -1,7 +1,7 @@
-import Notice from '../../assets/productList/Notice.png';
-import TangTang from '../../assets/tangtang/thumbnail.jpg';
-import GangNam from '../../assets/kangnam/thumbnail.jpg';
-import Bacon from '../../assets/bacon/thumbnail.jpg';
+import Notice from '../../../assets/productList/Notice.png';
+import TangTang from '../../../assets/tangtang/thumbnail.jpg';
+import GangNam from '../../../assets/kangnam/thumbnail.jpg';
+import Bacon from '../../../assets/bacon/thumbnail.jpg';
 import styles from './ListCard.module.css';
 
 export function ListCard() {
