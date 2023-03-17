@@ -1,0 +1,66 @@
+@import url('@/css/theme.module.css');
+@import url('@/components/ProductDetail/reset.css');
+
+.container {
+  background-color: var(--white);
+  width: 214 px;
+  height: 84 px;
+  position: relative;
+  right: 0;
+  top: 80px;
+  border: 1px solid var(--gray-100);
+  display: inline-block;
+  flex-flow: row;
+  align-items: center;
+  padding: 20px 20px ;
+  z-index: 100;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.image {
+  display: inline-block;
+}
+
+.container::after {
+  border-color: #fff transparent;
+  border-style: solid;
+  border-width: 0 6px 8px 6.5px;
+  content: '';
+  display: block;
+  left: 175px;
+  position: absolute;
+  top: -7px;
+  width: 0;
+  z-index: 1;
+}
+
+.container::before {
+  border-color: var(--gray-100) transparent;
+  border-style: solid;
+  border-width: 0 7px 7px 6px;
+  content: '';
+  display: block;
+  left: 175px;
+  position: absolute;
+  top: -8px;
+  width: 0;
+  z-index: 0;
+}
+.image {
+  width: 46px;
+  height: 60px;
+  object-fit: cover;
+
+}
+
+.text-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 16px;
+  gap: 8px;
+}
