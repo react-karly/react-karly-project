@@ -31,7 +31,7 @@
   order: 3;
   font-size: var(--text-xs);
   position: relative;
-  left: 5px;
+  left: 150px;
   margin-top: var(--spacing--xxs);
 }
 
@@ -56,12 +56,6 @@
   justify-content: space-between;
 }
 
-input[type='radio'] + label {
-  position: relative;
-  line-height: 44px;
-  vertical-align: middle;
-}
-
 input[type='radio'] + label::before {
   content: ' ';
   display: inline-block;
@@ -84,4 +78,64 @@ input[type='radio']:focus + label::before {
 
 input[type='radio']:checked + label::before {
   background-position: -8px -41px;
+}
+
+.address-wrapper {
+  display: inline-block;
+}
+
+ul > li:nth-child(n + 8):nth-child(-n + 10) {
+  padding: var(--spacing-md) 0;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+input[type='radio'] + label {
+  position: relative;
+  line-height: 44px;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.register-birth-wrapper {
+  width: 333px;
+  height: 44px;
+  margin: 0 var(--spacing--xxs);
+  border: solid 1px var(--gray-300);
+  border-radius: 3px;
+  background-color: var(--white);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.register-birth-wrapper input:focus {
+  outline: none;
+}
+
+.register-birth-wrapper input {
+  width: 60px;
+  height: 44px;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+}
+
+.birth-between {
+  height: 44px;
+  line-height: 44px;
+  margin-top: var(--minus-spacing-sxxs);
+  vertical-align: middle;
+  color: var(--dark-grey);
+}
+
+.event-wrapper {
+  width: 333px;
+  height: 44px;
+  margin: 0 var(--spacing--xxs);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  white-space: nowrap;
 }

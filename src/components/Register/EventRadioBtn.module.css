@@ -7,8 +7,7 @@ legend {
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.register-label,
-.register-label p {
+.register-label {
   width: 139px;
   height: 44px;
   font-weight: var(--text-600);
@@ -27,4 +26,8 @@ legend {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+
+.event-wrapper label {
+  width: 333px;
 }
