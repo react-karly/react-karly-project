@@ -36,25 +36,10 @@ function ProductInfo(){
     setAddToCart(true)
   }
   
-  // useEffect(async () => {
-  //   const fetchData = async () => {
-  //     const res = await axios.get(...)
-  //     if (res.data.type === 'liked') setLike(true)
-  //   }
-  //   fetchData()
-  // }, []);
-
-  // const toggleLike = async (e) =>{
-  //   const res = await axios.post()
-  //   setLike(!like)
-  // }
-
-  
   
   return (
     <>
 
-      {addToCart == true? <CartAddedModal products={products[0]} /> : null}
       
       <div className={styles['info-container']}>
 
