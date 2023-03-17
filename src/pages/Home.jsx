@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import styles from './Home.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import styles from './Home.module.css';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import mainBannerPrice from '@/assets/main/banner05.png';
@@ -22,8 +22,8 @@ import { MainPopup } from '../components/Popup/MainPopup';
 import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  // firebase에서 데이터를 받아오는 방법
+
   const { readData, data, isLoading, error } = useReadData('products');
 
   async function handleReadData() {
@@ -37,7 +37,6 @@ function Home() {
     handleReadData();
   }, []);
 
-  console.log(2828, data);
   const bannerMockData = [
     {
       id: 1,
@@ -140,10 +139,8 @@ function Home() {
   ];
   return (
     <div>
-      <MainPopup />
-      <header className={styles.header}>
-        <h1>헤더 영역</h1>
-      </header>
+      {/* <MainPopup /> */}
+
       <section className={styles['main-banner']}>
         <h2 className={styles['a11y-hidden']}>메인베너</h2>
         {/* 메인베너 */}
@@ -178,265 +175,9 @@ function Home() {
             pagination={{ clickable: true, type: 'false' }}
             navigation={true}
             modules={[Pagination, Navigation]}
-            data={productMockData}
+            data={data ? data : []}
           />
         </section>
-        {/* 이 상품 어때요? */}
-        <section className={styles['recommend-products']}>
-          <h2 className={styles['recommend-products-title']}>
-            이 상품 어때요?
-          </h2>
-
-          <Swiper
-            isbanner="false"
-            spaceBetween={19}
-            slidesPerView={4}
-            slidesPerGroup={4}
-            pagination={{ clickable: true, type: 'false' }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-          >
-            <SwiperSlide>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={jjolmyeon}
-                  alt="풀무원 탱탱쫄면 4개입"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [풀무원] 탱탱쫄면 (4개입)
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    4,980원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={sunCushion}
-                  alt="온더바디 죠르디 시카 자석 선쿠션"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [온더바디] 죠르디 시카 자석 선쿠션
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    32,500원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={hyeonmi}
-                  alt="유기농 밀키퀸 현미 4kg"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    유기농 밀키퀸 현미 4kg
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    25,000원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={frosch}
-                  alt="프로쉬 베이비 세탁세"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [프로쉬] 베이비 세탁세
-                  </h3>
-                  <span className={styles['recommend-products-item__discount']}>
-                    24%
-                  </span>
-                  <span className={styles['recommend-products-item__price']}>
-                    18,900원
-                  </span>
-                  <span
-                    className={styles['recommend-products-item__originalPrice']}
-                  >
-                    24,900원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item___cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={jjolmyeon}
-                  alt="풀무원 탱탱쫄면 4개입"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [풀무원] 탱탱쫄면 (4개입)
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    4,980원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={sunCushion}
-                  alt="온더바디 죠르디 시카 자석 선쿠션"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [온더바디] 죠르디 시카 자석 선쿠션
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    32,500원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={hyeonmi}
-                  alt="유기농 밀키퀸 현미 4kg"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    유기농 밀키퀸 현미 4kg
-                  </h3>
-                  <span className={styles['recommend-products-item__price']}>
-                    25,000원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item__cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-
-            <SwiperSlide className={styles['recommend-products-item']}>
-              <a href="/">
-                <img
-                  className={styles['recommend-products-item__image']}
-                  src={frosch}
-                  alt="프로쉬 베이비 세탁세"
-                />
-                <div className={styles['recommend-products-item__info']}>
-                  <h3 className={styles['recommend-products-item__name']}>
-                    [프로쉬] 베이비 세탁세
-                  </h3>
-                  <span className={styles['recommend-products-item__discount']}>
-                    24%
-                  </span>
-                  <span className={styles['recommend-products-item__price']}>
-                    18,900원
-                  </span>
-                  <span
-                    className={styles['recommend-products-item__originalPrice']}
-                  >
-                    24,900원
-                  </span>
-                </div>
-                <button
-                  className={styles['recommend-products-item___cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['recommend-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
-              </a>
-            </SwiperSlide>
-          </Swiper>
-        </section>
-
         {/* 퍼플 위크 */}
 
         <section className={styles['line-banner']}>
@@ -565,11 +306,13 @@ function Home() {
                   <span className={styles['recommend-products-item__price']}>
                     18,900원
                   </span>
+                  (
                   <span
                     className={styles['recommend-products-item__originalPrice']}
                   >
                     24,900원
                   </span>
+                  )
                 </div>
                 <button
                   className={styles['sale-products-item___cartIconBtn']}
