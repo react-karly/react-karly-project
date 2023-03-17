@@ -6,7 +6,9 @@
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.register-terms {
+.register-terms-container {
+  display: flex;
+  flex-flow: row nowrap;
   border-top: solid 1px var(--black);
   border-bottom: solid 1px var(--gray-300);
 }
@@ -43,4 +45,12 @@
   padding: var(--spacing--xxs);
   position: absolute;
   top: var(--minus-spacing-sm);
+}
+
+.register-terms-desc {
+  position: absolute;
+  font-size: 11px;
+  top: var(--spacing-xl);
+  left: 37px;
+  color: var(--gray-300);
 }

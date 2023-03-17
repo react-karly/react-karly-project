@@ -4,7 +4,7 @@ import { RegisterTOS } from './../Register/RegisterTOS';
 
 export function TermList() {
   return (
-    <ul className={styles['register-terms']}>
+    <ul className={styles['register-terms-container']}>
       <li>
         <p className={styles['register-label-required']}>
           <span className={styles['a11y-hidden']}>필수 선택사항</span>
@@ -17,7 +17,7 @@ export function TermList() {
             <span className={styles['a11y-hidden']}>
               이용약관 전체 동의 여부
             </span>
-            <p>
+            <p className={styles['register-terms-desc']}>
               선택 항목에 동의하지 않는 경우도 회원가입 및 일반적인 서비스를
               이용할 수 있습니다.
             </p>
