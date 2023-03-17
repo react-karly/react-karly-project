@@ -315,7 +315,7 @@ function Home() {
                   )
                 </div>
                 <button
-                  className={styles['sale-products-item___cartIconBtn']}
+                  className={styles['sale-products-item__cartIconBtn']}
                   type="button"
                 >
                   <img
@@ -413,11 +413,23 @@ function Home() {
 
             <SwiperSlide className={styles['sale-products-item']}>
               <a href="/">
-                <img
-                  className={styles['sale-products-item__image']}
+               <div className={styles['sale-products-item__image']}>
+               <img
+                  
                   src={frosch}
                   alt="프로쉬 베이비 세탁세"
                 />
+                  <button
+                  className={styles['sale-products-item__cartIconBtn']}
+                  type="button"
+                >
+                  <img
+                    className={styles['sale-products-item__cartIcon']}
+                    src={cartIcon}
+                    alt="장바구니 아이콘"
+                  />
+                </button>
+               </div>
                 <div className={styles['sale-products-item__info']}>
                   <h3 className={styles['sale-products-item__name']}>
                     [프로쉬] 베이비 세탁세
@@ -434,16 +446,7 @@ function Home() {
                     24,900원
                   </span>
                 </div>
-                <button
-                  className={styles['sale-products-item___cartIconBtn']}
-                  type="button"
-                >
-                  <img
-                    className={styles['sale-products-item__cartIcon']}
-                    src={cartIcon}
-                    alt="장바구니 아이콘"
-                  />
-                </button>
+              
               </a>
             </SwiperSlide>
           </Swiper>

@@ -34,9 +34,9 @@ main {
 }
 
 /* 이 상품 어때요 스와이퍼 item 4개 */
-.recommend-products-item {
-  position: relative;
-}
+/* .recommend-products-item {
+ 
+} */
 
 /* 이 상품 어때요 스와이퍼에 a태그 기본(밑줄)효과 제거 */
 .recommend-products-item > a {
@@ -48,7 +48,9 @@ main {
 .recommend-products-item__image {
   width: 249px;
   height: 320px;
+  position: relative;
 }
+
 
 /* 이 상품 어때요 상품 이름 */
 .recommend-products-item__name {
@@ -86,17 +88,17 @@ main {
 .recommend-products-item__cartIconBtn {
   all: unset;
   position: absolute;
-  top: 68%;
-  left: 76%;
+  top: 10px;
+  left: 10px;
 }
 
 /* 이 상품 어때요 장바구니 아이콘 버튼 (프로쉬만) */
-.recommend-products-item___cartIconBtn {
+/* .recommend-products-item___cartIconBtn {
   all: unset;
   position: absolute;
   top: 65%;
   left: 76%;
-}
+} */
 
 /* 퍼플 위크 배너 */
 .line-banner {
@@ -180,17 +182,17 @@ main {
 .sale-products-item__cartIconBtn {
   all: unset;
   position: absolute;
-  top: 68%;
-  left: 76%;
+  bottom: 10px;
+  right: 50px;
 }
 
 /* 놓치면 후회할 가격 장바구니 아이콘 버튼 (프로쉬만) */
-.sale-products-item___cartIconBtn {
+/* .sale-products-item___cartIconBtn {
   all: unset;
   position: absolute;
   top: 65%;
   left: 76%;
-}
+} */
 .swiper-prev,
 .swiper-next {
   position: absolute;

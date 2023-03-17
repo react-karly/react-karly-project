@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import styles from './SwiperComponent.module.css';
+import './SwiperComponent.css';
 import ArrowRight from '@/assets/main/icon/Arrow.png';
 import ArrowLeft from '@/assets/main/icon/Arrow.svg';
 import { SwiperContent } from './SwiperContent';
@@ -33,14 +33,14 @@ export function SwiperComponent(props) {
       ))}
       <div ref={prevRef}>
         <img
-          className={styles['swiper-prev']}
+          className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
           src={ArrowRight}
           alt="prevButton"
         />
       </div>
       <div ref={nextRef}>
         <img
-          className={styles['swiper-next']}
+          className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
           src={ArrowLeft}
           alt="nextButton"
         />
