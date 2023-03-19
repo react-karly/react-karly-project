@@ -16,8 +16,8 @@ function RegisterRefactor() {
 
           <TermList />
 
-          <div>
-            <button className={styles.enroll}>Enroll Button</button>
+          <div className={styles.enroll}>
+            <button>가입하기</button>
           </div>
         </form>
       </section>

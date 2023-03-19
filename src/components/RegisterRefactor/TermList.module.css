@@ -6,14 +6,18 @@
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.register-terms-container {
-  display: flex;
-  flex-flow: row nowrap;
+.register-terms {
+  padding-top: 20px;
   border-top: solid 1px var(--black);
   border-bottom: solid 1px var(--gray-300);
+  display: flex;
 }
 
-.register-label {
+.term-list {
+  margin: 0;
+}
+
+.register-terms .register-label {
   width: 139px;
   height: 44px;
   font-weight: var(--text-600);
@@ -47,10 +51,32 @@
   top: var(--minus-spacing-sm);
 }
 
-.register-terms-desc {
-  position: absolute;
-  font-size: 11px;
-  top: var(--spacing-xl);
-  left: 37px;
-  color: var(--gray-300);
+.term-container {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.term-container label {
+  width: 80%;
+  margin-left: 8.5px;
+  font-size: var(--text-lg);
+  font-style: normal;
+  font-weight: var(--text-600);
+  cursor: pointer;
+}
+
+.check-all-terms {
+  display: flex;
+  align-items: center;
+}
+
+.check-all-terms label {
+  width: 60%;
+}
+
+.term-notify {
+  font-size: 12px;
+  line-height: 5%;
+  color: #898989;
 }

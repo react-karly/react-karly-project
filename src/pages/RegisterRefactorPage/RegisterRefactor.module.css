@@ -42,3 +42,26 @@
   flex-flow: column nowrap;
   border-top: 2px solid var(--black);
 }
+
+.enroll {
+  margin: 0 auto;
+}
+
+.enroll button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 340px;
+  height: 54px;
+  background: #5f0080;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
