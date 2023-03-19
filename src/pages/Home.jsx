@@ -19,10 +19,13 @@ import ArrowRight from '@/assets/main/icon/Arrow.png';
 import ArrowLeft from '@/assets/main/icon/Arrow.svg';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
+import { AddCart } from '../components/AddCart/AddCart';
 import { useReadData } from '../firebase/firestore/useReadData';
+
 
 function Home() {
   // firebase에서 데이터를 받아오는 방법
+
 
   const { readData, data, isLoading, error } = useReadData('products');
 
@@ -139,8 +142,8 @@ function Home() {
   ];
   return (
     <div>
-      {/* <MainPopup /> */}
-
+      <MainPopup />
+      <AddCart />
       <section className={styles['main-banner']}>
         <h2 className={styles['a11y-hidden']}>메인베너</h2>
         {/* 메인베너 */}
