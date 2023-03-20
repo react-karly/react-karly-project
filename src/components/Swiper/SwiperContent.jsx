@@ -4,7 +4,7 @@ import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import jjolmyeon from '@/assets/main/product01.png';
 
 export function SwiperContent({ data, isbanner }) {
-  // console.log(data);
+  console.log(data);
   return isbanner === 'true' ? (
     <a href={data.href}>
       <img src={data.src} alt={data.title} className={styles['banner-img']} />
@@ -13,8 +13,8 @@ export function SwiperContent({ data, isbanner }) {
     <a href="/">
       <img
         className={styles['recommend-products-item__image']}
-        src={jjolmyeon}
-        alt={data.image.alt}
+        src={data.image?.thumbnail}
+        alt={data.image?.alt}
       />
       <div className={styles['recommend-products-item__info']}>
         <h3 className={styles['recommend-products-item__name']}>{data.name}</h3>
