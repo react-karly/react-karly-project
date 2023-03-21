@@ -32,7 +32,6 @@ a {
 }
 
 
-
 .swiper-next-list {
   top: 30%;
   right: 1%;
@@ -40,5 +39,5 @@ a {
   height: 50px;
 }
 .swiper-pagination {
-  width: 130%;
+display: none;
 }

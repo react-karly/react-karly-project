@@ -4,7 +4,6 @@ import styles from './Home.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import mainBannerPrice from '@/assets/main/banner05.png';
 import mainBannerFruit from '@/assets/main/banner01.png';
@@ -66,7 +65,7 @@ function Home() {
 
   return (
     <div>
-      <MainPopup />
+      {/* <MainPopup /> */}
       {/* <AddCart /> */}
 
       {/* 메인베너 */}
@@ -95,6 +94,7 @@ function Home() {
           <h2 className={styles['recommend-products-title']}>
             이 상품 어때요?
           </h2>
+          <div className={styles['ssss']}>
           <SwiperComponent
             isbanner="false"
             spaceBetween={19}
@@ -105,6 +105,7 @@ function Home() {
             modules={[Pagination, Navigation]}
             data={data ? data : []}
           />
+          </div>
         </section>
 
         {/* 퍼플 위크 */}
