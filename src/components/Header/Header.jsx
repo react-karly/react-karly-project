@@ -27,7 +27,7 @@ function Header(props) {
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
             <li className={!isLogin ? styles.signup : ''}>
-              <Link to="/signup">회원가입</Link>
+              <Link to="/signup1">회원가입</Link>
             </li>
             <li>
               <Link to="/login">로그인</Link>
