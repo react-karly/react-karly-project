@@ -32,6 +32,10 @@ li {
   padding: 0;
 }
 
+.list > li::after {
+  color: var(--gray-300);
+}
+
 .product-list {
   position: relative;
   display: grid;
@@ -160,31 +164,4 @@ li {
   display: block;
   margin: 0 auto;
   padding-top: 24px;
-}
-
-.divider,
-.list > li::after {
-  color: var(--gray-300);
-}
-
-.recommend {
-  display: inline-flex;
-}
-
-.divider {
-  background-color: inherit;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.divider:focus {
-  color: var(--content);
-  font-weight: 700;
-}
-
-.notice {
-  position: relative;
-  top: 1px;
-  left: 2px;
 }

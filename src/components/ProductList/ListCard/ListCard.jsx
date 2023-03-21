@@ -1,8 +1,11 @@
-import Notice from '../../../assets/productList/Notice.png';
 import TangTang from '../../../assets/tangtang/thumbnail.jpg';
 import GangNam from '../../../assets/kangnam/thumbnail.jpg';
 import Bacon from '../../../assets/bacon/thumbnail.jpg';
+
 import styles from './ListCard.module.css';
+
+import { LIST_FILTER } from './ListFilter';
+import { ListFilter } from '../ListFilter/ListFilter';
 
 export function ListCard() {
   return (
@@ -11,67 +14,9 @@ export function ListCard() {
         <div className={styles['menu']}>
           <span>총 277건</span>
           <ul className={styles['list']}>
-            <li>
-              <div className={styles['recommend']}>
-                <button
-                  type="button"
-                  className={styles['divider']}
-                  aria-hidden="true"
-                >
-                  추천순
-                </button>
-                <img
-                  className={styles['notice']}
-                  src={Notice}
-                  alt="추천순 도움 말"
-                />
-              </div>
-            </li>
-            <li>
-              <button
-                type="button"
-                className={styles['divider']}
-                aria-hidden="true"
-              >
-                신상품순
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className={styles['divider']}
-                aria-hidden="true"
-              >
-                판매량순
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className={styles['divider']}
-                aria-hidden="true"
-              >
-                혜택순
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className={styles['divider']}
-                aria-hidden="true"
-              >
-                낮은 가격순
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className={styles['divider']}
-                aria-hidden="true"
-              >
-                높은 가격순
-              </button>
-            </li>
+            {LIST_FILTER.map((item, index) => {
+              return <ListFilter list={item} index={index} key={index} />;
+            })}
           </ul>
         </div>
 
