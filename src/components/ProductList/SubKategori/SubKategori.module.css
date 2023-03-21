@@ -36,9 +36,9 @@ input[type='checkbox'] {
   height: 24px;
   cursor: pointer;
   background-repeat: no-repeat;
-  background-image: url('../../assets/productList/isChecked=false.svg');
+  background-image: url('../../../assets/productList/isChecked=false.svg');
 }
 
 input[type='checkbox']:checked {
-  background-image: url('../../assets/productList/isChecked=true.svg');
+  background-image: url('../../../assets/productList/isChecked=true.svg');
 }
