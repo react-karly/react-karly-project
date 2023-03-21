@@ -38,15 +38,14 @@ export function SwiperComponent(props) {
       <div ref={prevRef}>
         <img
           className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
-          src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev }
-          // src={props.isbanner==='true' ? BannerArrowNext : listArrowNext}
+          src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev}
           alt="prevButton"
         />
       </div>
       <div ref={nextRef}>
         <img
           className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
-          src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext }
+          src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext}
           alt="nextButton"
         />
       </div>
