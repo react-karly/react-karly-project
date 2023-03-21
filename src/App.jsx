@@ -4,6 +4,7 @@ import './App.module.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import RegisterRefactor from './pages/RegisterRefactorPage/RegisterRefactor';
+import app from './config/firebase';
 
 function App() {
   return (
