@@ -9,32 +9,36 @@ a {
 .swiper-next-list 
 {
   position: absolute;
-  z-index: 100; 
+  z-index: 100;
 }
 
 .swiper-prev-banner {
   top: 40%;
-  left: 10%;
+  left: 17%;
   width: 50px;
 }
 .swiper-next-banner {
   top: 40%;
-  right: 10%;
+  right: 17%;
   width: 50px;
   height: 50px;
-  transform: rotate(180deg);
 }
+
 .swiper-prev-list {
-  top: 40%;
-  left: 3%;
-  width: 50px;
-}
-.swiper-next-list {
-  top: 40%;
-  right: 3%;
+  top: 30%;
+  left: 1%;
   width: 50px;
   height: 50px;
-  transform: rotate(180deg);
+  /* z-index: 1000 !important; */
+}
+
+
+
+.swiper-next-list {
+  top: 30%;
+  right: 1%;
+  width: 50px;
+  height: 50px;
 }
 .swiper-pagination {
   width: 130%;

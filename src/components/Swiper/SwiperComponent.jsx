@@ -4,8 +4,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './SwiperComponent.css';
-import ArrowRight from '@/assets/main/icon/Arrow.png';
-import ArrowLeft from '@/assets/main/icon/Arrow.svg';
+import BlackArrowPrev from '@/assets/main/icon/BlackArrow-prev.png';
+import BlackArrowNext from '@/assets/main/icon/BlackArrow-next.png';
+import WhiteArrowPrev from '@/assets/main/icon/WhiteArrow-prev.png';
+import WhiteArrowNext from '@/assets/main/icon/WhiteArrow-next.png';
+
+
 import { SwiperContent } from './SwiperContent';
 
 export function SwiperComponent(props) {
@@ -34,14 +38,15 @@ export function SwiperComponent(props) {
       <div ref={prevRef}>
         <img
           className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
-          src={ArrowRight}
+          src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev }
+          // src={props.isbanner==='true' ? BannerArrowNext : listArrowNext}
           alt="prevButton"
         />
       </div>
       <div ref={nextRef}>
         <img
           className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
-          src={ArrowLeft}
+          src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext }
           alt="nextButton"
         />
       </div>

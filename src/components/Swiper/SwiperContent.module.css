@@ -16,6 +16,7 @@
   font-size: 16px;
   margin-bottom: 10px;
   margin-top: 16px;
+  line-height: 150%;
   /* overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2; 
@@ -27,8 +28,8 @@
 
 /* 주황색 할인% */
 .products-item__sale-price {
-  font-weight: var(--text-600);
-  font-size: 18px;
+  font-weight: var(--text-500);
+  font-size: 19px;
   color: var(--accent-yellow);
   margin-right: 8px;
 }
@@ -36,7 +37,7 @@
 /* 상품 가격 */
 .products-item__price {
   font-weight: var(--text-600);
-  font-size: 18px;
+  font-size: 19px;
 }
 
 /*  줄쳐진 원가 */
