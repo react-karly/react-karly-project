@@ -12,17 +12,17 @@
 /* 메인배너 밑부분 전체 */
 .main {
   width: 1050px;
-}
-main {
-  /* max-width: 1050px; */
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+/* .main {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+} */
 
 /* 이 상품 어때요 h2텍스트 */
 .recommend-products-title {
-  /* background-color: rgb(20, 225, 51); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,72 +33,7 @@ main {
   margin-bottom: 40px;
 }
 
-/* 이 상품 어때요 스와이퍼 item 4개 */
-/* .recommend-products-item {
- 
-} */
 
-/* 이 상품 어때요 스와이퍼에 a태그 기본(밑줄)효과 제거 */
-.recommend-products-item > a {
-  text-decoration: none;
-  color: var(--balck);
-}
-
-/* 이 상품 어때요 상품 이미지 */
-.recommend-products-item__image {
-  width: 249px;
-  height: 320px;
-  position: relative;
-}
-
-
-/* 이 상품 어때요 상품 이름 */
-.recommend-products-item__name {
-  font-weight: var(--text-400);
-  font-size: 13px;
-  margin-bottom: 8px;
-  margin-top: 16px;
-}
-
-/* 이 상품 어때요 할인% */
-.recommend-products-item__discount {
-  font-weight: var(--text-600);
-  font-size: var(--text-lg);
-  color: var(--accent-yellow);
-  margin-right: 8px;
-}
-
-/* 이 상품 어때요 상품 가격 */
-.recommend-products-item__price {
-  font-weight: var(--text-600);
-  font-size: var(--text-lg);
-}
-
-/*  이 상품 어때요 원가 */
-.recommend-products-item__originalPrice {
-  display: block;
-  font-weight: var(--text-400);
-  font-size: var(--text-xs);
-  color: var(--gray-400);
-  margin-top: 8px;
-  text-decoration: line-through;
-}
-
-/* 이 상품 어때요 장바구니 아이콘 버튼 */
-.recommend-products-item__cartIconBtn {
-  all: unset;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-/* 이 상품 어때요 장바구니 아이콘 버튼 (프로쉬만) */
-/* .recommend-products-item___cartIconBtn {
-  all: unset;
-  position: absolute;
-  top: 65%;
-  left: 76%;
-} */
 
 /* 퍼플 위크 배너 */
 .line-banner {

@@ -1,47 +1,69 @@
+/* 배너 이미지 */
 .banner-img {
   width: 100%;
 }
-.sale-price {
-  color: #fa622f;
-  padding-right: 10px;
+
+/* 상품 이미지 */
+.products-item__image {
+  width: 249px;
+  height: 320px;
+  position: relative;
 }
-.origin-price {
+
+/* 상품 이름 */
+.products-item__name {
+  font-weight: var(--text-500);
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 16px;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  white-space: nowrap; */
+  /* line-height: 1.2em; */
+}
+
+/* 주황색 할인% */
+.products-item__sale-price {
+  font-weight: var(--text-600);
+  font-size: 18px;
+  color: var(--accent-yellow);
+  margin-right: 8px;
+}
+
+/* 상품 가격 */
+.products-item__price {
+  font-weight: var(--text-600);
+  font-size: 18px;
+}
+
+/*  줄쳐진 원가 */
+.products-item__origin-price {
+  display: block;
+  font-weight: var(--text-400);
+  font-size: 15px;
+  color: var(--gray-300);
+  margin-top: 5px;
+  text-decoration: line-through;
+}
+
+/* 상품 후기 */
+.products-item__review{
+  display: block;
   color: #898989;
   font-weight: 300;
   font-size: 13px;
-  text-decoration: line-through;
-  margin-left: 2px;
+  margin-top: 10px;
 }
-.recommend-products-item__image {
-  width: 249px;
-  height: 320px;
-}
-.recommend-products-item__name {
-  font-weight: var(--text-400);
-  font-size: 13px;
-  margin-bottom: 8px;
-  margin-top: 16px;
 
-  width: 250px;
-  height: 30px;
-  padding: 0 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2; /* 라인수 */
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-  white-space: nowrap;
-  line-height: 1.2em;
-}
-/* 이 상품 어때요 상품 가격 */
-.recommend-products-item__price {
-  font-weight: var(--text-600);
-  font-size: var(--text-lg);
-}
-/* 이 상품 어때요 장바구니 아이콘 버튼 */
-.recommend-products-item__cartIconBtn {
+/* 장바구니 아이콘 버튼 */
+.products-item__cartIconBtn {
   all: unset;
   position: absolute;
-  top: 68%;
-  left: 76%;
+  top: 260px;
+  right: 15px;
+
 }
+
