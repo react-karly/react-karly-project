@@ -5,7 +5,6 @@
 
 /* 팝업창 전체 영역 */
 .popup-container {
-  display: none;
   background-color: #ffffff;
   width: 440px;
   height: 672px;
