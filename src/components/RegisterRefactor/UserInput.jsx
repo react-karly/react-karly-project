@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Btn } from './Btn';
 import { Input } from './Input';
 import styles from './UserInput.module.css';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { async } from '@firebase/util';
 
-export function UserInput() {
+export function UserInput({
+  onChangeEmail,
+  onChangePassword,
+  onChangePasswordConfirm,
+  onChangeName,
+  onChangePhoneNumber,
+  onChangeGender,
+  onChangeBirthYear,
+  onChangeBirthMonth,
+  onChangeBirthDay,
+}) {
+  const [error, setError] = useState(false);
+
+  const [authObj, setAuthObj] = useState({
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    name: '',
+    phone: '',
+    address: '',
+    gender: '',
+    birthYear: '',
+    birthMonth: '',
+    birthDay: '',
+    termsOfUse: false,
+    termsOfPersonalInfo: false,
+    termsOfAge: false,
+  });
+
   return (
     <div>
       <ul>
@@ -11,9 +41,11 @@ export function UserInput() {
           <Input
             labelClassName="register-label-required"
             input={{
-              placeholder: '아이디를 입력해주세요.',
+              placeholder: 'marketkarly@karly.com',
             }}
-            title="아이디"
+            title="아이디(이메일)"
+            type="email"
+            onChange={onChangeEmail}
           />
           <Btn btnTitle="중복확인" buttonClassName="small-btn" />
         </li>
@@ -22,6 +54,8 @@ export function UserInput() {
             labelClassName="register-label-required"
             input={{ placeholder: '비밀번호를 입력해주세요.' }}
             title="비밀번호"
+            type="password"
+            onChange={onChangePassword}
           />
         </li>
         <li>
@@ -29,28 +63,34 @@ export function UserInput() {
             labelClassName="register-label-required"
             input={{ placeholder: '비밀번호를 한번 더 입력해주세요.' }}
             title="비밀번호 확인"
+            type="password"
+            onChange={onChangePasswordConfirm}
           />
+          {error && <span>비밀번호가 일치하지 않습니다.</span>}
         </li>
         <li>
           <Input
             labelClassName="register-label-required"
             input={{ placeholder: '이름을 입력해주세요.' }}
             title="이름"
+            onChange={onChangeName}
           />
         </li>
-        <li>
+        {/* <li>
           <Input
             labelClassName="register-label-required"
             input={{ placeholder: '예) marketkarly@karly.com' }}
             title="이메일"
+            type="email"
           />
           <Btn btnTitle="중복확인" buttonClassName="small-btn" />
-        </li>
+        </li> */}
         <li>
           <Input
             labelClassName="register-label-required"
             input={{ placeholder: '숫자만 입력해주세요.' }}
             title="휴대폰"
+            onChange={onChangePhoneNumber}
           />
           <Btn btnTitle="인증번호 받기" buttonClassName="small-btn" />
         </li>
@@ -72,6 +112,7 @@ export function UserInput() {
               id="gender-male"
               name="gender"
               value="male"
+              onChange={onChangeGender}
             />
             <label htmlFor="gender-male">남자</label>
             <input
@@ -80,6 +121,7 @@ export function UserInput() {
               id="gender-female"
               name="gender"
               value="female"
+              onChange={onChangeGender}
             />
             <label htmlFor="gender-female">여자</label>
             <input
@@ -88,6 +130,7 @@ export function UserInput() {
               id="gender-none"
               name="gender"
               value="none"
+              onChange={onChangeGender}
             />
             <label htmlFor="gender-none">선택안함</label>
           </div>
@@ -106,6 +149,7 @@ export function UserInput() {
               name="birth-year"
               placeholder="YYYY"
               aria-hidden="true"
+              onChange={onChangeBirthYear}
             />
             <span aria-hidden="true" className={styles['birth-between']}>
               /
@@ -121,6 +165,7 @@ export function UserInput() {
               name="birth-month"
               placeholder="MM"
               aria-hidden="true"
+              onChange={onChangeBirthMonth}
             />
             <span aria-hidden="true" className={styles['birth-between']}>
               /
@@ -136,6 +181,7 @@ export function UserInput() {
               name="birth-day"
               placeholder="DD"
               aria-hidden="true"
+              onChange={onChangeBirthDay}
             />
           </div>
         </li>
@@ -145,11 +191,11 @@ export function UserInput() {
             <input
               className={styles['a11y-hidden']}
               type="radio"
-              id="recommand-id"
+              id="recommend-id"
               name="extra"
-              value="recommand-id"
+              value="recommend-id"
             />
-            <label htmlFor="recommand-id">친구초대 추천인 아이디</label>
+            <label htmlFor="recommend-id">친구초대 추천인 아이디</label>
             <input
               className={styles['a11y-hidden']}
               type="radio"

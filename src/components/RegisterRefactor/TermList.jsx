@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './TermList.module.css';
-import { RegisterTOS } from './../Register/RegisterTOS';
+import { RegisterTOS } from '../Register/RegisterTOS';
 
-export function TermList() {
+export function TermList({
+  onChangeTermsOfUse,
+  onChangeTermsOfPersonalInfo,
+  onChangeTermsOfEvent,
+  onChangeTermsOfAge,
+}) {
   return (
     <ul className={styles['register-terms']}>
       <li>
@@ -28,21 +33,25 @@ export function TermList() {
             terms="이용약관 동의"
             requiredOrOptional="필수"
             id="terms-of-use1"
+            onChangeTermsOfUse={onChangeTermsOfUse}
           />
           <RegisterTOS
             terms="개인정보 수집 · 이용 동의"
             requiredOrOptional="필수"
             id="terms-of-use2"
+            onChangeTermsOfPersonalInfo={onChangeTermsOfPersonalInfo}
           />
           <RegisterTOS
             terms="무료배송, 할인쿠폰 등 혜택/정보 수신 동의"
             requiredOrOptional="선택"
             id="terms-of-use3"
+            onChangeTermsOfEvent={onChangeTermsOfEvent}
           />
           <RegisterTOS
             terms="본인은 만 14세 이상입니다."
             requiredOrOptional="필수"
             id="terms-of-use4"
+            onChangeTermsOfAge={onChangeTermsOfAge}
           />
         </ul>
       </li>

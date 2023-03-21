@@ -7,6 +7,8 @@ export function Input({
   labelClassName,
   spanClassName,
   inputClassName,
+  type,
+  onChange,
 }) {
   return (
     <li>
@@ -16,9 +18,10 @@ export function Input({
       </label>
       <input
         className={style[inputClassName]}
-        type="text"
+        type={type}
         required
         placeholder={placeholder}
+        onChange={onChange}
       />
     </li>
   );
