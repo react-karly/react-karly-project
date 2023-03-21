@@ -8,7 +8,7 @@ import { LIST_FILTER } from './ListFilter';
 import { ListCard } from '../ListCard/ListCard';
 import { ListFilter } from '../ListFilter/ListFilter';
 
-export function ListCards() {
+export function ListCards({ props }) {
   return (
     <>
       <div className={styles['group']}>
@@ -21,7 +21,9 @@ export function ListCards() {
           </ul>
         </div>
         <div className={styles['product-list']}>
-          <ListCard />
+          {props.map((item, index) => {
+            return <ListCard props={item} key={index} />;
+          })}
         </div>
       </div>
     </>
