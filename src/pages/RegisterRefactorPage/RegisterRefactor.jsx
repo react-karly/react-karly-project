@@ -135,7 +135,7 @@ function RegisterRefactor() {
           />
 
           <div className={styles.enroll}>
-            <button type="submit" onClick={signUp}>
+            <button type="button" onClick={signUp}>
               가입하기
             </button>
           </div>
