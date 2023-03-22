@@ -42,6 +42,7 @@ function Cart(props) {
     initialSelectedCount(storageData)
   );
   const [totalPrice, setTotalPrice] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
 
   const [typeArray, setTypeArray] = useState(filterType(productList));
 
@@ -52,6 +53,15 @@ function Cart(props) {
       ({ stock, price }) => (total += stock * parseInt(price))
     );
     setTotalPrice(total);
+  };
+
+  const calculateSalePrice = () => {
+    let saleTotal = 0;
+    const selectedProductList = filterSelectedProducts(productList);
+    selectedProductList.map(({ stock, price, salePrice }) => {
+      if (salePrice) saleTotal += stock * parseInt(price - salePrice);
+    });
+    setSalePrice(saleTotal);
   };
 
   const handleAllCheck = () => {
@@ -100,8 +110,9 @@ function Cart(props) {
     }
 
     calculateTotalPrice();
+    calculateSalePrice();
     localStorage.setItem('cartItem', JSON.stringify([...productList]));
-  }, [productList, selectedCount, totalPrice]);
+  }, [productList, selectedCount, totalPrice, salePrice]);
 
   if (productList.length === 0)
     return (
@@ -226,7 +237,7 @@ function Cart(props) {
               </div>
               <div>
                 <span>상품할인금액</span>
-                <span>0원</span>
+                <span>{`-${priceTemplate(salePrice)}원`}</span>
               </div>
               <div>
                 <span>배송비</span>
@@ -237,7 +248,9 @@ function Cart(props) {
               <span className={styles['total-text']}>결제예정금액</span>
               <span className={styles['total-number']}>
                 <strong>
-                  {selectedCount === 0 ? '0' : priceTemplate(totalPrice + 3000)}
+                  {selectedCount === 0
+                    ? '0'
+                    : priceTemplate(totalPrice - salePrice + 3000)}
                 </strong>
                 원
               </span>
