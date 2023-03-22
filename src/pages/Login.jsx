@@ -4,6 +4,14 @@ import { Btn } from '../components/Register/Btn';
 import { Input } from '../components/Register/Input';
 import login from '../pages/Login.module.css';
 import { auth, googleProvider } from '../config/firebase';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import {
+  isLoggedInState,
+  errorState,
+  emailState,
+  passwordState,
+} from '../atoms/auth';
+
 import {
   getAuth,
   signInWithPopup,
@@ -13,19 +21,19 @@ import {
 } from 'firebase/auth';
 
 function Login() {
-  const [error, setError] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
+  const [email, setEmail] = useRecoilState(emailState);
+  const [password, setPassword] = useRecoilState(passwordState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const [error, setError] = useRecoilState(errorState);
 
   const auth = getAuth();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setIsLogin(true);
+        setIsLoggedIn(true);
       } else {
-        setIsLogin(false);
+        setIsLoggedIn(false);
       }
     });
     return unsubscribe;
@@ -37,22 +45,30 @@ function Login() {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       console.log(result);
+      setError(false);
+      setIsLoggedIn(true); // 로그인이 성공했을 때만 isLogin 값을 true로 업데이트
     } catch (err) {
       console.error(err);
+      setError(true);
     }
   };
 
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+      setError(false);
     } catch (err) {
       console.error(err);
+      setError(true);
     }
   };
 
   const logout = async () => {
     try {
       await signOut(auth);
+      setEmail('');
+      setPassword('');
+      setIsLoggedIn(false);
     } catch (err) {
       console.error(err);
     }
@@ -82,8 +98,10 @@ function Login() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {isLogin ? '로그인 됨' : '로그인 안됨'}
-              {error && <span>아이디, 비밀번호를 확인해주세요!</span>}
+              {isLoggedIn ? '로그인 됨' : '로그인 안됨'}
+              {useRecoilValue(errorState) && (
+                <span>아이디, 비밀번호를 확인해주세요!</span>
+              )}
               <ul>
                 <li>
                   <a href="#">아이디 찾기</a>
