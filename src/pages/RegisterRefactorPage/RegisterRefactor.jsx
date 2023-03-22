@@ -57,7 +57,7 @@ function RegisterRefactor() {
         authObj.password
       );
       console.log(6666, result);
-      await addDoc(usersCollectionRef, {
+      const data = await addDoc(usersCollectionRef, {
         email: authObj.email,
         password: authObj.password,
         passwordConfirm: authObj.passwordConfirm,
@@ -68,11 +68,12 @@ function RegisterRefactor() {
         birthYear: authObj.birthYear,
         birthMonth: authObj.birthMonth,
         birthDay: authObj.birthDay,
-        termsOfUse: authObj.termsOfUse,
-        termsOfPersonalInfo: authObj.termsOfPersonalInfo,
-        termsOfEvent: authObj.termsOfEvent,
-        termsOfAge: authObj.termsOfAge,
+        termsOfUse: Boolean(authObj.termsOfUse),
+        termsOfPersonalInfo: Boolean(authObj.termsOfPersonalInfo),
+        termsOfEvent: Boolean(authObj.termsOfEvent),
+        termsOfAge: Boolean(authObj.termsOfAge),
       });
+      console.log(7676, data);
     } catch (err) {
       console.error(err);
     }

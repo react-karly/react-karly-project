@@ -32,25 +32,25 @@ export function TermList({
           <RegisterTOS
             terms="이용약관 동의"
             requiredOrOptional="필수"
-            id="terms-of-use1"
+            id="terms-of-use"
             onChangeTermsOfUse={onChangeTermsOfUse}
           />
           <RegisterTOS
             terms="개인정보 수집 · 이용 동의"
             requiredOrOptional="필수"
-            id="terms-of-use2"
+            id="terms-of-personal"
             onChangeTermsOfPersonalInfo={onChangeTermsOfPersonalInfo}
           />
           <RegisterTOS
             terms="무료배송, 할인쿠폰 등 혜택/정보 수신 동의"
             requiredOrOptional="선택"
-            id="terms-of-use3"
+            id="terms-of-event"
             onChangeTermsOfEvent={onChangeTermsOfEvent}
           />
           <RegisterTOS
             terms="본인은 만 14세 이상입니다."
             requiredOrOptional="필수"
-            id="terms-of-use4"
+            id="terms-of-age"
             onChangeTermsOfAge={onChangeTermsOfAge}
           />
         </ul>
