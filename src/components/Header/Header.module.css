@@ -92,10 +92,12 @@ a {
 
 .market {
   color: var(--primary);
+  min-width: 94px;
 }
 
 .beauty {
   color: var(--gray-400);
+  min-width: 94px;
 }
 
 .new {
