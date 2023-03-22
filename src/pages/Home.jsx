@@ -11,16 +11,29 @@ import mainBannerCard from '@/assets/main/banner02.png';
 import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
-import {AddCart} from '../components/AddCart/AddCart';
+import { AddCart } from '../components/AddCart/AddCart';
 import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
   // firebase에서 데이터를 받아오는 방법
-  const { readData, data, isLoading, error } = useReadData('products');
+
+  const {
+    readData: readProductsData,
+    data: productsData,
+    isLoading: isProductsDataLoading,
+    error: productsDataError,
+  } = useReadData('products');
+  const {
+    readData: readBannerData,
+    data: bannerData,
+    isLoading: isBannerDataLoading,
+    error: bannerDateError,
+  } = useReadData('banner');
 
   async function handleReadData() {
     // 모든 데이터를 가져옵니다.
-    readData();
+    readProductsData();
+    readBannerData();
 
     // 특정 도큐멘트 데이터만 가져옵니다.
     // await readData('demo');
@@ -29,41 +42,7 @@ function Home() {
     handleReadData();
   }, []);
 
-  const bannerMockData = [
-    {
-      id: 1,
-      title: '제목입니다.',
-      desc: '설명입니다',
-      price: '가격입니다',
-      src: mainBannerPrice,
-      href: '/',
-    },
-    {
-      id: 2,
-      title: '제목입니다.',
-      desc: '설명입니다',
-      price: '가격입니다',
-      src: mainBannerFruit,
-      href: '/',
-    },
-    {
-      id: 3,
-      title: '제목입니다.',
-      desc: '설명입니다',
-      price: '가격입니다',
-      src: mainBannerPurple,
-      href: '/',
-    },
-    {
-      id: 4,
-      title: '제목입니다.',
-      desc: '설명입니다',
-      price: '가격입니다',
-      src: mainBannerCard,
-      href: '/',
-    },
-  ];
-
+  
   return (
     <div>
       <MainPopup />
@@ -85,7 +64,7 @@ function Home() {
             type: 'fraction',
           }}
           modules={[Pagination, Navigation, Autoplay]}
-          data={bannerMockData}
+          data={bannerData ? bannerData : []}
         />
       </section>
 
@@ -96,16 +75,16 @@ function Home() {
             이 상품 어때요?
           </h2>
           <div className={styles['ssss']}>
-          <SwiperComponent
-            isbanner="false"
-            spaceBetween={19}
-            slidesPerView={4}
-            slidesPerGroup={4}
-            pagination={{ clickable: true, type: 'false' }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            data={data ? data : []}
-          />
+            <SwiperComponent
+              isbanner="false"
+              spaceBetween={19}
+              slidesPerView={4}
+              slidesPerGroup={4}
+              pagination={{ clickable: true, type: 'false' }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              data={productsData ? productsData : []}
+            />
           </div>
         </section>
 
@@ -133,7 +112,7 @@ function Home() {
             pagination={{ clickable: true, type: 'false' }}
             navigation={true}
             modules={[Pagination, Navigation]}
-            data={data ? data : []}
+            data={productsData ? productsData : []}
           />
         </section>
       </main>
