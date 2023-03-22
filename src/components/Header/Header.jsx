@@ -13,7 +13,43 @@ import bar from '@/assets/header/bar.png';
 import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
+
+// 유림 추가
+import { useRecoilState } from 'recoil';
+import {
+  getAuth,
+  signInWithPopup,
+  signOut,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
+
+import {
+  isLoggedInState,
+  errorState,
+  emailState,
+  passwordState,
+} from '../atoms/auth';
+//
+
 const Header = (props) => {
+  // 유림 추가
+  const auth = getAuth();
+  const [email, setEmail] = useRecoilState(emailState);
+  const [password, setPassword] = useRecoilState(passwordState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setEmail('');
+      setPassword('');
+      setIsLoggedIn(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  //
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -39,12 +75,18 @@ const Header = (props) => {
       <div className={styles.wrapper}>
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
-            <li className={pathname === '/signup1' ? styles.selected : ''}>
-              <Link to="/signup1">회원가입</Link>
-            </li>
-            <li className={pathname === '/login' ? styles.selected : ''}>
-              <Link to="/login">로그인</Link>
-            </li>
+            {isLoggedIn ? (
+              <li onClick={logout}>로그아웃</li>
+            ) : (
+              <>
+                <li className={pathname === '/signup1' ? styles.selected : ''}>
+                  <Link to="/signup1">회원가입</Link>
+                </li>
+                <li className={pathname === '/login' ? styles.selected : ''}>
+                  <Link to="/login">로그인</Link>
+                </li>
+              </>
+            )}
             <li>고객센터</li>
           </ul>
         </section>
