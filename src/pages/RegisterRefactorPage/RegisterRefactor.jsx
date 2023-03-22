@@ -7,8 +7,6 @@ import { db } from '../../config/firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 
 function RegisterRefactor() {
-  const [error, setError] = useState(false);
-
   const [authObj, setAuthObj] = useState({
     email: '',
     password: '',
@@ -25,7 +23,6 @@ function RegisterRefactor() {
     termsOfEvent: false,
     termsOfAge: false,
   });
-  const [users, setUsers] = useState([]);
 
   const usersCollectionRef = collection(db, 'users');
 
@@ -45,15 +42,11 @@ function RegisterRefactor() {
     getUser();
   }, []);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isSignUp, setIsSignUp] = useState(true);
-
   const auth = getAuth();
 
   const signUp = async () => {
     if (authObj.password !== authObj.passwordConfirm) {
-      console.error('비밀번호가 일치하지 않습니다.');
+      alert('비밀번호가 일치하지 않습니다.');
       return;
     }
     console.log(5959, authObj);
@@ -112,7 +105,7 @@ function RegisterRefactor() {
               setAuthObj({ ...authObj, address: e.target.value })
             }
             onChangeGender={(e) =>
-              setAuthObj({ ...authObj, gender: e.target.checked })
+              setAuthObj({ ...authObj, [e.target.name]: e.target.value })
             }
             onChangeBirthYear={(e) =>
               setAuthObj({ ...authObj, birthYear: e.target.value })
@@ -127,16 +120,16 @@ function RegisterRefactor() {
 
           <TermList
             onChangeTermsOfUse={(e) =>
-              setAuthObj({ ...authObj, termsOfUse: e.target.checked })
+              setAuthObj({ ...authObj, termsOfUse: e })
             }
             onChangeTermsOfPersonalInfo={(e) =>
-              setAuthObj({ ...authObj, termsOfPersonalInfo: e.target.checked })
+              setAuthObj({ ...authObj, termsOfPersonalInfo: e })
             }
             onChangeTermsOfEvent={(e) =>
-              setAuthObj({ ...authObj, termsOfEvent: e.target.checked })
+              setAuthObj({ ...authObj, termsOfEvent: e })
             }
             onChangeTermsOfAge={(e) =>
-              setAuthObj({ ...authObj, termsOfAge: e.target.checked })
+              setAuthObj({ ...authObj, termsOfAge: e })
             }
           />
 

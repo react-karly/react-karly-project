@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Btn } from './Btn';
 import { Input } from './Input';
 import styles from './UserInput.module.css';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { async } from '@firebase/util';
 
 export function UserInput({
   onChangeEmail,
@@ -17,22 +15,6 @@ export function UserInput({
   onChangeBirthDay,
 }) {
   const [error, setError] = useState(false);
-
-  const [authObj, setAuthObj] = useState({
-    email: '',
-    password: '',
-    passwordConfirm: '',
-    name: '',
-    phone: '',
-    address: '',
-    gender: '',
-    birthYear: '',
-    birthMonth: '',
-    birthDay: '',
-    termsOfUse: false,
-    termsOfPersonalInfo: false,
-    termsOfAge: false,
-  });
 
   return (
     <div>
@@ -109,30 +91,30 @@ export function UserInput({
             <input
               className={styles['a11y-hidden']}
               type="radio"
-              id="gender-male"
+              id="male"
               name="gender"
               value="male"
               onChange={onChangeGender}
             />
-            <label htmlFor="gender-male">남자</label>
+            <label htmlFor="male">남자</label>
             <input
               className={styles['a11y-hidden']}
               type="radio"
-              id="gender-female"
+              id="female"
               name="gender"
               value="female"
               onChange={onChangeGender}
             />
-            <label htmlFor="gender-female">여자</label>
+            <label htmlFor="female">여자</label>
             <input
               className={styles['a11y-hidden']}
               type="radio"
-              id="gender-none"
+              id="none"
               name="gender"
               value="none"
               onChange={onChangeGender}
             />
-            <label htmlFor="gender-none">선택안함</label>
+            <label htmlFor="none">선택안함</label>
           </div>
         </li>
         <li>

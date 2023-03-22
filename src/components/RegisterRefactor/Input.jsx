@@ -1,14 +1,7 @@
 import React from 'react';
 import styles from './Input.module.css';
 
-export function Input({
-  title,
-  input,
-  labelClassName,
-  type,
-  onChangeEmail,
-  onChangePassword,
-}) {
+export function Input({ title, input, labelClassName, type, onChange }) {
   return (
     <>
       <label className={styles[labelClassName]}>{title}</label>
@@ -16,7 +9,7 @@ export function Input({
         type={type}
         className={styles['register-input']}
         {...input}
-        onChange={onChangeEmail || onChangePassword}
+        onChange={onChange}
       />
     </>
   );

@@ -10,16 +10,16 @@ export function RegisterTOS({
   onChangeTermsOfEvent,
   onChangeTermsOfAge,
 }) {
-  const handleChange = (event) => {
-    console.log(event); // 이벤트 객체가 제대로 전달되었는지 확인
+  const handleChange = (e) => {
+    console.log(e); // 이벤트 객체가 제대로 전달되었는지 확인
     if (onChangeTermsOfUse && id === 'terms-of-use1') {
-      onChangeTermsOfUse(event.target.checked);
+      onChangeTermsOfUse(e.target.checked);
     } else if (onChangeTermsOfPersonalInfo && id === 'terms-of-use2') {
-      onChangeTermsOfPersonalInfo(event.target.checked);
+      onChangeTermsOfPersonalInfo(e.target.checked);
     } else if (onChangeTermsOfEvent && id === 'terms-of-use3') {
-      onChangeTermsOfEvent(event.target.checked);
+      onChangeTermsOfEvent(e.target.checked);
     } else if (onChangeTermsOfAge && id === 'terms-of-use4') {
-      onChangeTermsOfAge(event.target.checked);
+      onChangeTermsOfAge(e.target.checked);
     }
   };
 
