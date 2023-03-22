@@ -10,18 +10,36 @@ a {
   text-decoration: none;
   color: #000;
 }
-.banner {
+
+.container {
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+}
+.banner-wrapper {
   background-color: #5f0080;
-  text-align: center;
-  padding: 12px 0;
   color: #fff;
 }
-.banner span {
-  font-weight: 600;
+
+.banner-box {
+  width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-box p {
+  margin-left: 383px;
+}
+.banner-box img {
+  margin-left: auto;
+  transform: translateX(30%);
+}
+.banner-box span {
+  font-weight: var(--text-600);
 }
 
 .wrapper {
-  width: 1050px;
+  max-width: 1050px;
   margin: 0 auto;
 }
 .member {
@@ -32,15 +50,15 @@ a {
 .member-wrapper {
   position: relative;
   display: flex;
-  gap: 20px;
-  padding-top: 12px;
-  padding-bottom: 20px;
-  font-size: 12px;
-  color: #333;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-md);
+  font-size: var(--text-xs);
+  color: var(--content);
 }
 .member-wrapper li a {
-  color: #333;
-  font-weight: 400;
+  color: var(--content);
+  font-weight: var(--text-400);
 }
 .member-wrapper li a::after {
   content: '';
@@ -50,36 +68,49 @@ a {
   background-color: #d9d9d9;
   margin-left: 10px;
 }
-.member-wrapper .signup a {
-  color: #5f0080;
+
+.member-wrapper .selected a {
+  color: var(--primary);
 }
 .header-main {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 .header-main > div {
   display: flex;
   align-items: center;
 }
-.header-main > div button:last-child img {
-  margin-bottom: 12px;
-}
+
 .header-main button {
-  all: unset;
   cursor: pointer;
-  font-size: 18px;
-  margin: 0 12px;
-  font-weight: 500;
-}
-.header-main button:hover {
-  color: #5f0080;
+  font-size: var(--text-md);
+  padding: 2px var(--spacing-sm);
+  font-weight: var(--text-600);
+  background-color: transparent;
+  border: none;
 }
 
+.market {
+  color: var(--primary);
+}
+
+.beauty {
+  color: var(--gray-400);
+}
+
+.new {
+  position: relative;
+  top: var(--minus-spacing-xs);
+  left: 2px;
+}
 .header-main .quick-menu {
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-md);
+}
+
+.quick-menu {
+  margin-left: 172px;
+  transform: translateX(8px);
 }
 .quick-menu img:hover {
   filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
@@ -87,90 +118,28 @@ a {
 }
 
 .search-box {
-  position: relative;
-}
-.search-box .search-icon {
-  position: absolute;
-  left: 80px;
-}
-.search-input {
-  all: unset;
-  position: absolute;
-  right: -115px;
-
-  width: 384px;
-  height: 46px;
-
-  padding-left: 14px;
-  border: 1px solid #5f0080;
-  border-radius: 6px;
-}
-
-.search-input::placeholder {
-  opacity: 0.8;
-  font-size: 16px;
-}
-
-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 63px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  width: 400px;
 }
-.dropdown {
-  display: flex;
-  align-items: center;
-  height: 100%;
+.search-box .search-icon {
+  margin-right: var(--spacing-sm);
 }
-.dropdown:hover {
-  color: #5f0080;
-}
-.dropdown img {
-  margin-right: 15px;
-}
-
-.menu-wrapper {
-  display: flex;
-  margin-left: 30px;
-}
-.menu-wrapper li a {
-  cursor: auto;
+.search-input {
+  width: 344px;
+  border: none;
+  padding: 13px 0 13px 20px;
+  background-color: transparent;
 }
 
-.menu-wrapper li {
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  height: 37px;
-  padding-top: 18px;
-  line-height: 20px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
+.search-input:focus {
+  outline: none;
 }
-
-.menu-wrapper {
-  align-items: center;
-  padding: 4px;
-  gap: 4px;
-  cursor: default;
-}
-.menu-wrapper li a span:hover {
-  color: #5f0080;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.notify {
-  height: 19px;
-  padding: 6px 16px;
-  border-radius: 18px;
-  border: 1px solid rgb(238, 238, 238);
-  color: rgb(102, 102, 102);
-  font-size: 13px;
-  line-height: 19.2px;
-  letter-spacing: -0.32px;
-  cursor: pointer;
-}
-.notify span {
-  font-weight: 600;
-  color: #5f0080;
+.search-input::placeholder {
+  opacity: 0.8;
+  font-size: var(--text-base);
 }

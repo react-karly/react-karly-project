@@ -1,9 +1,9 @@
 .product {
-  margin-top: 50px;
   margin-left: 1px;
   display: flex;
-  top: 72px;
-  height: 500px;
+  height: 630px;
+  position: sticky;
+  top: 10px;
 }
 
 .navigator {
@@ -11,6 +11,17 @@
   margin-right: 47px;
   display: flex;
   flex-direction: column;
+}
+
+.accordion__wrapper {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.accordion__wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .accordion__button {

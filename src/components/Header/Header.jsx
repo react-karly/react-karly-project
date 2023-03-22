@@ -1,35 +1,48 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
-import { Footer } from '../Footer/Footer';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '@/assets/header/logo.svg';
 import location from '@/assets/header/location.png';
 import heart from '@/assets/header/heart.png';
 import cart from '@/assets/header/cart.png';
-import dropdown from '@/assets/header/hamburger.png';
-import dropdown_active from '@/assets/header/hamburger_active.png';
 import newIcon from '@/assets/header/Vector.png';
 import search from '@/assets/header/Search.png';
-
-function Header(props) {
+import close from '@/assets/header/Close.png';
+import bar from '@/assets/header/bar.png';
+import { Category } from './Category/Category';
+import { ScrollNav } from './ScrollNav/ScrollNav';
+import { NormalNav } from './NormalNav/NormalNav';
+const Header = (props) => {
   const navigate = useNavigate();
-  const [isHover, setIsHover] = useState(false);
-  const [isChecked, setIsChecked] = useState(true);
-  const [isLogin, setIsLogin] = useState(false);
+  const { pathname } = useLocation();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 140);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <header className={styles.container}>
-      <div className={styles.banner}>
-        단 7일, 지금 가입하고 <span>1만원 할인</span> 쿠폰 받아가세요!
+      <div className={styles['banner-wrapper']}>
+        <div className={styles['banner-box']}>
+          <p>
+            지금 가입하고 인기상품<span> 100원</span> 에 받아가세요!
+          </p>
+          <img src={close} alt="배너 닫기" width="42" height="42" />
+        </div>
       </div>
       <div className={styles.wrapper}>
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
-            <li className={!isLogin ? styles.signup : ''}>
+            <li className={pathname === '/signup1' ? styles.selected : ''}>
               <Link to="/signup1">회원가입</Link>
             </li>
-            <li>
+            <li className={pathname === '/login' ? styles.selected : ''}>
               <Link to="/login">로그인</Link>
             </li>
             <li>고객센터</li>
@@ -37,18 +50,16 @@ function Header(props) {
         </section>
         <section className={styles['header-main']}>
           <div>
-            <img src={logo} alt="칼리 로고" />
-            <button
-              className={styles['karly-link-btn']}
-              //   onClick={() => {
-              //     isChecked(false);
-              //   }}
-            >
+            <Link to="/">
+              <img src={logo} alt="칼리 로고" width="82" height="42" />
+            </Link>
+            <button type="button" className={styles.market}>
               마켓컬리
             </button>
-            <button className={styles['karly-link-btn']}>
+            <img src={bar} alt="" width="1" height="14" />
+            <button type="button" className={styles.beauty}>
               뷰티컬리
-              <img src={newIcon} />
+              <img src={newIcon} className={styles.new} width="7" height="7" />
             </button>
           </div>
           <div className={styles['search-box']}>
@@ -63,53 +74,22 @@ function Header(props) {
           </div>
           <div className={styles['quick-menu']}>
             <span>
-              <img src={location} alt="배송지 등록" />
+              <img src={location} alt="배송지 등록" width="36" height="36" />
             </span>
             <span>
-              <img src={heart} alt="찜하기" />
+              <img src={heart} alt="찜하기" width="36" height="36" />
             </span>
-            <span>
-              <img src={cart} alt="장바구니" />
-            </span>
+            <Link to="/cart">
+              <img src={cart} alt="장바구니" width="36" height="36" />
+            </Link>
           </div>
         </section>
-        <nav>
-          <div
-            className={styles.dropdown}
-            onMouseOver={() => setIsHover(true)}
-            onMouseOut={() => setIsHover(false)}
-          >
-            {isHover ? <img src={dropdown_active} /> : <img src={dropdown} />}
-            <div>카테고리</div>
-          </div>
-          <ul className={styles['menu-wrapper']}>
-            <li className={styles.menu}>
-              <Link to="/footer">
-                <span>신상품</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/footer">
-                <span>베스트</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/footer">
-                <span>알뜰쇼핑</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/footer">
-                <span>특가혜택</span>
-              </Link>
-            </li>
-          </ul>
-          <div className={styles.notify}>
-            <span>샛별 · 낮</span> 배송안내
-          </div>
-        </nav>
+        {
+          //navigation
+          isScrolled ? <ScrollNav /> : <NormalNav />
+        }
       </div>
     </header>
   );
-}
+};
 export default Header;

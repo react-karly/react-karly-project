@@ -14,12 +14,12 @@ function CartListItem({
   setSelectedCount,
 }) {
   const handleClickPlus = () => {
-    product.quantity += 1;
+    product.stock += 1;
     setProductList([...productList]);
   };
 
   const handleClickMinus = () => {
-    product.quantity -= 1;
+    product.stock -= 1;
     setProductList([...productList]);
   };
   const handleClickCheckButton = () => {
@@ -29,6 +29,10 @@ function CartListItem({
     setProductList([...productList]);
   };
 
+  const handleDelete = () => {
+    productList.splice(index, 1);
+    setProductList([...productList]);
+  };
   return (
     <>
       <button
@@ -38,7 +42,7 @@ function CartListItem({
       >
         <img
           src={product.isChecked ? checked : unChecked}
-          alt={product.isChecked? "상품 선택 해제하기": "상품 선택하기"}
+          alt={product.isChecked ? '상품 선택 해제하기' : '상품 선택하기'}
           width="24"
           height="24"
         />
@@ -52,15 +56,20 @@ function CartListItem({
       />
       <h4 className={styles.name}>{product.title}</h4>
       <Counter
-        quantity={product.quantity}
+        quantity={product.stock}
         onClickPlus={handleClickPlus}
         onClickMinus={handleClickMinus}
       />
       <span className={styles.price}>
-        {priceTemplate(product.price * product.quantity)}원
+        {priceTemplate(product.price * product.stock)}원
       </span>
-      <button type="button" className={styles.button}>
-        <img src={close} alt={`${product.title} 삭제하기`} width="30" height="30" />
+      <button type="button" className={styles.button} onClick={handleDelete}>
+        <img
+          src={close}
+          alt={`${product.title} 삭제하기`}
+          width="30"
+          height="30"
+        />
       </button>
     </>
   );
