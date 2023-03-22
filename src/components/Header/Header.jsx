@@ -64,7 +64,13 @@ const Header = (props) => {
             <img src={bar} alt="" width="1" height="14" />
             <button type="button" className={styles.beauty}>
               뷰티컬리
-              <img src={newIcon} className={styles.new} width="7" height="7" />
+              <img
+                src={newIcon}
+                alt=""
+                width="7"
+                height="7"
+                className={styles.new}
+              />
             </button>
           </div>
           <div className={styles['search-box']}>
@@ -75,7 +81,11 @@ const Header = (props) => {
               className={styles['search-input']}
               placeholder="검색어를 입력해주세요"
             />
-            <img className={styles['search-icon']} src={search} />
+            <img
+              src={search}
+              alt="검색하기"
+              className={styles['search-icon']}
+            />
           </div>
           <div className={styles['quick-menu']}>
             <span>
