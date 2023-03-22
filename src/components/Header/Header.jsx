@@ -29,7 +29,7 @@ import {
   errorState,
   emailState,
   passwordState,
-} from '../atoms/auth';
+} from '../../atoms/auth';
 //
 
 const Header = (props) => {
