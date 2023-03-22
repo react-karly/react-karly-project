@@ -13,15 +13,20 @@ import bar from '@/assets/header/bar.png';
 import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
+import { throttle } from '../../utils/throttle';
 const Header = (props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 140);
-  };
+  const handleScroll = throttle(() => {
+    if (window.scrollY > document.querySelector('header').offsetHeight - 60) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, 40);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -84,10 +89,7 @@ const Header = (props) => {
             </Link>
           </div>
         </section>
-        {
-          //navigation
-          isScrolled ? <ScrollNav /> : <NormalNav />
-        }
+        {isScrolled ? <ScrollNav /> : <NormalNav />}
       </div>
     </header>
   );
