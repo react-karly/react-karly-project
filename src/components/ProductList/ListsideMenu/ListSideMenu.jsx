@@ -1,6 +1,6 @@
 import styles from './ListSideMenu.module.css';
-import Arrow from '../../assets/cart/arrow.svg';
-import Down from '../../assets/productList/Direction=Down.png';
+import Arrow from '../../../assets/cart/arrow.svg';
+import Down from '../../../assets/productList/Direction=Down.png';
 
 import { MENU_LIST } from './MenuList';
 import { Kategori } from '../Kategori/Kategori';
@@ -23,17 +23,18 @@ export function ListSideMenu() {
             </span>
           </button>
         </div>
-
-        {MENU_LIST.map((item, index) => {
-          return (
-            <Kategori
-              key={index}
-              title={item.title}
-              index={index}
-              list={item.list}
-            />
-          );
-        })}
+        <div className={styles['accordion__wrapper']}>
+          {MENU_LIST.map((item, index) => {
+            return (
+              <Kategori
+                key={index}
+                title={item.title}
+                index={index}
+                list={item.list}
+              />
+            );
+          })}
+        </div>
       </nav>
     </div>
   );

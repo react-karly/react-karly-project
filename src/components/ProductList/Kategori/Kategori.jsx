@@ -1,19 +1,22 @@
 import styles from './Kategori.module.css';
-import Down from '../../assets/cart/Direction=Down.png';
+import Up from '../../../assets/cart/Direction=Up.png';
+import Down from '../../../assets/cart/Direction=Down.png';
 
 import { SubKategori } from '../SubKategori/SubKategori';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export function Kategori({ title, list, index }) {
-  const [clickedIndex, setClickedIndex] = useState(false);
   const [countCheck, setCountCheck] = useState(0);
+  const [buttonSrc, setButtonSrc] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(false);
 
   const alt = `${title} 펼쳐보기`.trim();
 
   const handleClick = useCallback(() => {
     setClickedIndex(!clickedIndex);
-  }, [clickedIndex]);
+    setButtonSrc(!buttonSrc);
+  }, [clickedIndex, buttonSrc]);
 
   return (
     <div className={styles['accordion']}>
@@ -30,8 +33,8 @@ export function Kategori({ title, list, index }) {
             {countCheck}
           </span>
         </div>
-        <span className={styles['arrow-icon']}>
-          <img src={Down} alt={alt} />
+        <span>
+          <img src={buttonSrc ? Up : Down} alt={alt} />
         </span>
       </button>
       <ul
