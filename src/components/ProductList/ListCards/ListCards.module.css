@@ -1,0 +1,45 @@
+.group {
+  width: 783px;
+  margin-bottom: 30px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.list {
+  display: flex;
+  margin: 0 0 0px 0;
+  padding: 0 0 20px 0;
+}
+
+li {
+  list-style: none;
+}
+
+.list > li::after {
+  content: '|';
+  float: right;
+  display: block;
+  padding: 0 5px;
+  font-size: 8px;
+}
+
+.list > li:last-child:after {
+  content: '';
+  padding: 0;
+}
+
+.list > li::after {
+  color: var(--gray-300);
+}
+
+.product-list {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px 17px;
+}
