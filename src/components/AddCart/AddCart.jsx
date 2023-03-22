@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './AddCart.module.css';
 
 export function AddCart() {
+
+  const [modal, setModal] = React.useState(true);
+
   const minus = () => {
     console.log('감소');
   };
@@ -11,7 +14,7 @@ export function AddCart() {
   };
 
   const cancle = () => {
-    console.log('취소');
+  setModal(false);
   };
 
   const addCart = () => {
@@ -19,6 +22,8 @@ export function AddCart() {
   };
 
   return (
+    <div>
+      {modal ? (
     <div>
       <h2 className={styles['a11y-hidden']}>장바구니 담기</h2>
       <div className={styles['add-cart-container']}>
@@ -49,6 +54,8 @@ export function AddCart() {
           <button onClick={addCart} className={styles['add-cart-btn']} type="button">장바구니 담기</button>
   
       </div>
+    </div>
+      ) : null}
     </div>
   );
 }

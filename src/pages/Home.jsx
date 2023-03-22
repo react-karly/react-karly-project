@@ -11,6 +11,7 @@ import mainBannerCard from '@/assets/main/banner02.png';
 import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
+import {AddCart} from '../components/AddCart/AddCart';
 import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
@@ -65,8 +66,8 @@ function Home() {
 
   return (
     <div>
-      {/* <MainPopup /> */}
-      {/* <AddCart /> */}
+      <MainPopup />
+      <AddCart />
 
       {/* 메인베너 */}
       <section className={styles['main-banner']}>
