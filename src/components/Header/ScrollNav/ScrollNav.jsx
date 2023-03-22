@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ScrollHeader.module.css';
+import styles from './ScrollNav.module.css';
 import search from '@/assets/header/Search.png';
 import location from '@/assets/header/location.png';
 import heart from '@/assets/header/heart.png';
@@ -7,9 +7,9 @@ import cart from '@/assets/header/cart.png';
 import { Link } from 'react-router-dom';
 import { Category } from '../Category/Category';
 
-function ScrollHeader(props) {
+function ScrollNav(props) {
   return (
-    <div className={styles['scroll-header-container']}>
+    <nav className={styles['scroll-header-container']}>
       <div className={styles.wrapper}>
         <Category />
         <ul className={styles.navigation}>
@@ -74,8 +74,8 @@ function ScrollHeader(props) {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 
-export default ScrollHeader;
+export { ScrollNav };
