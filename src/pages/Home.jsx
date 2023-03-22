@@ -5,9 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination, Navigation, Autoplay } from 'swiper';
-import mainBannerPrice from '@/assets/main/banner05.png';
-import mainBannerFruit from '@/assets/main/banner01.png';
-import mainBannerCard from '@/assets/main/banner02.png';
 import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
@@ -94,7 +91,7 @@ function Home() {
           <a href="/">
             <img
               className={styles['line-banner-image']}
-              src={mainBannerPurple}
+              src={bannerData ? bannerData[3].src: ""}
               alt="더 풍성해진 10월의 퍼플위크"
             />
           </a>
