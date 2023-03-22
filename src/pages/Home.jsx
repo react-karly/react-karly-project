@@ -8,7 +8,6 @@ import { Pagination, Navigation, Autoplay } from 'swiper';
 import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
-import { AddCart } from '../components/AddCart/AddCart';
 import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
@@ -39,11 +38,9 @@ function Home() {
     handleReadData();
   }, []);
 
-  
   return (
     <div>
       <MainPopup />
-      <AddCart />
 
       {/* 메인베너 */}
       <section className={styles['main-banner']}>
@@ -91,7 +88,7 @@ function Home() {
           <a href="/">
             <img
               className={styles['line-banner-image']}
-              src={bannerData ? bannerData[3].src: ""}
+              src={bannerData ? bannerData[3].src : ''}
               alt="더 풍성해진 10월의 퍼플위크"
             />
           </a>
