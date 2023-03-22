@@ -21,7 +21,11 @@ function FoodType({ type, productList, setProductList, setSelectedCount }) {
         <button type="button" className={styles.button}>
           <img
             src={isShowList ? directionUp : directionDown}
-            alt={isShowList? `${type.title} 리스트 닫기`:`${type.title} 리스트 열기`}
+            alt={
+              isShowList
+                ? `${type.title} 리스트 닫기`
+                : `${type.title} 리스트 열기`
+            }
             width="18"
             height="18"
             onClick={handleShowList}
@@ -33,7 +37,10 @@ function FoodType({ type, productList, setProductList, setSelectedCount }) {
           productList.map((product, index) => {
             if (type.id === product.type) {
               return (
-                <li key={product.id} className={styles['cart-item-container']}>
+                <li
+                  key={`product-${index}`}
+                  className={styles['cart-item-container']}
+                >
                   <CartListItem
                     index={index}
                     product={product}
