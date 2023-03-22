@@ -16,21 +16,10 @@ import { NormalNav } from './NormalNav/NormalNav';
 
 // 유림 추가
 import { useRecoilState } from 'recoil';
-import {
-  getAuth,
-  signInWithPopup,
-  signOut,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-} from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 
-import {
-  isLoggedInState,
-  errorState,
-  emailState,
-  passwordState,
-} from '../../atoms/auth';
-//
+import { isLoggedInState, emailState, passwordState } from '../../atoms/auth';
+// -------------------------
 
 const Header = (props) => {
   // 유림 추가
@@ -49,7 +38,7 @@ const Header = (props) => {
       console.error(err);
     }
   };
-  //
+  // -----------------------
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -75,6 +64,7 @@ const Header = (props) => {
       <div className={styles.wrapper}>
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
+            {/* 유림 추가 */}
             {isLoggedIn ? (
               <li onClick={logout}>로그아웃</li>
             ) : (
@@ -87,6 +77,7 @@ const Header = (props) => {
                 </li>
               </>
             )}
+            {/* 유림 추가 */}
             <li>고객센터</li>
           </ul>
         </section>
