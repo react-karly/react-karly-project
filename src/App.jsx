@@ -4,21 +4,23 @@ import './App.module.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import RegisterRefactor from './pages/RegisterRefactorPage/RegisterRefactor';
-import app from './config/firebase';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <BaseLayout>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Register />} />
-            <Route path="/signup1" element={<RegisterRefactor />} />
-          </Routes>
-        </BaseLayout>
-      </div>
-    </Router>
+    <RecoilRoot>
+      <Router>
+        <div className="App">
+          <BaseLayout>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Register />} />
+              <Route path="/signup1" element={<RegisterRefactor />} />
+            </Routes>
+          </BaseLayout>
+        </div>
+      </Router>
+    </RecoilRoot>
   );
 }
 
