@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '@/assets/header/logo.svg';
 import location from '@/assets/header/location.png';
@@ -11,10 +11,21 @@ import search from '@/assets/header/Search.png';
 import close from '@/assets/header/Close.png';
 import bar from '@/assets/header/bar.png';
 import { Category } from './Category/Category';
-function Header(props) {
+import { ScrollNav } from './ScrollNav/ScrollNav';
+import { NormalNav } from './NormalNav/NormalNav';
+const Header = (props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 140);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <header className={styles.container}>
       <div className={styles['banner-wrapper']}>
@@ -73,36 +84,12 @@ function Header(props) {
             </Link>
           </div>
         </section>
-        <nav className={styles.nav}>
-          <Category />
-          <ul className={styles['menu-wrapper']}>
-            <li className={styles.menu}>
-              <Link to="/product-list">
-                <span>신상품</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/product-list">
-                <span>베스트</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/product-list">
-                <span>알뜰쇼핑</span>
-              </Link>
-            </li>
-            <li className={styles.menu}>
-              <Link to="/product-list">
-                <span>특가혜택</span>
-              </Link>
-            </li>
-          </ul>
-          <div className={styles.notify}>
-            <span>샛별 · 낮</span> 배송안내
-          </div>
-        </nav>
+        {
+          //navigation
+          isScrolled ? <ScrollNav /> : <NormalNav />
+        }
       </div>
     </header>
   );
-}
+};
 export default Header;
