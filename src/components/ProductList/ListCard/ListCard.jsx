@@ -1,6 +1,17 @@
+import { useState } from 'react';
+import { CartModal } from '../CartModal/CartModal';
 import styles from './ListCard.module.css';
 
 export function ListCard({ props }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const salePrice = (
     props.price -
     props.price * props.saleRatio
@@ -16,9 +27,12 @@ export function ListCard({ props }) {
       />
       <button
         type="button"
-        className={styles['cart-icon']}
         aria-label="cart-icon"
+        className={styles['cart-icon']}
+        onClick={openModal}
       ></button>
+      {isModalOpen && <CartModal onClose={closeModal} item={props} />}
+
       <div className={styles['product-info']}>
         <span className={styles['product-info__delivery']}>샛별배송</span>
         <span className={styles['product-info__name']}>{props.name}</span>
