@@ -1,21 +1,20 @@
 import React from 'react';
 import styles from './CartAddedModal.module.css';
 
-function CartAddedModal({products, title}) {
-
-  console.log(products);
-
+function CartAddedModal(props) {
   return (
     <>
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-      <img src={products.image.thumbnail} className={styles.image} alt="" />
-      <div className={styles['text-wrapper']}>
-      <span style={{fontSize:'12px', color: '#999', fontWeight: 'bold'}}>{products.name}</span>
-      <span style={{fontSize:'12px'}}>장바구니에 상품을 담았습니다.</span>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <img src="" alt="" width="46" height="60" className={styles.image} />
+          <div className={styles['text-wrapper']}>
+            <span className={styles.title}>상품이름</span>
+            <span className={styles.content}>
+              장바구니에 상품을 담았습니다.
+            </span>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
     </>
   );
 }
