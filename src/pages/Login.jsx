@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Btn } from '../components/Register/Btn';
 import { Input } from '../components/Register/Input';
 import login from '../pages/Login.module.css';
@@ -19,12 +19,14 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
+import LoginModal from '../components/Login/LoginModal';
 
 function Login() {
   const [email, setEmail] = useRecoilState(emailState);
   const [password, setPassword] = useRecoilState(passwordState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [error, setError] = useRecoilState(errorState);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const auth = getAuth();
 
@@ -47,6 +49,7 @@ function Login() {
       console.log(result);
       setError(false);
       setIsLoggedIn(true); // 로그인이 성공했을 때만 isLogin 값을 true로 업데이트
+      navigate('/'); // 로그인 성공 시 메인으로 리다이렉트
     } catch (err) {
       console.error(err);
       setError(true);
@@ -99,9 +102,7 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {isLoggedIn ? '로그인 됨' : '로그인 안됨'}
-              {useRecoilValue(errorState) && (
-                <span>아이디, 비밀번호를 확인해주세요!</span>
-              )}
+              {useRecoilValue(errorState) && <LoginModal />}
               <ul>
                 <li>
                   <a href="#">아이디 찾기</a>
