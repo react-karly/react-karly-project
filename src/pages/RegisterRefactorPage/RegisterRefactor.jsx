@@ -5,8 +5,10 @@ import { TermList } from './../../components/RegisterRefactor/TermList';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../../config/firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterRefactor() {
+  const navigate = useNavigate();
   const [authObj, setAuthObj] = useState({
     email: '',
     password: '',
@@ -74,6 +76,7 @@ function RegisterRefactor() {
         termsOfAge: Boolean(authObj.termsOfAge),
       });
       console.log(7676, data);
+      navigate('/');
     } catch (err) {
       console.error(err);
     }
