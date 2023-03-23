@@ -64,6 +64,7 @@
 
 .review-content-box:nth-of-type(1){
   border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 
 .review-content-box:nth-child(2) {
@@ -76,6 +77,11 @@
   font-size: 12px;
   color: var(--content);
   margin-right: 20px;
+}
+
+.listBorder {
+  border-bottom: 1px solid #333;
+
 }
 
 .notice-text {
@@ -106,6 +112,16 @@ ul>li {
   align-items: center;
 }
 
+.qna-title-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  width: 1000px;
+}
+
 .best-review-box {
   display: flex;
   flex-flow: row nowrap;
@@ -114,6 +130,15 @@ ul>li {
   gap: 20px;
   font-size: 12px;
   width: 1000px;
+}
+
+.qna-list-title {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 36px;
+  font-size: 16px;
+  color: var(--content);
+  font-weight: 600;
 }
 
 .qna-content-box {

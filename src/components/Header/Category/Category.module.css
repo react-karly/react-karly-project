@@ -1,5 +1,6 @@
 .category {
   position: relative;
+  min-width: 84px;
   height: 72px;
 }
 

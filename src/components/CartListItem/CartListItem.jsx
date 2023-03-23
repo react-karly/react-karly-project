@@ -48,8 +48,8 @@ function CartListItem({
         />
       </button>
       <img
-        src={productImg}
-        alt=""
+        src={product.src}
+        alt={product.alt}
         width="60"
         height="78"
         className={styles['product-image']}
@@ -61,7 +61,10 @@ function CartListItem({
         onClickMinus={handleClickMinus}
       />
       <span className={styles.price}>
-        {priceTemplate(product.price * product.stock)}원
+        {product.salePrice
+          ? priceTemplate(product.salePrice * product.stock)
+          : priceTemplate(product.price * product.stock)}
+        원
       </span>
       <button type="button" className={styles.button} onClick={handleDelete}>
         <img

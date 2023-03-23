@@ -34,6 +34,20 @@ function ProductQnA(){
           </div>
 
           <ul className={styles['review-content-box']}>
+            
+            <li className={styles.listBorder}>
+              <div className={styles['best-review-box']}>
+                <span style={{color: '#333', fontWeight: '700', fontSize: '16px', marginLeft: '360px'}}>
+                  제목
+                </span>
+                <div className={styles['qna-list-title']}>
+                  <span>작성자</span>
+                  <span>작성일</span>
+                  <span>답변상태</span>
+                </div>
+              </div>
+            </li>
+
             {/* 공지 */}
             <li>
               <span className={styles['review-sticker-notice']}>공지</span>
@@ -43,7 +57,7 @@ function ProductQnA(){
             {/* 베스트 리뷰 */}
             <li>
               <div className={styles['best-review-box']}>
-                <span style={{color: '#333', fontWeight: '700', fontSize: '16px'}}>
+                <span style={{color: '#333', fontWeight: '600', fontSize: '16px'}}>
                   팩이 터져서 왔어요
                 </span>
                 <div className={styles['qna-content-box']}>

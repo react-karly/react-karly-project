@@ -59,7 +59,8 @@
   margin-top: 20px;
 }
 
-.info-list {
+
+/* .info-list {
   width: 560px;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -82,7 +83,7 @@
 
 .info-list-contents {
   font-size: 12px;
-}
+} */
 
 .info-list-contents1 {
   font-size: 12px;
@@ -102,7 +103,7 @@
 }
 
 .counter-container span {
-  margin: var(--spacing-xs);
+  /* margin: var(--spacing-xs); */
 }
 
 .choice-title {
@@ -134,19 +135,12 @@
   left: 40px;
 }
 
-.content-text-box {
-  display: block;
-  flex-flow: column nowrap;
-  width: 400px;
-  font-size: 12px;
-  word-wrap: break-word;
-}
-
 .counter-price-wrapper {
+  margin-top: 12px;
   display: flex;
-  position: relative;
+  /* position: relative; */
   flex-flow: row nowrap;
-  align-items: flex-end; 
+  align-items: flex-end;
   justify-content: space-between;
   margin-right: 6px;
 }
@@ -156,10 +150,11 @@
   color: var(--content);
   font-weight: 700;
   display: block;
-  margin-top: 24px;
-  position: absolute;
-  right: 4px;
-  bottom: -8px;
+  /* margin-top: 24px; */
+  /* position: absolute; */
+  /* right: 4px;
+  bottom: -8px; */
+  margin-right: 12px;
 }
 
 .number {
@@ -239,4 +234,26 @@
 
 .btn {
   cursor: pointer;
+}
+
+.counter-box {
+  display:flex;
+  gap:8px;
+  flex-direction: column;
+  border: 1px solid var(--gray-100);
+  padding: 20px 20px;
+  width: 400px;
+  position: relative;
+}
+
+.price-text {
+  font-size: 12px;
+  color: var(--content);
+  font-weight: 700;
+  display: block;
+  /* margin-top: 24px; */
+  position: absolute;
+  right: 4px;
+  bottom: 18px;
+  margin-right: 12px;
 }

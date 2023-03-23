@@ -1,5 +1,5 @@
 .check-button {
-  cursor:pointer;
+  cursor: pointer;
   width: 24px;
   height: 24px;
   background-color: transparent;
@@ -11,10 +11,13 @@
 }
 
 .name {
-  min-width: 345px;
+  width: 345px;
   margin-right: 8px;
   font-weight: var(--text-600);
   font-size: var(--text-base);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   /* 사파리 크로스 브라우징 준수 */
   white-space: nowrap;
 }

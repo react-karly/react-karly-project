@@ -13,14 +13,7 @@ import bar from '@/assets/header/bar.png';
 import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
-
-// 유림 추가
-import { useRecoilState } from 'recoil';
-import { getAuth, signOut } from 'firebase/auth';
-
-import { isLoggedInState, emailState, passwordState } from '../../atoms/auth';
-// -------------------------
-
+import { throttle } from '../../utils/throttle';
 const Header = (props) => {
   // 유림 추가
   const auth = getAuth();
@@ -44,9 +37,13 @@ const Header = (props) => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 140);
-  };
+  const handleScroll = throttle(() => {
+    if (window.scrollY > document.querySelector('header').offsetHeight - 60) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, 40);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -92,7 +89,13 @@ const Header = (props) => {
             <img src={bar} alt="" width="1" height="14" />
             <button type="button" className={styles.beauty}>
               뷰티컬리
-              <img src={newIcon} className={styles.new} width="7" height="7" />
+              <img
+                src={newIcon}
+                alt=""
+                width="7"
+                height="7"
+                className={styles.new}
+              />
             </button>
           </div>
           <div className={styles['search-box']}>
@@ -103,7 +106,11 @@ const Header = (props) => {
               className={styles['search-input']}
               placeholder="검색어를 입력해주세요"
             />
-            <img className={styles['search-icon']} src={search} />
+            <img
+              src={search}
+              alt="검색하기"
+              className={styles['search-icon']}
+            />
           </div>
           <div className={styles['quick-menu']}>
             <span>
@@ -117,10 +124,7 @@ const Header = (props) => {
             </Link>
           </div>
         </section>
-        {
-          //navigation
-          isScrolled ? <ScrollNav /> : <NormalNav />
-        }
+        {isScrolled ? <ScrollNav /> : <NormalNav />}
       </div>
     </header>
   );
