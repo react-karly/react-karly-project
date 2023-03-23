@@ -118,7 +118,15 @@ a {
   filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
     brightness(55%) contrast(131%);
 }
-
+.quick-menu span {
+  width: 36px;
+  height: 36px;
+}
+.cart-box {
+  width: 36px;
+  height: 36px;
+  position: relative;
+}
 .search-box {
   display: flex;
   align-items: center;
