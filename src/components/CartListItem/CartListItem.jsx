@@ -2,36 +2,39 @@ import React from 'react';
 import { Counter } from '../Counter/Counter';
 import close from '@/assets/cart/Cancel.png';
 import styles from './CartListItem.module.css';
-import productImg from '@/assets/tangtang/thumbnail.jpg';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
 import { priceTemplate } from '../../utils/priceTemplate';
-function CartListItem({
-  index,
-  product,
-  productList,
-  setProductList,
-  setSelectedCount,
-}) {
+import { useSetRecoilState, useRecoilState } from 'recoil';
+import {
+  clickCheckButton,
+  minusStock,
+  plusStock,
+  cartListState,
+} from '../../@store/cartListState';
+function CartListItem({ index, product }) {
+  const [cartList, setCartList] = useRecoilState(cartListState);
+  const clickCheck = useSetRecoilState(clickCheckButton);
+  const calculateMinus = useSetRecoilState(minusStock);
+  const calculatePlus = useSetRecoilState(plusStock);
+
   const handleClickPlus = () => {
-    product.stock += 1;
-    setProductList([...productList]);
+    calculatePlus(index);
   };
 
   const handleClickMinus = () => {
-    product.stock -= 1;
-    setProductList([...productList]);
+    calculateMinus(index);
   };
   const handleClickCheckButton = () => {
-    if (product.isChecked) setSelectedCount((count) => count - 1);
-    else setSelectedCount((count) => count + 1);
-    product.isChecked = !product.isChecked;
-    setProductList([...productList]);
+    clickCheck(index);
   };
 
+  const removeItemAtIndex = (list, index) => {
+    return [...list.slice(0, index), ...list.slice(index + 1)];
+  };
   const handleDelete = () => {
-    productList.splice(index, 1);
-    setProductList([...productList]);
+    const newList = removeItemAtIndex(cartList, index);
+    setCartList(newList);
   };
   return (
     <>

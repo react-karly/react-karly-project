@@ -6,8 +6,11 @@ import directionUp from '@/assets/cart/Direction=Up.png';
 import directionDown from '@/assets/cart/Direction=Down.png';
 import refrigeratedImg from '@/assets/cart/Type=Refrigerated.png';
 import { CartListItem } from '../CartListItem/CartListItem';
+import { useRecoilState } from 'recoil';
+import { cartListState } from '../../@store/cartListState';
 
-function FoodType({ type, productList, setProductList, setSelectedCount }) {
+function FoodType({ type }) {
+  const [cartList, setCartList] = useRecoilState(cartListState);
   const [isShowList, setIsShowList] = useState(true);
   const handleShowList = () => {
     setIsShowList((isShowList) => !isShowList);
@@ -34,20 +37,14 @@ function FoodType({ type, productList, setProductList, setSelectedCount }) {
       </div>
       <ul className={styles.list}>
         {isShowList &&
-          productList.map((product, index) => {
+          cartList.map((product, index) => {
             if (type.id === product.type) {
               return (
                 <li
                   key={`product-${index}`}
                   className={styles['cart-item-container']}
                 >
-                  <CartListItem
-                    index={index}
-                    product={product}
-                    productList={productList}
-                    setProductList={setProductList}
-                    setSelectedCount={setSelectedCount}
-                  />
+                  <CartListItem index={index} product={product} />
                 </li>
               );
             }

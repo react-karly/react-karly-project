@@ -14,6 +14,7 @@ import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
 import { throttle } from '../../utils/throttle';
+import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 const Header = (props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -94,9 +95,12 @@ const Header = (props) => {
             <span>
               <img src={heart} alt="찜하기" width="36" height="36" />
             </span>
-            <Link to="/cart">
-              <img src={cart} alt="장바구니" width="36" height="36" />
-            </Link>
+            <div className={styles['cart-box']}>
+              <Link to="/cart">
+                <img src={cart} alt="장바구니" width="36" height="36" />
+              </Link>
+              <CartAddedModal />
+            </div>
           </div>
         </section>
         {isScrolled ? <ScrollNav /> : <NormalNav />}
