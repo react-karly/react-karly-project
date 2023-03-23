@@ -14,6 +14,11 @@ import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
 import { throttle } from '../../utils/throttle';
+// 유림 추가
+import { useRecoilState } from 'recoil';
+import { getAuth, signOut } from 'firebase/auth';
+import { isLoggedInState, emailState, passwordState } from '../../atoms/auth';
+// -------------------------
 const Header = (props) => {
   // 유림 추가
   const auth = getAuth();
