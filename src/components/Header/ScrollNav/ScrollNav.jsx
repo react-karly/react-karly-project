@@ -14,16 +14,16 @@ function ScrollNav(props) {
         <Category />
         <ul className={styles.navigation}>
           <li>
-            <a href="#">신상품</a>
+            <Link to="product-list">신상품</Link>
           </li>
           <li>
-            <a href="#">베스트</a>
+            <Link to="/product-list">베스트</Link>
           </li>
           <li>
-            <a href="#">알뜰쇼핑</a>
+            <Link to="/product-list">알뜰쇼핑</Link>
           </li>
           <li>
-            <a href="#">특가/혜택</a>
+            <Link to="/product-list">특가/혜택</Link>
           </li>
         </ul>
 

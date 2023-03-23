@@ -14,6 +14,7 @@ legend {
   left: 0;
   background-color: var(--white);
   z-index: 10;
+  transition: all 0.1 ease-out;
 }
 .wrapper {
   max-width: 1050px;
@@ -23,6 +24,9 @@ legend {
   justify-content: space-between;
 }
 /*메뉴 */
+.navigation {
+  min-width: 600px;
+}
 .navigation li {
   display: inline-block;
   padding: 4px 36px;
