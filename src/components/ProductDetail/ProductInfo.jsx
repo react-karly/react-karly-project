@@ -1,96 +1,115 @@
 import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import minus from '@/assets/cart/count.png';
+import { Counter } from '../Counter/Counter';
 import styles from './ProductInfo.module.css';
 import plus from '../../assets/cart/plus.png';
-import minus from '@/assets/cart/count.png';
-import counter from '../../components/Counter/Counter.module.css';
+import heartFill from '@/assets/ProductDetail/heart-fill.png';
 import disabledMinus from '../../assets/cart/minus_disabled.png';
+import counter from '../../components/Counter/Counter.module.css';
+import ProductDetail from '../../pages/ProductDetail/ProductDetail';
+import heartNoFill from '@/assets/productDetail/Disabled=false.png';
+import CartAddedModal from './ProductDetailItem/CartAddedModal/CartAddedModal';
+import { products } from '../../../data';
+import InfoList from './ProductDetailItem/InfoList/InfoList';
+
 
 function ProductInfo(){
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [productList, setProductList] = useState(products);
+  const [like, setLike] = useState(false);
+  const [addToCart, setAddToCart] = useState(false);
+  
+  const handleClickPlus = () => {
+    productList[0].quantity += 1;
+    setProductList([...productList]);
+  };
+
+  const handleClickMinus = () => {
+    products[0].quantity -= 1;
+    setProductList([...productList]);
+  };
+  
+  const handleAddCart = () => {
+    setAddToCart(true)
+  }
+  
+  
   return (
     <>
+
+      
       <div className={styles['info-container']}>
+
+        {/* 상품 정보 */}
         <img width={400} height={514} src='../../../src/assets/tangtang/thumbnail.jpg' alt="" />
+
         <div className={styles['info-wrapper']}>
           <h5 className={styles.satbyul}>샛별배송</h5>
-          <h2 className={styles['product-title']}>[풀무원] 탱탱쫄면 (4개입)</h2>
-          <h4 className={styles['product-subtitle']}>튀기지 않아 부담 없는 매콤함</h4>
+          <h2 className={styles['product-title']}>{products[0].name}</h2>
+          <h4 className={styles['product-subtitle']}>{products[0].description}</h4>
           <div className={styles['product-cost-box']}>
-            <h4 className={styles['product-cost']}>4,980</h4>
+            <h4 className={styles['product-cost']}>{products[0].price.toLocaleString()}</h4>
             <h4 className={styles.won}>원</h4>
           </div>
-          <p className={styles['benefit-after-login']}>로그인 후, 적립 혜택이 제공됩니다.</p>
+
+          {
+            isLoggedIn === true ? null : <p className={styles['benefit-after-login']} onChange={()=>{setIsLoggedIn(true)}}>로그인 후, 적립 혜택이 제공됩니다.</p>
+          }
+
           <ul className={styles['text-wrapper']}>
-            <li className={[styles['info-list'], styles['info-list-border']].join(' ')}>
-              <p className={styles['info-list-title']}>배송</p>
-              <div className={styles['content-text-box']}>
-              <p className={styles['info-list-contents']} style={{fontWeight: '500'}}>샛별배송</p>
-              <p className={[styles['info-list-contents'], styles['info-list-contents1']].join(' ')}>23시 전 주문 시 내일 아침 7시 전 도착 <br></br>
-(대구 부산 울산 샛별배송 운영시간 별도 확인)</p>
+
+            <InfoList type={'배송'} content={products[0].hasDelivery.type} style={{ borderTop: '1px solid var(--gray-100)' }}/>
+            <InfoList type={'판매자'} content={products[0].seller} />
+            <InfoList type={'포장타입'} content={products[0].pakageType.temperature} />
+            <InfoList type={'판매단위'} content={products[0].unit} />
+            <InfoList type={'중량/용량'} content={products[0].weight} />
+            <InfoList type={'원산지'} content={products[0].originPlace} />
+            <InfoList type={'알레르기정보'} content={products[0].allergicInfo} />
+            <InfoList type={'상품선택'}>
+              <div className={styles['counter-box']}>
+                <span style={{fontSize: '12px'}}>{products[0].name}</span>
+                <Counter 
+                  quantity={products[0].quantity}
+                  onClickPlus={handleClickPlus}
+                  onClickMinus={handleClickMinus}
+                />
+                <span className={styles['price-text']}>4,980원</span>
               </div>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>판매자</p>
-              <p className={styles['info-list-contents']}>칼리</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>포장타입</p>
-              <p className={styles['info-list-contents']}>상온 (종이포장)</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>판매단위</p>
-              <p className={styles['info-list-contents']}>1봉</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>중량/용량</p>
-              <p className={styles['info-list-contents']}>123g*4봉</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>원산지</p>
-              <p className={styles['info-list-contents']} style={{fontWeight:'600'}}>상세페이지 별도표기</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>알레르기정보</p>
-              <p className={styles['content-text-box']}>-대두, 밀, 쇠고기 함유
-              -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고
-                기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조</p>
-            </li>
-            <li className={styles['info-list']}>
-              <p className={styles['info-list-title']}>상품선택</p>
-              <div className={styles['counter-container']}>
-              <p className={styles['choice-title']}>[풀무원]탱탱쫄면(4개입)</p>
-              <div className={styles['counter-price-wrapper']}>
-              <div className={styles['button-box']}>
-              <button type="button" className={styles.button}>
-                <img src={disabledMinus} alt="수량 감소" width="30" height="30" />
-              </button>
-              <span className={styles.number}>1</span>
-              <button type="button" className={styles.button}>
-                <img src={plus} alt="수량 증가" width="30" height="30" />
-              </button>
-              </div>
-              <span className={styles['price-text']}>4,980원</span>
-              </div>
-            </div>
-          </li>
+            </InfoList>  
+
           </ul>
+
+          {/* 총 상품 금액 */}
           <div className={styles['priceandpoint-box']}>
             <div className={styles['total-price-box']}>
               <span className={styles['total-price-title']}>총 상품금액:</span>
-              <span className={styles['total-price']}>4,980</span><span className={styles.wonDegree}>원</span>
+              <span className={styles['total-price']}>
+                {(products[0].quantity * products[0].price).toLocaleString()}
+                </span>
+              <span className={styles.wonDegree}>원</span>
             </div>
+
+            {/* 부가 사항 */}
             <div className={styles['earn-point-box']}>
               <span className={styles['earn-point']}>적립</span>
               <span className={styles['earn-point-text']}>로그인 후, 적립 혜택 제공</span>
             </div>
           </div>
+
+          {/* 버튼 */}
           <div className={styles['buttons-box']}>
-            <img className={styles['btn']} src="../../../src/assets/productDetail/Disabled=false.png" alt="" />
+            <img className={styles['btn']} onClick={()=>{setLike(!like)}} src={like?heartFill:heartNoFill} alt="" />
             <img className={styles['btn']} src="../../../src/assets/productDetail/Squrebell.png" alt="" />
-            <button className={styles['pick-cart']}>장바구니 담기</button>
+            <button className={styles['pick-cart']} onClick={handleAddCart}>장바구니 담기</button>
           </div>
+
         </div>
+
       </div>
+      
     </>
   )
 }
