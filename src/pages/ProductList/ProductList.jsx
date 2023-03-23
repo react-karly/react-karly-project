@@ -19,13 +19,13 @@ function ProductList() {
     });
   }, []);
   return (
-    <BaseLayout>
+    <>
       <h3>베스트</h3>
       <div className={styles['wrapper']}>
         <ListSideMenu props={productLists} />
         <ListCards props={productLists} />
       </div>
-    </BaseLayout>
+    </>
   );
 }
 
