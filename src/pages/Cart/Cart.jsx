@@ -1,54 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Cart.module.css';
-import app from '../../App.module.css';
 import barImg from '@/assets/cart/cart_bar.png';
 import location from '@/assets/cart/Location.png';
-import { FoodType } from '@/components/FoodType/FoodType';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
+import { FoodType } from '@/components/FoodType/FoodType';
 import { foodType } from '@/enum/foodType';
-import { priceTemplate } from '../../utils/priceTemplate';
-import { filterSelectedProducts } from '../../utils/filterSelectedProducts';
+import { priceTemplate } from '@/utils/priceTemplate';
+import { filterSelectedProducts } from '@/utils/filterSelectedProducts';
+import {
+  cartListState,
+  checkAllCheck,
+  checkAllUnCheck,
+  filterType,
+} from '../../@store/cartListState';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 function Cart(props) {
-  const storageData = JSON.parse(localStorage.getItem('cartItem'));
-
-  const checkAllChecked = (checkArray) => {
-    return checkArray?.every((product) => product.isChecked);
-  };
-  const checkAllUnChecked = (checkArray) => {
-    return checkArray?.every((product) => !product.isChecked);
-  };
-  const initialSelectedCount = (checkArray) => {
-    let count = 0;
-    checkArray?.map((item) => {
-      if (item.isChecked) count++;
-    });
-    return count;
-  };
-
-  const filterType = () => {
-    const typeSet = new Set();
-    productList.map((item) => typeSet.add(item.type));
-    return Array.from(typeSet);
-  };
-
-  const [productList, setProductList] = useState(storageData || []);
-  const [isAllCheck, setIsAllCheck] = useState(checkAllChecked(storageData));
-  const [isAllUnCheck, setIsAllUnCheck] = useState(
-    checkAllUnChecked(storageData)
-  );
-  const [selectedCount, setSelectedCount] = useState(
-    initialSelectedCount(storageData)
-  );
+  const [cartList, setCartList] = useRecoilState(cartListState);
   const [totalPrice, setTotalPrice] = useState(0);
   const [salePrice, setSalePrice] = useState(0);
+  const [selectedCount, setSelectedCount] = useState(0);
 
-  const [typeArray, setTypeArray] = useState(filterType(productList));
+  const typeArray = useRecoilValue(filterType);
+
+  const isAllCheck = useRecoilValue(checkAllCheck);
+  const isAllUnCheck = useRecoilValue(checkAllUnCheck);
+
+  const checkIsAllChecked = useSetRecoilState(checkAllCheck);
+  const checkIsAllUnChecked = useSetRecoilState(checkAllUnCheck);
+
+  const handleAllCheck = () => {
+    isAllCheck ? checkIsAllUnChecked() : checkIsAllChecked();
+  };
+
+  function replaceItemAtIndex(arr, index, newValue) {
+    return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+  }
+
+  const handleDeleteSelectedItems = () => {
+    const selectedIndex = [];
+    cartList.map((product, index) => {
+      if (product.isChecked) selectedIndex.push(index);
+    });
+    const newList = cartList.map((product, index) => {
+      if (selectedIndex.includes(index))
+        return replaceItemAtIndex(cartList, index, 0)[index];
+      else return product;
+    });
+    const filterList = newList.filter((item) => item !== 0);
+    setCartList(filterList);
+  };
 
   const calculateTotalPrice = () => {
     let total = 0;
-    const selectedProductList = filterSelectedProducts(productList);
+    const selectedProductList = filterSelectedProducts(cartList);
     selectedProductList.map(
       ({ stock, price }) => (total += stock * parseInt(price))
     );
@@ -57,64 +63,38 @@ function Cart(props) {
 
   const calculateSalePrice = () => {
     let saleTotal = 0;
-    const selectedProductList = filterSelectedProducts(productList);
+    const selectedProductList = filterSelectedProducts(cartList);
     selectedProductList.map(({ stock, price, salePrice }) => {
       if (salePrice) saleTotal += stock * parseInt(price - salePrice);
     });
     setSalePrice(saleTotal);
   };
 
-  const handleAllCheck = () => {
-    setIsAllCheck((isAllCheck) => !isAllCheck);
-    setIsAllUnCheck((isAllUnCheck) => !isAllUnCheck);
-  };
-
-  const toggleAllCheck = () => {
-    return productList.map((product) => {
-      product.isChecked = true;
-      setProductList([...productList]);
+  const countSelectedProduct = () => {
+    let selectedCount = 0;
+    cartList.map((item) => {
+      if (item.isChecked) selectedCount++;
     });
-  };
-
-  const toggleAllUnCheck = () => {
-    return productList.map((product) => {
-      product.isChecked = false;
-      setProductList([...productList]);
-    });
-  };
-
-  const handleDeleteSelectedItems = () => {
-    const selectedProductList = filterSelectedProducts(productList);
-    const filteredList = productList.filter(
-      (item, index) => !selectedProductList.includes(item)
-    );
-    setProductList([...filteredList]);
+    setSelectedCount(selectedCount);
   };
 
   useEffect(() => {
-    if (isAllCheck) toggleAllCheck();
-    if (isAllUnCheck) toggleAllUnCheck();
-  }, [isAllCheck, isAllUnCheck]);
+    if (isAllCheck) {
+      checkIsAllChecked();
+    }
+    if (isAllUnCheck) {
+      checkIsAllUnChecked();
+    }
+  }, []);
 
   useEffect(() => {
-    if (checkAllChecked(productList)) {
-      setIsAllCheck(true);
-      setSelectedCount(productList.length);
-    }
-    if (checkAllUnChecked(productList)) {
-      setIsAllUnCheck(false);
-      setSelectedCount(0);
-    }
-    if (selectedCount === productList.length) {
-      setIsAllCheck(false);
-    }
-
+    console.log(cartList);
     calculateTotalPrice();
     calculateSalePrice();
-    localStorage.setItem('cartItem', JSON.stringify([...productList]));
-  }, [productList, selectedCount, totalPrice, salePrice]);
+    countSelectedProduct();
+  }, [cartList]);
 
-  if (productList.length === 0)
+  if (cartList.length === 0)
     return (
       <div className={styles['cart-container']}>
         <h1 className={styles.title}>장바구니</h1>
@@ -126,7 +106,7 @@ function Cart(props) {
       <h1 className={styles.title}>장바구니</h1>
       <article className={styles.content}>
         <section className={styles['cart-list-wrapper']}>
-          <h2 className={app['a11y-hidden']}>장바구니 상품 목록</h2>
+          <h2 className={styles['a11y-hidden']}>장바구니 상품 목록</h2>
           <div className={styles['select-box']}>
             <button
               type="button"
@@ -134,17 +114,17 @@ function Cart(props) {
               onClick={handleAllCheck}
             >
               <img
-                src={selectedCount === productList.length ? checked : unChecked}
-                alt={
-                  selectedCount === productList.length
-                    ? '전체 선택 해제하기'
-                    : '전체 선택하기'
+                src={
+                  selectedCount === cartList.length && isAllCheck
+                    ? checked
+                    : unChecked
                 }
+                alt="선택"
                 width="24"
                 height="24"
                 className={styles['select-img']}
               />
-              {`전체선택 (${selectedCount}/${productList.length})`}
+              {`전체선택 (${selectedCount}/${cartList.length})`}
             </button>
             <img src={barImg} alt="" width="1" height="10" />
             <button
@@ -158,32 +138,17 @@ function Cart(props) {
           <ul className={styles['food-type-list']}>
             {typeArray.includes('refrigerated') && (
               <li>
-                <FoodType
-                  type={foodType.refrigerated}
-                  productList={productList}
-                  setProductList={setProductList}
-                  setSelectedCount={setSelectedCount}
-                />
+                <FoodType type={foodType.refrigerated} />
               </li>
             )}
             {typeArray.includes('frozen') && (
               <li>
-                <FoodType
-                  type={foodType.frozen}
-                  productList={productList}
-                  setProductList={setProductList}
-                  setSelectedCount={setSelectedCount}
-                />
+                <FoodType type={foodType.frozen} />
               </li>
             )}
             {typeArray.includes('normal') && (
               <li>
-                <FoodType
-                  type={foodType.normal}
-                  productList={productList}
-                  setProductList={setProductList}
-                  setSelectedCount={setSelectedCount}
-                />
+                <FoodType type={foodType.normal} />
               </li>
             )}
           </ul>
@@ -194,26 +159,26 @@ function Cart(props) {
               onClick={handleAllCheck}
             >
               <img
-                src={selectedCount === productList.length ? checked : unChecked}
-                alt={
-                  selectedCount === productList.length
-                    ? '전체 선택 해제하기'
-                    : '전체 선택하기'
-                }
+                src={selectedCount === cartList.length ? checked : unChecked}
+                alt="선택"
                 width="24"
                 height="24"
                 className={styles['select-img']}
               />
-              {`전체선택 (${selectedCount}/${productList.length})`}
+              {`전체선택 (${selectedCount}/${cartList.length})`}
             </button>
             <img src={barImg} alt="" width="1" height="10" />
-            <button type="button" className={styles['select-button']}>
+            <button
+              type="button"
+              className={styles['select-button']}
+              onClick={handleDeleteSelectedItems}
+            >
               선택삭제
             </button>
           </div>
         </section>
         <section className={styles['order-info-wrapper']}>
-          <h2 className={app['a11y-hidden']}>주문 정보</h2>
+          <h2 className={styles['a11y-hidden']}>주문 정보</h2>
           {/* 배송지 정보 */}
           <div className={styles['location-info']}>
             <div className={styles['location-info-title']}>
@@ -252,7 +217,6 @@ function Cart(props) {
                     ? '0'
                     : priceTemplate(totalPrice - salePrice + 3000)}
                 </strong>
-                원
               </span>
             </div>
             <div className={styles.accumulate}>
