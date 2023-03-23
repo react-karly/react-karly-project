@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../Login/LoginModal.module.css';
 
 export default function LoginModal() {
@@ -6,6 +6,7 @@ export default function LoginModal() {
 
   function handleCloseModal() {
     setIsOpen(false);
+    location.reload();
   }
 
   return (
