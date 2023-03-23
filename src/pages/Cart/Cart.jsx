@@ -1,12 +1,126 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Cart.module.css';
 import app from '../../App.module.css';
 import barImg from '@/assets/cart/cart_bar.png';
 import location from '@/assets/cart/Location.png';
 import { FoodType } from '@/components/FoodType/FoodType';
+import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
 import { foodType } from '@/enum/foodType';
+import { priceTemplate } from '../../utils/priceTemplate';
+import { filterSelectedProducts } from '../../utils/filterSelectedProducts';
+
 function Cart(props) {
+  const storageData = JSON.parse(localStorage.getItem('cartItem'));
+
+  const checkAllChecked = (checkArray) => {
+    return checkArray?.every((product) => product.isChecked);
+  };
+  const checkAllUnChecked = (checkArray) => {
+    return checkArray?.every((product) => !product.isChecked);
+  };
+  const initialSelectedCount = (checkArray) => {
+    let count = 0;
+    checkArray?.map((item) => {
+      if (item.isChecked) count++;
+    });
+    return count;
+  };
+
+  const filterType = () => {
+    const typeSet = new Set();
+    productList.map((item) => typeSet.add(item.type));
+    return Array.from(typeSet);
+  };
+
+  const [productList, setProductList] = useState(storageData || []);
+  const [isAllCheck, setIsAllCheck] = useState(checkAllChecked(storageData));
+  const [isAllUnCheck, setIsAllUnCheck] = useState(
+    checkAllUnChecked(storageData)
+  );
+  const [selectedCount, setSelectedCount] = useState(
+    initialSelectedCount(storageData)
+  );
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
+
+  const [typeArray, setTypeArray] = useState(filterType(productList));
+
+  const calculateTotalPrice = () => {
+    let total = 0;
+    const selectedProductList = filterSelectedProducts(productList);
+    selectedProductList.map(
+      ({ stock, price }) => (total += stock * parseInt(price))
+    );
+    setTotalPrice(total);
+  };
+
+  const calculateSalePrice = () => {
+    let saleTotal = 0;
+    const selectedProductList = filterSelectedProducts(productList);
+    selectedProductList.map(({ stock, price, salePrice }) => {
+      if (salePrice) saleTotal += stock * parseInt(price - salePrice);
+    });
+    setSalePrice(saleTotal);
+  };
+
+  const handleAllCheck = () => {
+    setIsAllCheck((isAllCheck) => !isAllCheck);
+    setIsAllUnCheck((isAllUnCheck) => !isAllUnCheck);
+  };
+
+  const toggleAllCheck = () => {
+    return productList.map((product) => {
+      product.isChecked = true;
+      setProductList([...productList]);
+    });
+  };
+
+  const toggleAllUnCheck = () => {
+    return productList.map((product) => {
+      product.isChecked = false;
+      setProductList([...productList]);
+    });
+  };
+
+  const handleDeleteSelectedItems = () => {
+    const selectedProductList = filterSelectedProducts(productList);
+    const filteredList = productList.filter(
+      (item, index) => !selectedProductList.includes(item)
+    );
+    setProductList([...filteredList]);
+  };
+
+  useEffect(() => {
+    if (isAllCheck) toggleAllCheck();
+    if (isAllUnCheck) toggleAllUnCheck();
+  }, [isAllCheck, isAllUnCheck]);
+
+  useEffect(() => {
+    if (checkAllChecked(productList)) {
+      setIsAllCheck(true);
+      setSelectedCount(productList.length);
+    }
+    if (checkAllUnChecked(productList)) {
+      setIsAllUnCheck(false);
+      setSelectedCount(0);
+    }
+    if (selectedCount === productList.length) {
+      setIsAllCheck(false);
+    }
+
+    calculateTotalPrice();
+    calculateSalePrice();
+    localStorage.setItem('cartItem', JSON.stringify([...productList]));
+  }, [productList, selectedCount, totalPrice, salePrice]);
+
+  if (productList.length === 0)
+    return (
+      <div className={styles['cart-container']}>
+        <h1 className={styles.title}>장바구니</h1>
+        <p>장바구니에 담긴 상품이 없습니다.</p>
+      </div>
+    );
   return (
     <div className={styles['cart-container']}>
       <h1 className={styles.title}>장바구니</h1>
@@ -14,33 +128,89 @@ function Cart(props) {
         <section className={styles['cart-list-wrapper']}>
           <h2 className={app['a11y-hidden']}>장바구니 상품 목록</h2>
           <div className={styles['select-box']}>
-            <button type="button" className={styles['select-button']}>
+            <button
+              type="button"
+              className={styles['select-button']}
+              onClick={handleAllCheck}
+            >
               <img
-                // 체크 되면 체크된 아이콘으로 변경
-                src={unChecked}
-                alt="전체선택"
+                src={selectedCount === productList.length ? checked : unChecked}
+                alt={
+                  selectedCount === productList.length
+                    ? '전체 선택 해제하기'
+                    : '전체 선택하기'
+                }
                 width="24"
                 height="24"
                 className={styles['select-img']}
               />
-              전체선택 &#40;3&#47;3&#41;
+              {`전체선택 (${selectedCount}/${productList.length})`}
+            </button>
+            <img src={barImg} alt="" width="1" height="10" />
+            <button
+              type="button"
+              className={styles['select-button']}
+              onClick={handleDeleteSelectedItems}
+            >
+              선택삭제
+            </button>
+          </div>
+          <ul className={styles['food-type-list']}>
+            {typeArray.includes('refrigerated') && (
+              <li>
+                <FoodType
+                  type={foodType.refrigerated}
+                  productList={productList}
+                  setProductList={setProductList}
+                  setSelectedCount={setSelectedCount}
+                />
+              </li>
+            )}
+            {typeArray.includes('frozen') && (
+              <li>
+                <FoodType
+                  type={foodType.frozen}
+                  productList={productList}
+                  setProductList={setProductList}
+                  setSelectedCount={setSelectedCount}
+                />
+              </li>
+            )}
+            {typeArray.includes('normal') && (
+              <li>
+                <FoodType
+                  type={foodType.normal}
+                  productList={productList}
+                  setProductList={setProductList}
+                  setSelectedCount={setSelectedCount}
+                />
+              </li>
+            )}
+          </ul>
+          <div className={styles['select-box']}>
+            <button
+              type="button"
+              className={styles['select-button']}
+              onClick={handleAllCheck}
+            >
+              <img
+                src={selectedCount === productList.length ? checked : unChecked}
+                alt={
+                  selectedCount === productList.length
+                    ? '전체 선택 해제하기'
+                    : '전체 선택하기'
+                }
+                width="24"
+                height="24"
+                className={styles['select-img']}
+              />
+              {`전체선택 (${selectedCount}/${productList.length})`}
             </button>
             <img src={barImg} alt="" width="1" height="10" />
             <button type="button" className={styles['select-button']}>
               선택삭제
             </button>
           </div>
-          <ul className={styles['food-type-list']}>
-            <li>
-              <FoodType type={foodType.refrigerated} />
-            </li>
-            <li>
-              <FoodType type={foodType.frozen} />
-            </li>
-            <li>
-              <FoodType type={foodType.normal} />
-            </li>
-          </ul>
         </section>
         <section className={styles['order-info-wrapper']}>
           <h2 className={app['a11y-hidden']}>주문 정보</h2>
@@ -63,21 +233,26 @@ function Cart(props) {
             <div className={styles['price-detail']}>
               <div>
                 <span>상품금액</span>
-                <span>40,680원</span>
+                <span>{`${priceTemplate(totalPrice)}원`}</span>
               </div>
               <div>
                 <span>상품할인금액</span>
-                <span>-4,651원</span>
+                <span>{`-${priceTemplate(salePrice)}원`}</span>
               </div>
               <div>
                 <span>배송비</span>
-                <span>+3,000원</span>
+                <span>{selectedCount === 0 ? '0원' : '+3,000원'}</span>
               </div>
             </div>
             <div className={styles['price-total']}>
               <span className={styles['total-text']}>결제예정금액</span>
               <span className={styles['total-number']}>
-                <strong>40,680</strong>원
+                <strong>
+                  {selectedCount === 0
+                    ? '0'
+                    : priceTemplate(totalPrice - salePrice + 3000)}
+                </strong>
+                원
               </span>
             </div>
             <div className={styles.accumulate}>

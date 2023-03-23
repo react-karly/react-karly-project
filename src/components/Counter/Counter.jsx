@@ -3,7 +3,6 @@ import plus from '@/assets/cart/plus.png';
 import minus from '@/assets/cart/minus.png';
 import styles from '../Counter/Counter.module.css';
 import disabledMinus from '@/assets/cart/minus_disabled.png';
-
 function Counter({ quantity, onClickPlus, onClickMinus }) {
   return (
     <div className={styles['counter-container']}>
@@ -15,7 +14,7 @@ function Counter({ quantity, onClickPlus, onClickMinus }) {
       >
         <img
           src={quantity === 1 ? disabledMinus : minus}
-          alt="수량 감소"
+          alt={quantity === 1 ? "수량 감소 비활성화" : "수량 감소"}
           width="30"
           height="30"
         />

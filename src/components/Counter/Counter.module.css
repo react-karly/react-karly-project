@@ -1,31 +1,3 @@
-/* .counter-container {
-  border: 1px solid var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 84px;
-  margin-top: 8px;
-  padding: 0 8px 0 0;
-}
-
-.button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-} */
-
-.counter-container span {
-  text-align: center;
-  min-width: 16px;
-  /* margin-top: 11px; */
-}
-
-.button:disabled {
-  cursor: not-allowed;
-}
-
 .counter-container {
   border: 1px solid var(--gray-200);
   display: flex;
@@ -49,3 +21,4 @@
 .button:disabled {
   cursor: not-allowed;
 }
+

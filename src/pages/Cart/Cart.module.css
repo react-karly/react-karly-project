@@ -25,6 +25,7 @@
   padding: var(--spacing-base) 0;
 }
 .select-button {
+  cursor: pointer;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -44,7 +45,7 @@
 }
 
 .order-info-wrapper {
-  width: 284px;
+  min-width: 284px;
 }
 
 .location-info {
@@ -73,6 +74,7 @@
 }
 
 .edit-button {
+  cursor:pointer;
   width: 100%;
   height: 44px;
   margin-top: var(--spacing-sm);
@@ -153,6 +155,7 @@
 }
 
 .order-button {
+  cursor: pointer;
   background-color: var(--primary);
   border: none;
   color: var(--white);

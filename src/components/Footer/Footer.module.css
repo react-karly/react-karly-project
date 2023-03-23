@@ -13,6 +13,7 @@ ul {
 }
 
 .karly-information {
+  min-width: 1050px;
   padding-top: 28px;
   padding-bottom: 32px;
   display: flex;
@@ -21,6 +22,9 @@ ul {
 }
 
 /* 고객 문의 */
+.inquiry {
+  min-width: 477px;
+}
 .title {
   color: var(--content);
   font-weight: var(--text-700);
@@ -87,7 +91,7 @@ ul {
 
 /* 칼리 소개 */
 .about {
-  width: 486px;
+  min-width: 486px;
 }
 .information {
   display: flex;
@@ -97,7 +101,7 @@ ul {
 .information span {
   color: var(--content);
   font-weight: var(--text-400);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
 }
 
 .additional-info {
@@ -133,6 +137,7 @@ address {
 
 /* 푸터 중앙 */
 .partner-info {
+  min-width: 1050px;
   padding: 24px 0 32px;
 }
 
@@ -161,6 +166,7 @@ address {
 
 /* footer-bottom */
 .bottom {
+  min-width: 1050px;
   background-color: var(--gray-50);
   color: var(--gray-500);
   text-align: center;
