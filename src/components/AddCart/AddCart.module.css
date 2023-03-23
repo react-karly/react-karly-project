@@ -1,3 +1,14 @@
+/* .modal-background{
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+} */
+
 .a11y-hidden{
   display: none;
 }
@@ -11,6 +22,10 @@
   position: relative;
   padding: 24px 20px;
   z-index: 100;
+  /* position: fixed;
+  top: 50%;
+ left: 50%;
+ transform:translate(-50%, -50%);  */
 }
 
 .product-amount-wrapper{
@@ -36,40 +51,15 @@
   color: #000000;
 }
 
-.counter-box{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 78px;
-  height: 25px;
-  border: 1px solid #C4C4C4;;
-  padding: 0px;
-  font-size: 16px;
-  font-weight: 600;
+.original-price{
+  display: inline-block;
+  font-weight: var(--text-400);
+  font-size: 15px;
+  color: var(--gray-300);
+  text-decoration: line-through;
+  margin-left: 5px;
 }
 
-.minus-btn{
-  background-color:transparent;
-  color: #333333;
-  border: 0;
-  border-radius: 4px;
-  width: 25px;
-  height: 25px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.plus-btn{
-  background-color:transparent;
-  color: #333;
-  border: 0;
-  border-radius: 4px;
-  width: 25px;
-  height: 25px;
-  font-size: 16px;
-cursor: pointer;
-}
 
 .total-price-wrapper{
   position: relative;
@@ -94,12 +84,21 @@ cursor: pointer;
   font-weight: 700;
 }
 
+.saving-wrapper{
+  /* background-color: red; */
+display: flex;
+justify-content: end;
+padding-top: 46px;
+
+}
+
+
 .saving{
   background-color: #FA622F;
   display: block;
-  position: absolute;
-  right: 133px;
-  top: 44px;
+  /* position: absolute; */
+  /* right: 133px;
+  top: 44px; */
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 1px;
@@ -113,12 +112,13 @@ cursor: pointer;
 
 .saving-price{
   display: block;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   top:44px;
   font-weight: 600;
   font-size: 16px;
   color: #000000;
+  margin-left: 5px;
 }
 
 .cancle-btn{

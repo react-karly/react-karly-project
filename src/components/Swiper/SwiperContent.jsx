@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import styles from './SwiperContent.module.css';
 import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import { AddCart } from '../AddCart/AddCart';
@@ -12,7 +12,7 @@ export function SwiperContent({ data, isbanner }) {
     </a>
   ) : (
     <div href="/">
-        {isClick ? <AddCart 혜인이보여주기용={'나는 배고파요'} data={ data} /> : null}
+        {isClick ? <AddCart data={ data} /> : null}
       <img
         className={styles['products-item__image']}
         src={data.image?.thumbnail}
@@ -40,16 +40,15 @@ export function SwiperContent({ data, isbanner }) {
               {data.saleRatio * 100}%
             </span>
             {(data.price * (1 - data.saleRatio))
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              .toLocaleString(navigator.language)}
             원
             <div className={styles['products-item__origin-price']}>
-              {data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              {data.price.toLocaleString(navigator.language)}원
             </div>
           </span>
         ) : (
           <span className={styles['products-item__price']}>
-            {data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+            {data.price.toLocaleString(navigator.language)}원
           </span>
         )}
         <span className={styles['products-item__review']}>
