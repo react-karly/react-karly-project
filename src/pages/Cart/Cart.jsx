@@ -10,17 +10,22 @@ import { priceTemplate } from '@/utils/priceTemplate';
 import { filterSelectedProducts } from '@/utils/filterSelectedProducts';
 import {
   cartListState,
+  shippingState,
   checkAllCheck,
   checkAllUnCheck,
   filterType,
 } from '../../@store/cartListState';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
+import ShippingModal from '@/components/ShippingModalWrapper/ShippingModal/ShippingModal';
 
 function Cart(props) {
   const [cartList, setCartList] = useRecoilState(cartListState);
+  const [shipping, setShipping] = useRecoilState(shippingState);
   const [totalPrice, setTotalPrice] = useState(0);
   const [salePrice, setSalePrice] = useState(0);
   const [selectedCount, setSelectedCount] = useState(0);
+  const [isShowShipping, setIsShowShipping] = useState(false);
 
   const typeArray = useRecoilValue(filterType);
 
@@ -88,7 +93,6 @@ function Cart(props) {
   }, []);
 
   useEffect(() => {
-    console.log(cartList);
     calculateTotalPrice();
     calculateSalePrice();
     countSelectedProduct();
@@ -181,16 +185,24 @@ function Cart(props) {
           <h2 className={styles['a11y-hidden']}>주문 정보</h2>
           {/* 배송지 정보 */}
           <div className={styles['location-info']}>
-            <div className={styles['location-info-title']}>
-              <img src={location} alt="" width="36" height="36" />
-              배송지
-            </div>
-            <p className={styles['location']}>
-              서울 중랑구 면목로 42길 11 &#40;행운빌딩&#41; 603호
-            </p>
-            <span className={styles['delivery-method']}>샛별배송</span>
-            <button type="button" className={styles['edit-button']}>
-              배송지 변경
+            {shipping && (
+              <>
+                <div className={styles['location-info-title']}>
+                  <img src={location} alt="" width="36" height="36" />
+                  배송지
+                </div>
+                <p className={styles['location']}>{shipping}</p>
+                <span className={styles['delivery-method']}>샛별배송</span>
+              </>
+            )}
+            <button
+              type="button"
+              className={styles['edit-button']}
+              onClick={() => {
+                setIsShowShipping(true);
+              }}
+            >
+              {shipping ? '배송지 변경' : '배송지 설정'}
             </button>
           </div>
           {/* 구매 금액 정보  */}
@@ -247,6 +259,11 @@ function Cart(props) {
           </div>
         </section>
       </article>
+      {isShowShipping && (
+        <ShippingModalWrapper>
+          <ShippingModal setIsShowShipping={setIsShowShipping} />
+        </ShippingModalWrapper>
+      )}
     </div>
   );
 }
