@@ -24,7 +24,6 @@ export function SwiperComponent(props) {
         nextEl: nextRef.current,
       }}
       onBeforeInit={(swiper) => {
-        // 초기 설정
         swiper.params.navigation.prevEl = prevRef.current;
         swiper.params.navigation.nextEl = nextRef.current;
         swiper.navigation.update();

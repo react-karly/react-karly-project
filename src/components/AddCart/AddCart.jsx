@@ -5,9 +5,6 @@ import { Counter } from '../Counter/Counter';
 import Portal from '../Portal/Portal';
 
 export function AddCart({ data, onClose }) {
-  // console.log(666666, props)
-
-  // console.log(data);
   const [countNum, setCountNum] = useState(1); // "카운터" 상태 관리
 
   const handleMinus = () => {
