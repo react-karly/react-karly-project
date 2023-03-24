@@ -2,9 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BaseLayout } from './components/Layout/Layout';
 import Home from './pages/Home';
 import './App.module.css';
+import React, {useState } from 'react';
 // import { MainPopup } from './components/Popup/MainPopup';
 
+
 function App() {
+
   return (
     <Router>
       <div className="App">

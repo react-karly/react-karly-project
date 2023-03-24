@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './Home.module.css';
 import 'swiper/css';
@@ -9,8 +9,12 @@ import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
 import { useReadData } from '../firebase/firestore/useReadData';
+import { AddCart } from '../components/AddCart/AddCart';
 
 function Home() {
+
+
+
   // firebase에서 데이터를 받아오는 방법
 
   const {
@@ -40,6 +44,7 @@ function Home() {
 
   return (
     <div>
+     
       <MainPopup />
 
       {/* 메인베너 */}
