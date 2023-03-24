@@ -35,9 +35,9 @@ export function useSignUp(sendEmailVerification = false) {
 
         const { user } = userCredentials;
 
-        // if (displayName && user) {
-        //   await updateProfile(user, { displayName });
-        // }
+        if (displayName && user) {
+          await updateProfile(user, { displayName });
+        }
 
         if (sendEmailVerification && user) {
           await firebaseSendEmailVerification(user);
