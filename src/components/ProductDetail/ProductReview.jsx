@@ -1,15 +1,17 @@
 import React from 'react';
 import styles from './ProductReview.module.css';
 import MoveButton from './ProductDetailItem/MoveButton';
+import useMoveScroll from '../../components/ProductDetail/ProductTab/useMoveScroll';
 
-function ProductReview(){
+
+function ProductReview({ref3}){
 
   return(
     <>
       <div className={styles['review-container']}>
 
         {/* 상품후기 제목 부분 */}
-        <div className={styles['review-wrapper']}>
+        <div className={styles['review-wrapper']} ref={ref3}>
         <div className={styles['title-box']}>
           <h2 className={styles['review-title']}>상품후기</h2>
           <span className={styles['review-event']}>
