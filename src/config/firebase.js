@@ -1,5 +1,6 @@
-import { initializeApp } from 'firebase/app';
+import { getApp, getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+
 import {
   getFirestore,
   doc,
@@ -9,17 +10,28 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 
+const {
+  VITE_API_KEY,
+  VITE_AUTH_DOMAIN,
+  VITE_MESUREMENT_ID,
+  VITE_PROJECT_ID,
+  VITE_STORAGE_BUCKET,
+  VITE_MESSAGIN_ID,
+  VITE_APP_ID,
+} = import.meta.env;
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyAPbVKjCqkRCThM6tw1bZAOKir6gNC6asw',
-  authDomain: 'react-karly.firebaseapp.com',
-  projectId: 'react-karly',
-  storageBucket: 'react-karly.appspot.com',
-  messagingSenderId: '1089809331277',
-  appId: '1:1089809331277:web:9ef1a065fe189400469804',
-  measurementId: 'G-FXNG6JPXTJ',
+  apiKey: VITE_API_KEY,
+  authDomain: VITE_AUTH_DOMAIN,
+  projectId: VITE_PROJECT_ID,
+  storageBucket: VITE_STORAGE_BUCKET,
+  messagingSenderId: VITE_MESSAGIN_ID,
+  appId: VITE_APP_ID,
+  measurementId: VITE_MESUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const app = getApp();
+
 export default app;
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
@@ -38,13 +50,13 @@ export async function createUserDocumentFromAuth(
 
   // Firestore 데이터베이스에 해당 문서가 존재하는 지 확인
   if (!userSnapshot.exists()) {
-    const { email, displayName } = userAuth;
+    const { email, password } = userAuth;
     const createAt = new Date();
 
     try {
       await setDoc(userDocRef, {
         email,
-        displayName,
+        password,
         createAt,
         ...additionalData,
       });
