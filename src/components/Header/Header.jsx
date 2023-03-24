@@ -17,7 +17,7 @@ import { throttle } from '../../utils/throttle';
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 import { useRecoilState } from 'recoil';
 import { cartListState, lastAddProductState } from '../../@store/cartListState';
-import { useDidMountEffect } from '@/custom/useDidMountEffect';
+import { useDidMountEffect } from '@/hooks/useDidMountEffect';
 const Header = (props) => {
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
