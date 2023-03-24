@@ -10,6 +10,12 @@ export const cartListState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+export const lastAddProductState = atom({
+  key: 'lastAddProductState',
+  default: {},
+  effects_UNSTABLE: [persistAtom],
+});
+
 //selector
 // 상품 선택관련 셀렉터
 export const filterType = selector({
@@ -135,4 +141,28 @@ export const plusStock = selector({
   },
 });
 
-//상품 삭제 관련 셀렉터
+//이미 존재하는 상품 담기 관련 셀렉터
+export const addExistProduct = selector({
+  key: 'addExistProduct',
+  get: ({ get }) => {
+    return;
+  },
+  set: ({ get, set }, newValue) => {
+    const cartList = get(cartListState);
+    set(
+      cartListState,
+      cartList.map((product) => {
+        if (product.title === newValue[0]) {
+          console.log(typeof product.stock, typeof newValue[1]);
+          return {
+            ...product,
+            stock: Number(product.stock + newValue[1]),
+          };
+        } else {
+          return { ...product };
+        }
+        return cartList;
+      })
+    );
+  },
+});
