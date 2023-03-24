@@ -20,7 +20,6 @@ import { getAuth, signOut } from 'firebase/auth';
 import { isLoggedInState, emailState, passwordState } from '@/atoms/auth';
 // -------------------------
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
-import { useRecoilState } from 'recoil';
 import { cartListState, lastAddProductState } from '../../@store/cartListState';
 import { useDidMountEffect } from '@/hooks/useDidMountEffect';
 const Header = (props) => {
