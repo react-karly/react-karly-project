@@ -21,10 +21,6 @@ export default function ProductTab({element}){
           return <button onClick={useMoveScroll(element[index])} className={index===3?[styles['btn-style'], styles['btn-style-border']].join(' '):styles['btn-style']} key={index}>{item}</button>
         })
       }
-        {/* <button onClick={tabHandler(props.element)} className={styles['btn-style']}>상품설명</button>
-        <button onClick={tabHandler(props.element)} className={styles['btn-style']}>상세정보</button>
-        <button onClick={tabHandler(props.element)} className={styles['btn-style']}>후기(1,000)</button>
-        <button onClick={tabHandler(props.element)} className={[styles['btn-style'], styles['btn-style-border']].join(' ')}>문의</button> */}
       </div>
     </>
   )
