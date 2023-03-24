@@ -42,8 +42,7 @@ function Login() {
 
   console.log(auth?.currentUser?.email);
 
-  const signIn = async (e) => {
-    e.preventDefault();
+  const signIn = async () => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       console.log(result);
@@ -82,7 +81,11 @@ function Login() {
       <div className={styles['login-container']}>
         <section className={styles['login-wrapper']}>
           <h2 className={styles['login-title']}>로그인</h2>
-          <form className={styles['login-form']} method="GET" action="#">
+          <form
+            className={styles['login-form']}
+            onKeyDown={signIn}
+            method="POST"
+          >
             <fieldset>
               <legend>로그인 폼</legend>
               <Input
