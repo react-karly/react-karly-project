@@ -9,15 +9,19 @@
   width: 249px;
   height: 320px;
   position: relative;
+  cursor: pointer;
 }
 
 /* 상품 이름 */
 .products-item__name {
+  /* background-color: red; */
   font-weight: var(--text-500);
   font-size: 16px;
+  margin:0;
   margin-bottom: 10px;
   margin-top: 16px;
   line-height: 150%;
+  text-align: left;
 }
 
 /* 주황색 할인% */

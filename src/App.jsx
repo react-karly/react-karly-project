@@ -16,7 +16,7 @@ function App() {
         <div className="App">
           <BaseLayout>
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               {/* <Route path="/signup" element={<Login />} /> */}
               {/* <Route path="/login" element={<Register />} /> */}
               {/* 로그인 회원가입 텍스트 스타일 테스트  */}

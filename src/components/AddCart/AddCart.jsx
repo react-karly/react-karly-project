@@ -37,6 +37,7 @@ export function AddCart({ data, onClose }) {
     setCountNum(countNum + 1);
   };
 
+  
   const addCart = () => {
     const titleList = [];
     cartList.map((product) => {
@@ -89,32 +90,7 @@ export function AddCart({ data, onClose }) {
                       {data.price.toLocaleString(navigator.language)}원
                     </span>
                   )}
-    <div className={styles['modal-background']}>
-      {modal ? (
-        <div>
-          <h2 className={styles['a11y-hidden']}>장바구니 담기</h2>
-          <div className={styles['add-cart-container']}>
-            <div className={styles['product-amount-wrapper']}>
-              <span className={styles['product-name']}>{data.name}</span>
-              <div className={styles['price-counter-wrapper']}>
-                {data.saleRatio ? (
-                  <div>
-                    <span className={styles['product-price']}>
-                      {(data.price * (1 - data.saleRatio)).toLocaleString(
-                        navigator.language
-                      )}
-                      원
-                    </span>
-                    <span className={styles['original-price']}>
-                      {data.price.toLocaleString(navigator.language)}원
-                    </span>
-                  </div>
-                ) : (
-                  <span className={styles['product-price']}>
-                    {data.price.toLocaleString(navigator.language)}원
-                  </span>
-                )}
-
+    
                   <div className={styles['counter-box']}>
                     <Counter
                       quantity={countNum}
@@ -123,54 +99,8 @@ export function AddCart({ data, onClose }) {
                     />
                   </div>
                 </div>
-              </div>
-
-              <div className={styles['total-price-wrapper']}>
-                <span className={styles['total-price']}>합계</span>
-                {data.saleRatio ? (
-                  <span className={styles['total-price-number']}>
-                    {(
-                      data.price *
-                      (1 - data.saleRatio) *
-                      countNum
-                    ).toLocaleString(navigator.language)}
-                    원
-                  </span>
-                ) : (
-                  <span className={styles['total-price-number']}>
-                    {(data.price * countNum).toLocaleString(navigator.language)}
-                    원
-                  </span>
-                )}
-                <div className={styles['saving-wrapper']}>
-                  <span className={styles['saving']}>적립</span>
-                  {data.saleRatio ? (
-                    <span className={styles['saving-price']}>
-                      {' '}
-                      구매 시{' '}
-                      {Math.floor(
-                        (
-                          data.price *
-                          (1 - data.saleRatio) *
-                          countNum *
-                          0.01
-                        ).toLocaleString(navigator.language)
-                      )}
-                      원 적립
-                    </span>
-                  ) : (
-                    <span className={styles['saving-price']}>
-                      구매 시{' '}
-                      {Math.floor(
-                        (data.price * countNum * 0.001).toLocaleString(
-                          navigator.language
-                        )
-                      )}
-                      원 적립
-                    </span>
-                  )}
-                </div>
-              </div>
+              </div> 
+  
             <div className={styles['total-price-wrapper']}>
               <span className={styles['total-price']}>합계</span>
               {data.saleRatio ? (

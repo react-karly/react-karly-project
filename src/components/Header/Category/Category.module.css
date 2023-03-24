@@ -1,13 +1,15 @@
 .category {
   position: relative;
-  min-width: 84px;
+  min-width: 100px;
   height: 72px;
+  display: flex;
+  align-items: center;
 }
 
 .box {
-  line-height: 72px;
+  display: flex;
+  align-items: center;
 }
-
 .text {
   display: inline-block;
   padding-left: var(--spacing-sm);
