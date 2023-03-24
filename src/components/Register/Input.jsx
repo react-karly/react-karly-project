@@ -8,6 +8,8 @@ export function Input({
   inputClassName,
   type,
   onChange,
+  value,
+  input,
 }) {
   return (
     <>
