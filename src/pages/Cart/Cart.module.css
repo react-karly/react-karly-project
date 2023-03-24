@@ -1,0 +1,187 @@
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.cart-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 44px;
+  text-align: center;
+}
+.content {
+  display: flex;
+}
+.cart-list-wrapper {
+  margin: 0;
+  width: 742px;
+  margin-right: var(--spacing-lg);
+}
+
+.select-box {
+  min-width: 742px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--black);
+  padding: var(--spacing-base) 0;
+}
+.select-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.select-img {
+  margin-right: var(--spacing-xs);
+}
+.food-type-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.order-info-wrapper {
+  min-width: 284px;
+}
+
+.location-info {
+  border: 1px solid var(--gray-100);
+  padding: var(--spacing-md);
+}
+.location-info-title {
+  display: flex;
+  align-items: center;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+}
+
+.location {
+  margin: 0;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  margin: var(--spacing-sm) 0;
+}
+
+.delivery-method {
+  font-weight: var(--text-600);
+  font-size: var(--text-xs);
+  color: var(--primary);
+}
+
+.edit-button {
+  cursor: pointer;
+  width: 100%;
+  height: 44px;
+  margin-top: var(--spacing-sm);
+  background-color: transparent;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.price-info {
+  padding: var(--spacing-md);
+  border: 1px solid var(--gray-100);
+  background-color: var(--gray-50);
+}
+.price-detail > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-detail > div:not(:last-child) {
+  margin-bottom: var(--spacing-base);
+}
+
+.price-detail span {
+  font-weight: var(--text-400);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+.price-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed var(--gray-100);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  padding-top: var(--spacing-lg);
+}
+
+.total-text {
+  font-weight: var(--text-400);
+  font-size: var(--text-base);
+}
+
+.total-number strong {
+  font-weight: var(--text-700);
+  font-size: 28.43px;
+}
+
+.accumulate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.accumulate-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 18px;
+  /* 명도대비 준수 */
+  /* background: var(--accent-yellow); */
+  background: #d23700;
+  border-radius: 1px;
+  font-weight: var(--text-600);
+  font-size: var(--text-xs);
+  color: var(--white);
+}
+
+.accumulate-desc {
+  font-weight: var(--text-600);
+  font-size: var(--text-xs);
+  margin-left: var(--spacing-xs);
+}
+
+.order-button {
+  cursor: pointer;
+  background-color: var(--primary);
+  border: none;
+  color: var(--white);
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+  margin: var(--spacing-base) 0;
+}
+
+.additional-info p {
+  margin: 0;
+  font-weight: var(--text-600);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  /* 명도대비 준수 */
+  color: var(--gray-500);
+}

@@ -1,0 +1,42 @@
+.check-button {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.product-image {
+  margin: 0 var(--spacing-xs);
+}
+
+.name {
+  width: 345px;
+  margin-right: 8px;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* 사파리 크로스 브라우징 준수 */
+  white-space: nowrap;
+}
+
+.price {
+  width: 127px;
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  margin-right: var(--spacing-xs);
+  text-align: right;
+  /* 사파리 크로스 브라우징 준수 */
+  white-space: nowrap;
+}
+
+.button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

@@ -1,0 +1,186 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-container {
+  border-top: 1px solid var(--gray-100);
+  margin-top: 96px;
+}
+.wrapper {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.karly-information {
+  min-width: 1050px;
+  padding-top: 28px;
+  padding-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+/* 고객 문의 */
+.inquiry {
+  min-width: 477px;
+}
+.title {
+  color: var(--content);
+  font-weight: var(--text-700);
+  font-size: var(--text-lg);
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.number {
+  display: inline-block;
+  color: var(--content);
+  font-weight: var(--text-700);
+  font-size: var(--text-xl);
+  margin-bottom: 16px;
+}
+
+.number span {
+  display: inline-block;
+  color: var(--content);
+  font-weight: var(--text-600);
+  font-size: var(--text-base);
+  transform: translate(8px, -50%);
+}
+
+/* 문의 버튼 */
+.inquiry button {
+  width: 140px;
+  background-color: transparent;
+  margin-right: 16px;
+  padding: 7px 0;
+  border: 1px solid var(--gray-200);
+}
+
+.kakao,
+.personal,
+.order {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.kakao div,
+.personal div,
+.order div {
+  font-weight: var(--text-400);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+.personal p {
+  margin: 0;
+}
+
+.non-member,
+.non-member-order {
+  font-weight: var(--text-400);
+  font-size: var(--text-xs);
+  color: var(--content);
+}
+
+.non-member span,
+.non-member-order span {
+  color: var(--primary);
+}
+
+/* 칼리 소개 */
+.about {
+  min-width: 486px;
+}
+.information {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.information span {
+  color: var(--content);
+  font-weight: var(--text-400);
+  font-size: var(--text-sm);
+}
+
+.additional-info {
+  color: var(--content);
+  font-weight: var(--text-400);
+  font-size: var(--text-xs);
+  margin-bottom: 28px;
+}
+
+.additional-info span {
+  display: inline-block;
+  height: 19px;
+}
+.text-color {
+  color: var(--primary);
+}
+
+address {
+  display: inline-block;
+}
+
+.sns-link {
+  display: flex;
+}
+.sns-link li {
+  margin-right: 20px;
+}
+
+.bar-icon {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+/* 푸터 중앙 */
+.partner-info {
+  min-width: 1050px;
+  padding: 24px 0 32px;
+}
+
+.partner-organization {
+  display: flex;
+}
+
+.partner-organization li {
+  width: 25%;
+  display: flex;
+}
+.partner-organization button {
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  background-color: transparent;
+  font-weight: var(--text-400);
+  font-size: var(--text-xxs);
+  text-align: left;
+  padding: 0;
+  line-height: 1.6;
+}
+.partner-organization img {
+  margin-right: 8px;
+}
+
+/* footer-bottom */
+.bottom {
+  min-width: 1050px;
+  background-color: var(--gray-50);
+  color: var(--gray-500);
+  text-align: center;
+  padding: 20px 32px;
+  font-weight: var(--text-400);
+  font-size: var(--text-xxs);
+  line-height: 1.6;
+}
+
+.bottom p {
+  margin: 0;
+  padding: 0;
+}
+.bottom section {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}

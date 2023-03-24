@@ -1,0 +1,103 @@
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+.scroll-header-container {
+  width: 100%;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 10;
+  transition: all 0.1 ease-out;
+}
+.wrapper {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/*메뉴 */
+.navigation {
+  min-width: 600px;
+}
+.navigation li {
+  display: inline-block;
+  padding: 4px 36px;
+}
+
+.navigation a {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: var(--text-base);
+  font-weight: var(--text-600);
+  color: var(--content);
+}
+
+/*검색창 */
+.form {
+  display: flex;
+  align-items: center;
+  width: 194px;
+  height: 36px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.form input {
+  border: none;
+  font-weight: var(--text-400);
+  font-size: var(--text-xs);
+  padding-left: var(--spacing-md);
+  width: 100%;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.search-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+
+/*아이콘 링크 모음 */
+.icon-link {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  margin: 0 var(--spacing-md);
+}
+
+.cart {
+  position: relative;
+}
+.cart-number {
+  position: absolute;
+  right: -4px;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  padding: 0px 5px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: rgb(95, 0, 128);
+  font-size: 9px;
+  color: rgb(255, 255, 255);
+  line-height: 15px;
+  text-align: center;
+  white-space: nowrap;
+}
