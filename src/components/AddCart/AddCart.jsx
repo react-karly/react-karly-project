@@ -2,6 +2,13 @@ import React from 'react';
 import styles from './AddCart.module.css';
 import { useState } from 'react';
 import { Counter } from '../Counter/Counter';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { priceTemplate } from '../../utils/priceTemplate';
+import {
+  addExistProduct,
+  cartListState,
+  lastAddProductState,
+} from '../../@store/cartListState';
 
 export function AddCart(props) {
   // console.log(666666, props)
@@ -11,6 +18,20 @@ export function AddCart(props) {
 
   const [modal, setModal] = React.useState(true); // "닫기" 상태 관리
   const [countNum, setCountNum] = useState(1); // "카운터" 상태 관리
+  const [cartList, setCartList] = useRecoilState(cartListState);
+  const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
+  const addItem = useSetRecoilState(addExistProduct);
+
+  const newItem = {
+    type: data.type,
+    title: data.name,
+    src: data.image.thumbnail,
+    alt: data.image.alt,
+    price: data.price,
+    salePrice: data.salePrice,
+    stock: data.stock,
+    isChecked: true,
+  };
 
   const handleMinus = () => {
     setCountNum(countNum - 1);
@@ -26,7 +47,16 @@ export function AddCart(props) {
   };
 
   const addCart = () => {
-    console.log('장바구니 담기');
+    const titleList = [];
+    cartList.map((product) => {
+      titleList.push(product.title);
+    });
+    if (titleList.includes(newItem.title)) {
+      addItem([newItem.title, countNum]);
+    } else {
+      setCartList([...cartList, { ...newItem }]);
+    }
+    setLastProduct(newItem);
   };
 
   // useEffect(() => {
@@ -49,17 +79,15 @@ export function AddCart(props) {
               <div className={styles['price-counter-wrapper']}>
                 {data.saleRatio ? (
                   <div>
-                  <span className={styles['product-price']}>
-                    {(data.price * (1 - data.saleRatio)).toLocaleString(
-                      navigator.language
-                    )}
-                    원
+                    <span className={styles['product-price']}>
+                      {(data.price * (1 - data.saleRatio)).toLocaleString(
+                        navigator.language
+                      )}
+                      원
                     </span>
                     <span className={styles['original-price']}>
-                    {data.price.toLocaleString(
-                      navigator.language
-                    )}원
-                  </span>
+                      {data.price.toLocaleString(navigator.language)}원
+                    </span>
                   </div>
                 ) : (
                   <span className={styles['product-price']}>
@@ -81,9 +109,11 @@ export function AddCart(props) {
               <span className={styles['total-price']}>합계</span>
               {data.saleRatio ? (
                 <span className={styles['total-price-number']}>
-                  {(data.price * (1 - data.saleRatio)* countNum).toLocaleString(
-                    navigator.language
-                  )}
+                  {(
+                    data.price *
+                    (1 - data.saleRatio) *
+                    countNum
+                  ).toLocaleString(navigator.language)}
                   원
                 </span>
               ) : (
@@ -92,20 +122,24 @@ export function AddCart(props) {
                 </span>
               )}
               <div className={styles['saving-wrapper']}>
-              <span className={styles['saving']}>적립</span>
-              {data.saleRatio ? (
-                 <span className={styles['saving-price']}> 구매 시 {" "}
-                 {Math.floor((data.price * (1 - data.saleRatio)* countNum * 0.01).toLocaleString(
-                  navigator.language
-                ))}
-                 원 적립</span>
-              ):(
-                <span className={styles['saving-price']}>구매 시 {" "}
-                {Math.floor((data.price * countNum * 0.001).toLocaleString(
-                 navigator.language
-               ))}
-               원 적립</span>
-              )}
+                <span className={styles['saving']}>적립</span>
+                {data.saleRatio ? (
+                  <span className={styles['saving-price']}>
+                    구매 시{' '}
+                    {priceTemplate(
+                      Math.floor(
+                        data.price * (1 - data.saleRatio) * countNum * 0.01
+                      )
+                    )}
+                    원 적립
+                  </span>
+                ) : (
+                  <span className={styles['saving-price']}>
+                    구매 시{' '}
+                    {priceTemplate(Math.floor(data.price * countNum * 0.001))}원
+                    적립
+                  </span>
+                )}
               </div>
             </div>
 
