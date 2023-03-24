@@ -20,22 +20,23 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ```json
 {
-    "id" : string,
-    "name" : string,
     "email" : string,
     "password" : string,
+    "passwordConfirm" : string,
+    "name" : string,
     "phoneNumber" : number,
     "address" :string,
-    "gender" : string | null,
-    "birth" : string,
-    "recommendId" : string | null,
-    "eventName" : string | null,
-    "term1" : boolean,
-    "term2" : boolean,
-    "term3" : boolean,
-    "term4" : boolean,
-    "term5" : boolean,
-    "createdAt":number
+    "gender" : string,
+    "birthYear" : number,
+    "birthMonth" : number,
+    "birthDay" : number,
+    "extraEvent" : string || null,
+    "recommendId" : string || null,
+    "eventName" : string || null,
+    "termsOfUse" : boolean,
+    "termsOfPersonalInfo" : boolean,
+    "termsOfEvent" : boolean,
+    "termsOfAge" : boolean,
 }
 ```
 

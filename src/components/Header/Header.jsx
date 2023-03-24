@@ -19,6 +19,7 @@ import { useRecoilState } from 'recoil';
 import { getAuth, signOut } from 'firebase/auth';
 import { isLoggedInState, emailState, passwordState } from '../../atoms/auth';
 // -------------------------
+import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 const Header = (props) => {
   // 유림 추가
   const auth = getAuth();
@@ -124,9 +125,12 @@ const Header = (props) => {
             <span>
               <img src={heart} alt="찜하기" width="36" height="36" />
             </span>
-            <Link to="/cart">
-              <img src={cart} alt="장바구니" width="36" height="36" />
-            </Link>
+            <div className={styles['cart-box']}>
+              <Link to="/cart">
+                <img src={cart} alt="장바구니" width="36" height="36" />
+              </Link>
+              <CartAddedModal />
+            </div>
           </div>
         </section>
         {isScrolled ? <ScrollNav /> : <NormalNav />}
