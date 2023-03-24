@@ -153,3 +153,8 @@ a {
   opacity: 0.8;
   font-size: var(--text-base);
 }
+
+.logout {
+  color: var(--primary);
+  cursor: pointer;
+}

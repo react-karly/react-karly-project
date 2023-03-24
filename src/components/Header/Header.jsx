@@ -17,7 +17,7 @@ import { throttle } from '../../utils/throttle';
 // 유림 추가
 import { useRecoilState } from 'recoil';
 import { getAuth, signOut } from 'firebase/auth';
-import { isLoggedInState, emailState, passwordState } from '../../atoms/auth';
+import { isLoggedInState, emailState, passwordState } from '@/atoms/auth';
 // -------------------------
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 const Header = (props) => {
@@ -69,11 +69,13 @@ const Header = (props) => {
           <ul className={styles['member-wrapper']}>
             {/* 유림 추가 */}
             {isLoggedIn ? (
-              <li onClick={logout}>로그아웃</li>
+              <li onClick={logout} className={styles.logout}>
+                로그아웃
+              </li>
             ) : (
               <>
                 <li className={pathname === '/signup1' ? styles.selected : ''}>
-                  <Link to="/signup1">회원가입</Link>
+                  <Link to="/signup">회원가입</Link>
                 </li>
                 <li className={pathname === '/login' ? styles.selected : ''}>
                   <Link to="/login">로그인</Link>
