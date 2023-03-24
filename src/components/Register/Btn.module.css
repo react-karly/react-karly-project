@@ -1,3 +1,7 @@
+button {
+  cursor: pointer;
+}
+
 .login-btn {
   margin-top: 28px;
   margin-bottom: var(--spacing-sm);
@@ -43,4 +47,8 @@
   background: var(--white);
   border: solid 1px var(--primary);
   border-radius: 3px;
+}
+
+.btn-container {
+  display: inline-block;
 }

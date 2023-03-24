@@ -1,12 +1,12 @@
 import React from 'react';
-import style from '../Register/Btn.module.css';
+import styles from '@/components/Register/Btn.module.css';
 
 export function Btn({ btnTitle, buttonClassName, onClick }) {
   return (
-    <div>
+    <div className={styles['btn-container']}>
       <button
         type="button"
-        className={style[buttonClassName]}
+        className={styles[buttonClassName]}
         onClick={onClick}
       >
         {btnTitle}

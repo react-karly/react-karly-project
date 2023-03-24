@@ -1,28 +1,26 @@
 import React from 'react';
-import style from '../Register/Input.module.css';
+import styles from '@/components/Register/Input.module.css';
 
 export function Input({
   title,
   placeholder,
   labelClassName,
-  spanClassName,
   inputClassName,
   type,
   onChange,
 }) {
   return (
-    <li>
-      <label className={style[labelClassName]}>
-        <span className={style[spanClassName]}>필수입력사항</span>
-        {title}
-      </label>
+    <>
+      <label className={styles[labelClassName]}>{title}</label>
       <input
-        className={style[inputClassName]}
         type={type}
         required
         placeholder={placeholder}
         onChange={onChange}
+        className={styles['register-input']}
+        value={value}
+        {...input}
       />
-    </li>
+    </>
   );
 }

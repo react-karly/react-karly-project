@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Register/RegisterTOS.module.css';
+import styles from '@/components/Register/RegisterTOS.module.css';
 
 export function RegisterTOS({
   requiredOrOptional,
