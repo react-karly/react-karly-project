@@ -15,7 +15,10 @@ import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
 import { throttle } from '../../utils/throttle';
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
+import { useRecoilState } from 'recoil';
+import { cartListState } from '../../@store/cartListState';
 const Header = (props) => {
+  const [cartList, setCartList] = useRecoilState(cartListState);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -99,6 +102,9 @@ const Header = (props) => {
               <Link to="/cart">
                 <img src={cart} alt="장바구니" width="36" height="36" />
               </Link>
+              {cartList.length !== 0 && (
+                <span className={styles['cart-number']}>{cartList.length}</span>
+              )}
               <CartAddedModal />
             </div>
           </div>

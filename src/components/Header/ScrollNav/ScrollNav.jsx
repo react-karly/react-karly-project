@@ -6,8 +6,11 @@ import heart from '@/assets/header/heart.png';
 import cart from '@/assets/header/cart.png';
 import { Link } from 'react-router-dom';
 import { Category } from '../Category/Category';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { cartListState } from '../../../@store/cartListState';
 
 function ScrollNav(props) {
+  const [cartList, setCartList] = useRecoilState(cartListState);
   return (
     <nav className={styles['scroll-header-container']}>
       <div className={styles.wrapper}>
@@ -60,7 +63,7 @@ function ScrollNav(props) {
               <img src={heart} alt="찜" width="36" height="36" />
             </span>
           </li>
-          <li>
+          <li className={styles.cart}>
             <Link to="/cart">
               <img
                 src={cart}
@@ -69,8 +72,9 @@ function ScrollNav(props) {
                 height="36"
               />
             </Link>
-            {/* <span className="cart-number">1</span> */}
-            {/* <div className="cart-alarm is-not-exist"></div> */}
+            {cartList.length !== 0 && (
+              <span className={styles['cart-number']}>{cartList.length}</span>
+            )}
           </li>
         </ul>
       </div>
