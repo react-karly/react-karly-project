@@ -19,7 +19,7 @@ export function Input({
         required
         placeholder={placeholder}
         onChange={onChange}
-        className={styles['register-input']}
+        className={styles[inputClassName]}
         value={value}
         {...input}
       />

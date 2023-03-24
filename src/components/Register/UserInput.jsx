@@ -22,6 +22,7 @@ export function UserInput({
         <li>
           <Input
             labelClassName="register-label-required"
+            inputClassName="register-input"
             input={{
               placeholder: 'marketkarly@karly.com',
             }}
@@ -34,6 +35,7 @@ export function UserInput({
         <li>
           <Input
             labelClassName="register-label-required"
+            inputClassName="register-input"
             input={{ placeholder: '비밀번호를 입력해주세요.' }}
             title="비밀번호"
             type="password"
@@ -43,6 +45,7 @@ export function UserInput({
         <li>
           <Input
             labelClassName="register-label-required"
+            inputClassName="register-input"
             input={{ placeholder: '비밀번호를 한번 더 입력해주세요.' }}
             title="비밀번호 확인"
             type="password"
@@ -53,6 +56,7 @@ export function UserInput({
         <li>
           <Input
             labelClassName="register-label-required"
+            inputClassName="register-input"
             input={{ placeholder: '이름을 입력해주세요.' }}
             title="이름"
             onChange={onChangeName}
@@ -70,6 +74,7 @@ export function UserInput({
         <li>
           <Input
             labelClassName="register-label-required"
+            inputClassName="register-input"
             input={{ placeholder: '숫자만 입력해주세요.' }}
             title="휴대폰"
             onChange={onChangePhoneNumber}
