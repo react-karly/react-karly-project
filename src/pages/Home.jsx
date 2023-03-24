@@ -1,18 +1,14 @@
-import React, { useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect } from 'react';
 import styles from './Home.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination, Navigation, Autoplay } from 'swiper';
-import mainBannerPurple from '@/assets/main/banner03.png';
 import { SwiperComponent } from '../components/Swiper/SwiperComponent';
 import { MainPopup } from '../components/Popup/MainPopup';
 import { useReadData } from '../firebase/firestore/useReadData';
 
 function Home() {
-  // firebase에서 데이터를 받아오는 방법
-
   const {
     readData: readProductsData,
     data: productsData,
@@ -27,12 +23,9 @@ function Home() {
   } = useReadData('banner');
 
   async function handleReadData() {
-    // 모든 데이터를 가져옵니다.
     readProductsData();
     readBannerData();
-
-    // 특정 도큐멘트 데이터만 가져옵니다.
-    // await readData('demo');
+;
   }
   useEffect(() => {
     handleReadData();
@@ -40,6 +33,7 @@ function Home() {
 
   return (
     <div>
+     
       <MainPopup />
 
       {/* 메인베너 */}

@@ -7,7 +7,9 @@ import ProductDetail from '@/pages/ProductDetail/ProductDetail';
 import ProductList from '@/pages/ProductList/ProductList';
 import { RecoilRoot } from 'recoil';
 
+
 function App() {
+
   return (
     <RecoilRoot>
       <Router>

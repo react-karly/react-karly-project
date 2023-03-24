@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import styles from './SwiperContent.module.css';
 import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import { AddCart } from '../AddCart/AddCart';
@@ -6,13 +6,17 @@ import { AddCart } from '../AddCart/AddCart';
 export function SwiperContent({ data, isbanner }) {
   const [isClick, setIsClick] = useState(false);
 
+  const handleClose = () => {
+    setIsClick(!isClick);
+  };
+
   return isbanner === 'true' ? (
     <a href={data.href}>
       <img src={data.src} alt={data.title} className={styles['banner-img']} />
     </a>
   ) : (
     <div href="/">
-        {isClick ? <AddCart data={ data} /> : null}
+      {isClick ? <AddCart data={data} onClose={handleClose } /> : null}
       <img
         className={styles['products-item__image']}
         src={data.image?.thumbnail}
@@ -23,7 +27,6 @@ export function SwiperContent({ data, isbanner }) {
         type="button"
         onClick={() => {
           setIsClick((state) => !state);
-          console.log(isClick);
         }}
       >
         <img
@@ -39,8 +42,9 @@ export function SwiperContent({ data, isbanner }) {
             <span className={styles['products-item__sale-price']}>
               {data.saleRatio * 100}%
             </span>
-            {(data.price * (1 - data.saleRatio))
-              .toLocaleString(navigator.language)}
+            {(data.price * (1 - data.saleRatio)).toLocaleString(
+              navigator.language
+            )}
             원
             <div className={styles['products-item__origin-price']}>
               {data.price.toLocaleString(navigator.language)}원
