@@ -154,6 +154,23 @@ a {
   font-size: var(--text-base);
 }
 
+.cart-box .cart-number {
+  position: absolute;
+  right: -4px;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  padding: 0px 5px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: rgb(95, 0, 128);
+  font-size: 9px;
+  color: rgb(255, 255, 255);
+  line-height: 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .logout {
   color: var(--primary);
   cursor: pointer;

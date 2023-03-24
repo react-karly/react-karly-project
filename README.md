@@ -82,10 +82,10 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ```json
 {
-    "id":string,
     "type":string,
     "title":string,
     "src":string,
+    "alt":string,
     "price":number,
     "salePrice":number,
     "stock":number,
