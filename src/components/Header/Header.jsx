@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
@@ -16,13 +16,27 @@ import { NormalNav } from './NormalNav/NormalNav';
 import { throttle } from '../../utils/throttle';
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 import { useRecoilState } from 'recoil';
-import { cartListState } from '../../@store/cartListState';
+import { cartListState, lastAddProductState } from '../../@store/cartListState';
+import { useDidMountEffect } from '@/custom/useDidMountEffect';
 const Header = (props) => {
   const [cartList, setCartList] = useRecoilState(cartListState);
+  const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
+  const didMount = useRef(false);
+
+  const [isShow, setIsShow] = useState(false);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const toggleShow = () => {
+    setIsShow(true);
+    setTimeout(() => {
+      setIsShow(false);
+    }, 2000);
+  };
+  useDidMountEffect(toggleShow, [lastProduct]);
 
   const handleScroll = throttle(() => {
     if (window.scrollY > document.querySelector('header').offsetHeight - 60) {
@@ -30,7 +44,8 @@ const Header = (props) => {
     } else {
       setIsScrolled(false);
     }
-  }, 40);
+  }, 20);
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -105,11 +120,11 @@ const Header = (props) => {
               {cartList.length !== 0 && (
                 <span className={styles['cart-number']}>{cartList.length}</span>
               )}
-              <CartAddedModal />
+              {isShow && <CartAddedModal />}
             </div>
           </div>
         </section>
-        {isScrolled ? <ScrollNav /> : <NormalNav />}
+        {isScrolled ? <ScrollNav isShow={isShow} /> : <NormalNav />}
       </div>
     </header>
   );

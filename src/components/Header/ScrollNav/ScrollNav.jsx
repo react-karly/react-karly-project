@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 import { Category } from '../Category/Category';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { cartListState } from '../../../@store/cartListState';
+import CartAddedModal from '../../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 
-function ScrollNav(props) {
+function ScrollNav({ isShow }) {
   const [cartList, setCartList] = useRecoilState(cartListState);
   return (
     <nav className={styles['scroll-header-container']}>
@@ -75,6 +76,7 @@ function ScrollNav(props) {
             {cartList.length !== 0 && (
               <span className={styles['cart-number']}>{cartList.length}</span>
             )}
+            {isShow && <CartAddedModal />}
           </li>
         </ul>
       </div>
