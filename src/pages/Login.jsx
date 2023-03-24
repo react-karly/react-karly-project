@@ -56,15 +56,15 @@ function Login() {
     }
   };
 
-  const signInWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-      setError(false);
-    } catch (err) {
-      console.error(err);
-      setError(true);
-    }
-  };
+  // const signInWithGoogle = async () => {
+  //   try {
+  //     await signInWithPopup(auth, googleProvider);
+  //     setError(false);
+  //   } catch (err) {
+  //     console.error(err);
+  //     setError(true);
+  //   }
+  // };
 
   const logout = async () => {
     try {
@@ -101,7 +101,6 @@ function Login() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {isLoggedIn ? '로그인 됨' : '로그인 안됨'}
               {useRecoilValue(errorState) && <LoginModal />}
               <ul>
                 <li>
@@ -119,16 +118,11 @@ function Login() {
               <Link to="/signup1">
                 <Btn btnTitle="회원가입" buttonClassName="register-btn" />
               </Link>
-              <Btn
+              {/* <Btn
                 btnTitle="구글로 로그인"
                 buttonClassName="register-btn"
                 onClick={signInWithGoogle}
-              />
-              <Btn
-                btnTitle="로그아웃"
-                buttonClassName="login-btn"
-                onClick={logout}
-              />
+              /> */}
             </fieldset>
           </form>
         </section>
