@@ -2,6 +2,7 @@
 @import url('@/components/ProductDetail/reset.css');
 
 .container {
+  transition: all 0.3s ease;
   background-color: var(--white);
   width: 254px;
   position: absolute;
@@ -59,9 +60,13 @@
 }
 
 .title {
+  width: 144px;
   font-size: 12px;
   font-weight: bold;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content {
