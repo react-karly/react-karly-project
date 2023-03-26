@@ -12,6 +12,18 @@ import { useRecoilState } from 'recoil';
 function RegisterRefactor() {
   const navigate = useNavigate();
   const [authObj, setAuthObj] = useRecoilState(authState);
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [confirmValid, setConfirmValid] = useState(false);
+  const [message, setMessage] = useState({
+    // emailError: '',
+    passwordError: '',
+    passwordConfirmError: '',
+    //  nameError: '',
+    //  phoneNumberError: '',
+    //  birthYearError: '',
+    //  birthMonthError: '',
+    //  birthDayError: '',
+  });
 
   const usersCollectionRef = collection(db, 'users');
 
@@ -33,36 +45,39 @@ function RegisterRefactor() {
 
   const auth = getAuth();
 
+  const validatePassword = (password) => {
+    // 비밀번호가 최소 10자 이상의 영문, 숫자, 특수문자 중 2가지 이상을 포함하는지 검사
+    const passwordRegex =
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{10,}$/;
+    return passwordRegex.test(password);
+  };
+
   const signUp = async () => {
-    if (authObj.password !== authObj.passwordConfirm) {
-      alert('비밀번호가 일치하지 않습니다.');
-      return;
-    }
-    console.log(5959, authObj);
+    console.log('authObj', authObj);
     try {
       const result = await createUserWithEmailAndPassword(
         auth,
         authObj.email,
         authObj.password
       );
-      console.log(6666, result);
+      console.log('result', result);
       const data = await addDoc(usersCollectionRef, {
         email: authObj.email,
         password: authObj.password,
         passwordConfirm: authObj.passwordConfirm,
         name: authObj.name,
-        phoneNumber: Number(authObj.phoneNumber),
+        phoneNumber: parseInt(authObj.phoneNumber),
         address: authObj.address,
         gender: authObj.gender,
-        birthYear: Number(authObj.birthYear),
-        birthMonth: Number(authObj.birthMonth),
-        birthDay: Number(authObj.birthDay),
+        birthYear: parseInt(authObj.birthYear),
+        birthMonth: parseInt(authObj.birthMonth),
+        birthDay: parseInt(authObj.birthDay),
         termsOfUse: Boolean(authObj.termsOfUse),
         termsOfPersonalInfo: Boolean(authObj.termsOfPersonalInfo),
         termsOfEvent: Boolean(authObj.termsOfEvent),
         termsOfAge: Boolean(authObj.termsOfAge),
       });
-      console.log(7676, data);
+      console.log('data', data);
       navigate('/home');
     } catch (err) {
       console.error(err);
@@ -80,12 +95,45 @@ function RegisterRefactor() {
             onChangeEmail={(e) =>
               setAuthObj({ ...authObj, email: e.target.value })
             }
-            onChangePassword={(e) =>
-              setAuthObj({ ...authObj, password: e.target.value })
-            }
-            onChangePasswordConfirm={(e) =>
-              setAuthObj({ ...authObj, passwordConfirm: e.target.value })
-            }
+            onChangePassword={(e) => {
+              setAuthObj({ ...authObj, password: e.target.value });
+              setPasswordValid(validatePassword(e.target.value));
+              if (e.target.value.length < 10) {
+                setMessage({
+                  ...setMessage,
+                  passwordError: '비밀번호는 최소 10자 이상',
+                });
+              } else if (
+                !/[a-zA-Z]/.test(e.target.value) ||
+                !/\d/.test(e.target.value) ||
+                !/[!@#$%^&*()_+]/.test(e.target.value)
+              ) {
+                setMessage({
+                  ...setMessage,
+                  passwordError:
+                    '영문/숫자/특수문자(공백제외) 중 2가지 이상을 포함',
+                });
+              } else {
+                setMessage('');
+              }
+            }}
+            onChangePasswordConfirm={(e) => {
+              setAuthObj({ ...authObj, passwordConfirm: e.target.value });
+              setConfirmValid(authObj.password === e.target.value);
+              if (authObj.password === e.target.value) {
+                setMessage('');
+              } else if (!e.target.value) {
+                setMessage({
+                  ...setMessage,
+                  passwordConfirmError: '비밀번호를 한번 더 입력해주세요.',
+                });
+              } else if (authObj.password !== e.target.value) {
+                setMessage({
+                  ...setMessage,
+                  passwordConfirmError: '동일한 비밀번호를 입력해주세요.',
+                });
+              }
+            }}
             onChangeName={(e) =>
               setAuthObj({ ...authObj, name: e.target.value })
             }
@@ -107,6 +155,7 @@ function RegisterRefactor() {
             onChangeBirthDay={(e) =>
               setAuthObj({ ...authObj, birthDay: e.target.value })
             }
+            message={message}
           />
 
           <TermList
