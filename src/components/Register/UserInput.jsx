@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Btn } from '@/components/Register/Btn';
 import { Input } from '@/components/Register/Input';
 import styles from '@/components/Register/UserInput.module.css';
+import { authState } from '@/atoms/auth';
+import { useRecoilState } from 'recoil';
+import { db } from '@/config/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 export function UserInput({
   onChangeEmail,
@@ -13,8 +17,22 @@ export function UserInput({
   onChangeBirthYear,
   onChangeBirthMonth,
   onChangeBirthDay,
+  message,
 }) {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
+  const [authObj, setAuthObj] = useRecoilState(authState);
+  const usersCollectionRef = collection(db, 'users');
+
+  const checkEmail = async () => {
+    console.log(authObj.email);
+    const q = query(usersCollectionRef, where('email', '==', authObj.email));
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      alert('사용 가능한 이메일입니다!');
+    } else {
+      alert('이미 사용 중인 이메일입니다!');
+    }
+  };
 
   return (
     <div>
@@ -30,7 +48,11 @@ export function UserInput({
             type="email"
             onChange={onChangeEmail}
           />
-          <Btn btnTitle="중복확인" buttonClassName="small-btn" />
+          <Btn
+            btnTitle="중복확인"
+            buttonClassName="small-btn"
+            onClick={checkEmail}
+          />
         </li>
         <li>
           <Input
@@ -41,6 +63,7 @@ export function UserInput({
             type="password"
             onChange={onChangePassword}
           />
+          {error && <span>{message.passwordError}</span>}
         </li>
         <li>
           <Input
@@ -51,7 +74,7 @@ export function UserInput({
             type="password"
             onChange={onChangePasswordConfirm}
           />
-          {error && <span>비밀번호가 일치하지 않습니다.</span>}
+          {error && <span>{message.passwordConfirmError}</span>}
         </li>
         <li>
           <Input

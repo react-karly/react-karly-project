@@ -19,3 +19,23 @@ export const emailState = atom({
   key: 'emailState',
   default: '',
 });
+
+export const authState = atom({
+  key: 'authState',
+  default: {
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    name: '',
+    phoneNumber: '',
+    address: '',
+    gender: '',
+    birthYear: '',
+    birthMonth: '',
+    birthDay: '',
+    termsOfUse: false,
+    termsOfPersonalInfo: false,
+    termsOfEvent: false,
+    termsOfAge: false,
+  },
+});
