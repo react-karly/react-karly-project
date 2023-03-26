@@ -92,12 +92,12 @@ a {
 
 .market {
   color: var(--primary);
-  min-width: 94px;
+  min-width: 103px;
 }
 
 .beauty {
   color: var(--gray-500);
-  min-width: 94px;
+  min-width: 103px;
 }
 
 .new {
@@ -112,7 +112,7 @@ a {
 
 .quick-menu {
   margin-left: 172px;
-  transform: translateX(8px);
+  transform: translateX(-14px);
 }
 .quick-menu img:hover {
   filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
