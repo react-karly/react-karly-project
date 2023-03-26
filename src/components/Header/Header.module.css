@@ -112,7 +112,7 @@ a {
 
 .quick-menu {
   margin-left: 172px;
-  transform: translateX(8px);
+  transform: translateX(-14px);
 }
 .quick-menu img:hover {
   filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
