@@ -17,8 +17,9 @@ export function UserInput({
   onChangeBirthYear,
   onChangeBirthMonth,
   onChangeBirthDay,
+  message,
 }) {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
   const [authObj, setAuthObj] = useRecoilState(authState);
   const usersCollectionRef = collection(db, 'users');
 
@@ -62,6 +63,7 @@ export function UserInput({
             type="password"
             onChange={onChangePassword}
           />
+          {error && <span>{message.passwordError}</span>}
         </li>
         <li>
           <Input
@@ -72,7 +74,7 @@ export function UserInput({
             type="password"
             onChange={onChangePasswordConfirm}
           />
-          {error && <span>비밀번호가 일치하지 않습니다.</span>}
+          {error && <span>{message.passwordConfirmError}</span>}
         </li>
         <li>
           <Input
