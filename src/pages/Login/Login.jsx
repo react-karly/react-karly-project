@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Btn } from '@/components/Register/Btn';
 import styles from '@/pages/Login/Login.module.css';
-import { auth } from '@/config/firebase';
+import { auth, googleProvider } from '@/config/firebase';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   isLoggedInState,
@@ -55,15 +55,17 @@ function Login() {
     }
   };
 
-  // const signInWithGoogle = async () => {
-  //   try {
-  //     await signInWithPopup(auth, googleProvider);
-  //     setError(false);
-  //   } catch (err) {
-  //     console.error(err);
-  //     setError(true);
-  //   }
-  // };
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      setError(false);
+      setIsLoggedIn(true);
+      navigate('/');
+    } catch (err) {
+      console.error(err);
+      //setError(true);
+    }
+  };
 
   const logout = async () => {
     try {
@@ -123,11 +125,11 @@ function Login() {
               <Link to="/signup">
                 <Btn btnTitle="회원가입" buttonClassName="register-btn" />
               </Link>
-              {/* <Btn
+              <Btn
                 btnTitle="구글로 로그인"
                 buttonClassName="register-btn"
                 onClick={signInWithGoogle}
-              /> */}
+              />
             </fieldset>
           </form>
         </section>
