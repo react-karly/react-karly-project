@@ -139,3 +139,11 @@ input[type='radio'] + label {
   justify-content: space-between;
   white-space: nowrap;
 }
+
+li > span {
+  color: var(--info-error);
+  font-size: var(--text-sm);
+  margin-top: 6px;
+  left: 150px;
+  position: relative;
+}
