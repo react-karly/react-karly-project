@@ -53,7 +53,7 @@ function Login() {
       console.log(result);
       setError(false);
       setIsLoggedIn(true);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       console.error(err);
       setErrorMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
@@ -66,7 +66,7 @@ function Login() {
       await signInWithPopup(auth, googleProvider);
       setError(false);
       setIsLoggedIn(true);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       console.error(err);
       //setError(true);

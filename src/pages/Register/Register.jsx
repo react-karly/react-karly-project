@@ -63,7 +63,7 @@ function RegisterRefactor() {
         termsOfAge: Boolean(authObj.termsOfAge),
       });
       console.log(7676, data);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       console.error(err);
     }
