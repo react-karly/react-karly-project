@@ -14,11 +14,32 @@ import { Category } from './Category/Category';
 import { ScrollNav } from './ScrollNav/ScrollNav';
 import { NormalNav } from './NormalNav/NormalNav';
 import { throttle } from '../../utils/throttle';
-import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
+// 유림 추가
 import { useRecoilState } from 'recoil';
+import { getAuth, signOut } from 'firebase/auth';
+import { isLoggedInState, emailState, passwordState } from '@/atoms/auth';
+// -------------------------
+import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 import { cartListState, lastAddProductState } from '../../@store/cartListState';
 import { useDidMountEffect } from '@/hooks/useDidMountEffect';
 const Header = (props) => {
+  // 유림 추가
+  const auth = getAuth();
+  const [email, setEmail] = useRecoilState(emailState);
+  const [password, setPassword] = useRecoilState(passwordState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setEmail('');
+      setPassword('');
+      setIsLoggedIn(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  // -----------------------
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
   const didMount = useRef(false);
@@ -63,12 +84,22 @@ const Header = (props) => {
       <div className={styles.wrapper}>
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
-            <li className={pathname === '/signup' ? styles.selected : ''}>
-              <Link to="/signup">회원가입</Link>
-            </li>
-            <li className={pathname === '/login' ? styles.selected : ''}>
-              <Link to="/login">로그인</Link>
-            </li>
+            {/* 유림 추가 */}
+            {isLoggedIn ? (
+              <li onClick={logout} className={styles.logout}>
+                로그아웃
+              </li>
+            ) : (
+              <>
+                <li className={pathname === '/signup1' ? styles.selected : ''}>
+                  <Link to="/signup">회원가입</Link>
+                </li>
+                <li className={pathname === '/login' ? styles.selected : ''}>
+                  <Link to="/login">로그인</Link>
+                </li>
+              </>
+            )}
+            {/* 유림 추가 */}
             <li>고객센터</li>
           </ul>
         </section>

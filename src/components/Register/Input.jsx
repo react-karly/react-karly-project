@@ -1,29 +1,28 @@
 import React from 'react';
-import app from '../../App.module.css';
-import login from '../../pages/Login.module.css';
-import input from '../Register/Input.module.css';
+import styles from '@/components/Register/Input.module.css';
 
-const Input = ({
+export function Input({
   title,
   placeholder,
   labelClassName,
-  spanClassName,
   inputClassName,
-}) => {
+  type,
+  onChange,
+  value,
+  input,
+}) {
   return (
-    <li>
-      <label className={input[labelClassName]}>
-        <span className={input[spanClassName]}>필수입력사항</span>
-        {title}
-      </label>
+    <>
+      <label className={styles[labelClassName]}>{title}</label>
       <input
-        className={input[inputClassName]}
-        type="text"
+        type={type}
         required
         placeholder={placeholder}
+        onChange={onChange}
+        className={styles[inputClassName]}
+        value={value}
+        {...input}
       />
-    </li>
+    </>
   );
-};
-
-export default Input;
+}

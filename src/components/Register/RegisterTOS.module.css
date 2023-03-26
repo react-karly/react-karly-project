@@ -1,0 +1,58 @@
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.term-container {
+  display: flex;
+  align-items: center;
+  margin: 12.5px 0;
+}
+
+.term-container label {
+  width: 80%;
+  margin-left: 8.5px;
+  font-size: 16px;
+  line-height: 160%;
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.show-term {
+  all: unset;
+  font-size: 12px;
+  line-height: 160%;
+  font-style: normal;
+  font-weight: 400;
+  color: #5f0080;
+  cursor: pointer;
+}
+
+.open-terms {
+  padding: var(--spacing--xxs) var(--spacing-xs);
+  width: 60px;
+  height: 27px;
+  margin-top: var(minus-spacing-sm);
+  border: none;
+  font-size: var(--text-xs);
+  color: var(--primary);
+  background: var(--white);
+  position: relative;
+  text-align: right;
+}
+
+button.open-terms::after {
+  content: ' ';
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  margin-left: var(--spacing--xxs);
+  background: url(../../assets/input/Arrow.png) no-repeat;
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+}

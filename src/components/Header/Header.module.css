@@ -170,3 +170,8 @@ a {
   text-align: center;
   white-space: nowrap;
 }
+
+.logout {
+  color: var(--primary);
+  cursor: pointer;
+}
