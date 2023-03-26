@@ -6,25 +6,12 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '@/config/firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { authState } from '@/atoms/auth';
+import { useRecoilState } from 'recoil';
 
 function RegisterRefactor() {
   const navigate = useNavigate();
-  const [authObj, setAuthObj] = useState({
-    email: '',
-    password: '',
-    passwordConfirm: '',
-    name: '',
-    phoneNumber: '',
-    address: '',
-    gender: '',
-    birthYear: '',
-    birthMonth: '',
-    birthDay: '',
-    termsOfUse: false,
-    termsOfPersonalInfo: false,
-    termsOfEvent: false,
-    termsOfAge: false,
-  });
+  const [authObj, setAuthObj] = useRecoilState(authState);
 
   const usersCollectionRef = collection(db, 'users');
 
