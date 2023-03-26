@@ -1,0 +1,19 @@
+.image {
+  margin: 0 8px 0 12px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+  width: 100%;
+  font-size: var(--text-base);
+  font-weight: var(--text-600);
+  background-color: var(--white);
+  color: var(--content);
+}
+
+.name:hover {
+  color: var(--primary);
+  background-color: var(--gray-50);
+}

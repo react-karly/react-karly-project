@@ -1,3 +1,12 @@
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
 .cart-container {
   max-width: 1050px;
   margin: 0 auto;
@@ -19,12 +28,14 @@
 }
 
 .select-box {
+  min-width: 742px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--black);
   padding: var(--spacing-base) 0;
 }
 .select-button {
+  cursor: pointer;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -44,7 +55,7 @@
 }
 
 .order-info-wrapper {
-  width: 284px;
+  min-width: 284px;
 }
 
 .location-info {
@@ -73,6 +84,7 @@
 }
 
 .edit-button {
+  cursor: pointer;
   width: 100%;
   height: 44px;
   margin-top: var(--spacing-sm);
@@ -153,6 +165,7 @@
 }
 
 .order-button {
+  cursor: pointer;
   background-color: var(--primary);
   border: none;
   color: var(--white);
@@ -164,6 +177,10 @@
   margin: var(--spacing-base) 0;
 }
 
+.order-button:disabled {
+  background-color: var(--gray-500);
+  cursor: not-allowed;
+}
 .additional-info p {
   margin: 0;
   font-weight: var(--text-600);

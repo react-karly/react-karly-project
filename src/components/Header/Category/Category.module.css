@@ -1,0 +1,30 @@
+.category {
+  position: relative;
+  min-width: 100px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  display: inline-block;
+  padding-left: var(--spacing-sm);
+  font-weight: var(--text-600);
+}
+
+.category-list {
+  overflow: auto;
+  position: absolute;
+  width: 247px;
+  height: 720px;
+  border: 1px solid var(--gray-300);
+  z-index: 10;
+  top: 100%;
+}
+
+.hover-category {
+  color: var(--primary);
+  display: inline-block;
+  padding-left: var(--spacing-sm);
+  font-weight: var(--text-600);
+}

@@ -1,0 +1,30 @@
+.nav {
+  min-width: 1050px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-wrapper li {
+  display: inline-block;
+  padding: 4px 36px;
+}
+
+.menu-wrapper a {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: var(--text-base);
+  font-weight: var(--text-600);
+}
+
+.notify {
+  font-size: var(--text-xs);
+  font-weight: var(--text-400);
+  border: 1px solid var(--gray-300);
+  border-radius: 16px;
+  padding: 4px 8px;
+}
+
+.notify span {
+  color: var(--primary);
+}

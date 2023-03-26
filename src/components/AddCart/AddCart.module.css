@@ -1,0 +1,158 @@
+/* .modal-background{
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+} */
+
+.a11y-hidden{
+  display: none;
+}
+
+.add-cart-container{
+  background: #FFFFFF;
+  width: 396px;
+  height: 292px;
+  box-shadow: 0px 8px 36px rgba(0, 0, 0, 0.2);
+  border-radius: 16px; 
+  position: relative;
+  padding: 24px 20px;
+  z-index: 100;
+  /* position: fixed;
+  top: 50%;
+ left: 50%;
+ transform:translate(-50%, -50%);  */
+}
+
+.product-amount-wrapper{
+  margin-bottom: 31px;
+}
+
+.product-name{
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333333;
+}
+
+.price-counter-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-price{
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+}
+
+.original-price{
+  display: inline-block;
+  font-weight: var(--text-400);
+  font-size: 15px;
+  color: var(--gray-300);
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+
+
+.total-price-wrapper{
+  position: relative;
+}
+
+
+.total-price{
+  display: block;
+  position: absolute;
+  top:20px;
+  color: #000000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.total-price-number{
+  display: block;
+  position: absolute;
+  right:0;
+  color: #000000;
+  font-size: 28.43px;
+  font-weight: 700;
+}
+
+.saving-wrapper{
+  /* background-color: red; */
+display: flex;
+justify-content: end;
+padding-top: 46px;
+
+}
+
+
+.saving{
+  background-color: #FA622F;
+  display: block;
+  /* position: absolute; */
+  /* right: 133px;
+  top: 44px; */
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12.003px;
+  line-height: 150%;
+  border-radius: 1px;
+}
+
+.saving-price{
+  display: block;
+  /* position: absolute; */
+  right: 0;
+  top:44px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  margin-left: 5px;
+}
+
+.cancle-btn{
+  background: #FFFFFF;
+  border-radius: 4px;
+  color: #333333;
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  top:214px;
+  left: 20px;
+  width: 174px;
+  height: 54px;
+  padding-left: 69px;
+  padding-right: 69px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 2px solid #898989;;
+}
+
+.add-cart-btn{
+  background: #5F0080;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  top:214px;
+  right: 20px;
+  width: 174px;
+  height: 54px;
+  padding-left: 39px;
+  padding-right: 39px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+}
