@@ -10,17 +10,24 @@ import { priceTemplate } from '@/utils/priceTemplate';
 import { filterSelectedProducts } from '@/utils/filterSelectedProducts';
 import {
   cartListState,
+  shippingState,
   checkAllCheck,
   checkAllUnCheck,
   filterType,
 } from '../../@store/cartListState';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
+import ShippingModal from '@/components/ShippingModalWrapper/ShippingModal/ShippingModal';
+import OrderModal from '../../components/OrderModal/OrderModal';
 
 function Cart(props) {
   const [cartList, setCartList] = useRecoilState(cartListState);
+  const [shipping, setShipping] = useRecoilState(shippingState);
   const [totalPrice, setTotalPrice] = useState(0);
   const [salePrice, setSalePrice] = useState(0);
   const [selectedCount, setSelectedCount] = useState(0);
+  const [isShowShipping, setIsShowShipping] = useState(false);
+  const [isShowOrder, setIsShowOrder] = useState(false);
 
   const typeArray = useRecoilValue(filterType);
 
@@ -78,6 +85,9 @@ function Cart(props) {
     setSelectedCount(selectedCount);
   };
 
+  const handleClickOrder = () => {
+    setIsShowOrder(true);
+  };
   useEffect(() => {
     if (isAllCheck) {
       checkIsAllChecked();
@@ -85,10 +95,9 @@ function Cart(props) {
     if (isAllUnCheck) {
       checkIsAllUnChecked();
     }
-  }, []);
+  }, [isAllCheck, isAllUnCheck]);
 
   useEffect(() => {
-    console.log(cartList);
     calculateTotalPrice();
     calculateSalePrice();
     countSelectedProduct();
@@ -101,6 +110,7 @@ function Cart(props) {
         <p>장바구니에 담긴 상품이 없습니다.</p>
       </div>
     );
+
   return (
     <div className={styles['cart-container']}>
       <h1 className={styles.title}>장바구니</h1>
@@ -181,16 +191,24 @@ function Cart(props) {
           <h2 className={styles['a11y-hidden']}>주문 정보</h2>
           {/* 배송지 정보 */}
           <div className={styles['location-info']}>
-            <div className={styles['location-info-title']}>
-              <img src={location} alt="" width="36" height="36" />
-              배송지
-            </div>
-            <p className={styles['location']}>
-              서울 중랑구 면목로 42길 11 &#40;행운빌딩&#41; 603호
-            </p>
-            <span className={styles['delivery-method']}>샛별배송</span>
-            <button type="button" className={styles['edit-button']}>
-              배송지 변경
+            {shipping && (
+              <>
+                <div className={styles['location-info-title']}>
+                  <img src={location} alt="" width="36" height="36" />
+                  배송지
+                </div>
+                <p className={styles['location']}>{shipping}</p>
+                <span className={styles['delivery-method']}>샛별배송</span>
+              </>
+            )}
+            <button
+              type="button"
+              className={styles['edit-button']}
+              onClick={() => {
+                setIsShowShipping(true);
+              }}
+            >
+              {shipping ? '배송지 변경' : '배송지 설정'}
             </button>
           </div>
           {/* 구매 금액 정보  */}
@@ -226,9 +244,19 @@ function Cart(props) {
               </span>
             </div>
           </div>
-          <button type="button" className={styles['order-button']}>
-            주문하기
+          <button
+            type="button"
+            className={styles['order-button']}
+            disabled={shipping ? false : true}
+            onClick={handleClickOrder}
+          >
+            {shipping ? '주문하기' : '배송지 설정 후 주문 가능'}
           </button>
+          {isShowOrder && (
+            <ShippingModalWrapper>
+              <OrderModal setIsShowOrder={setIsShowOrder} />
+            </ShippingModalWrapper>
+          )}
           <div className={styles['additional-info']}>
             <p>쿠폰&#47;적립금은 주문서에서 사용 가능합니다</p>
             <p>&#91;주문완료&#93; 상태일 경우에만 주문 취소 가능합니다.</p>
@@ -247,6 +275,11 @@ function Cart(props) {
           </div>
         </section>
       </article>
+      {isShowShipping && (
+        <ShippingModalWrapper>
+          <ShippingModal setIsShowShipping={setIsShowShipping} />
+        </ShippingModalWrapper>
+      )}
     </div>
   );
 }

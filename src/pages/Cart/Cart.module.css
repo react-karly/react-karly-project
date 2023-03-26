@@ -177,6 +177,10 @@ legend {
   margin: var(--spacing-base) 0;
 }
 
+.order-button:disabled {
+  background-color: var(--gray-500);
+  cursor: not-allowed;
+}
 .additional-info p {
   margin: 0;
   font-weight: var(--text-600);
