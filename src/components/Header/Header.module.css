@@ -72,6 +72,12 @@ a {
 .member-wrapper .selected a {
   color: var(--primary);
 }
+
+.register {
+  color: var(--primary) !important;
+  font-weight: var(--text-600) !important;
+}
+
 .header-main {
   display: flex;
   align-items: center;

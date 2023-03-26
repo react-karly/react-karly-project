@@ -91,10 +91,12 @@ const Header = (props) => {
               </li>
             ) : (
               <>
-                <li className={pathname === '/signup1' ? styles.selected : ''}>
-                  <Link to="/signup">회원가입</Link>
+                <li>
+                  <Link to="/signup" className={styles.register}>
+                    회원가입
+                  </Link>
                 </li>
-                <li className={pathname === '/login' ? styles.selected : ''}>
+                <li>
                   <Link to="/login">로그인</Link>
                 </li>
               </>
