@@ -10,6 +10,7 @@ a {
 {
   position: absolute;
   z-index: 100;
+  cursor: pointer;
 }
 
 .swiper-prev-banner {
@@ -26,7 +27,7 @@ a {
 
 .swiper-prev-list {
   top: 30%;
-  left: 1%;
+  left: -2.5%;
   width: 50px;
   height: 50px;
 }
@@ -34,10 +35,20 @@ a {
 
 .swiper-next-list {
   top: 30%;
-  right: 1%;
+  right: -2.5%;
   width: 50px;
   height: 50px;
 }
+
 .swiper-pagination {
 display: none;
 }
+
+.swiper-button-disabled{
+  opacity: 0;
+}
+
+.wrapper{
+  position: relative;
+}
+
