@@ -11,75 +11,132 @@ import counter from '../../components/Counter/Counter.module.css';
 import ProductDetail from '../../pages/ProductDetail/ProductDetail';
 import heartNoFill from '@/assets/productDetail/Disabled=false.png';
 import CartAddedModal from './ProductDetailItem/CartAddedModal/CartAddedModal';
-import { products } from '../../../data';
 import InfoList from './ProductDetailItem/InfoList/InfoList';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { priceTemplate } from '@/utils/priceTemplate';
+import {
+  addExistProduct,
+  cartListState,
+  lastAddProductState,
+} from '../../@store/cartListState';
 
-
-function ProductInfo(){
-
+function ProductInfo({ product }) {
+  const [productInfo, setProductInfo] = useState(product);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [productList, setProductList] = useState(products);
   const [like, setLike] = useState(false);
-  const [addToCart, setAddToCart] = useState(false);
-  
+  const [cartList, setCartList] = useRecoilState(cartListState);
+  const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
+  const addItem = useSetRecoilState(addExistProduct);
+
   const handleClickPlus = () => {
-    productList[0].quantity += 1;
-    setProductList([...productList]);
+    setProductInfo({ ...productInfo, stock: productInfo.stock + 1 });
   };
 
   const handleClickMinus = () => {
-    products[0].quantity -= 1;
-    setProductList([...productList]);
+    setProductInfo({ ...productInfo, stock: productInfo.stock - 1 });
   };
-  
+
   const handleAddCart = () => {
-    setAddToCart(true)
-  }
-  
-  
+    const newItem = {
+      type: product.type,
+      title: product.name,
+      src: product.image.thumbnail,
+      alt: product.image.alt,
+      price: product.price,
+      salePrice: product.salePrice,
+      stock: productInfo.stock,
+      isChecked: true,
+    };
+
+    const titleList = [];
+    cartList.map((product) => {
+      titleList.push(product.title);
+    });
+    if (titleList.includes(newItem.title)) {
+      addItem([newItem.title, 1]);
+    } else {
+      setCartList([...cartList, { ...newItem }]);
+    }
+    setLastProduct(newItem);
+  };
+
+  useEffect(() => {
+    setProductInfo(product);
+  }, [product]);
+
   return (
     <>
-
-      
       <div className={styles['info-container']}>
-
         {/* 상품 정보 */}
-        <img width={400} height={514} src='../../../src/assets/tangtang/thumbnail.jpg' alt="" />
+        <img
+          width={400}
+          height={514}
+          src={productInfo.image?.thumbnail}
+          alt={productInfo.image?.alt}
+        />
 
         <div className={styles['info-wrapper']}>
           <h5 className={styles.satbyul}>샛별배송</h5>
-          <h2 className={styles['product-title']}>{products[0].name}</h2>
-          <h4 className={styles['product-subtitle']}>{products[0].description}</h4>
+          <h2 className={styles['product-title']}>{productInfo.name}</h2>
+          <h4 className={styles['product-subtitle']}>
+            {productInfo.description}
+          </h4>
           <div className={styles['product-cost-box']}>
-            <h4 className={styles['product-cost']}>{products[0].price.toLocaleString()}</h4>
+            <h4 className={styles['product-cost']}>
+              {productInfo.price?.toLocaleString()}
+            </h4>
             <h4 className={styles.won}>원</h4>
           </div>
 
-          {
-            isLoggedIn === true ? null : <p className={styles['benefit-after-login']} onChange={()=>{setIsLoggedIn(true)}}>로그인 후, 적립 혜택이 제공됩니다.</p>
-          }
+          {isLoggedIn === true ? null : (
+            <p
+              className={styles['benefit-after-login']}
+              onChange={() => {
+                setIsLoggedIn(true);
+              }}
+            >
+              로그인 후, 적립 혜택이 제공됩니다.
+            </p>
+          )}
 
           <ul className={styles['text-wrapper']}>
-
-            <InfoList type={'배송'} content={products[0].hasDelivery.type} style={{ borderTop: '1px solid var(--gray-100)' }}/>
-            <InfoList type={'판매자'} content={products[0].seller} />
-            <InfoList type={'포장타입'} content={products[0].pakageType.temperature} />
-            <InfoList type={'판매단위'} content={products[0].unit} />
-            <InfoList type={'중량/용량'} content={products[0].weight} />
-            <InfoList type={'원산지'} content={products[0].originPlace} />
-            <InfoList type={'알레르기정보'} content={products[0].allergicInfo} />
+            <InfoList
+              type={'배송'}
+              content={'샛별배송'}
+              style={{ borderTop: '1px solid var(--gray-100)' }}
+            />
+            <InfoList type={'판매자'} content={'칼리'} />
+            <InfoList
+              type={'포장타입'}
+              content={
+                productInfo.type === 'normal'
+                  ? '상온포장'
+                  : productInfo.type === 'frozen'
+                  ? '냉동포장'
+                  : '냉장포장'
+              }
+            />
+            <InfoList type={'판매단위'} content={'1봉'} />
+            <InfoList type={'중량/용량'} content={'123g*4봉'} />
+            <InfoList type={'원산지'} content={'상세페이지 별도표기'} />
+            <InfoList
+              type={'알레르기정보'}
+              content={`-대두, 밀, 쇠고기 함유
+                -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조`}
+            />
             <InfoList type={'상품선택'}>
               <div className={styles['counter-box']}>
-                <span style={{fontSize: '12px'}}>{products[0].name}</span>
-                <Counter 
-                  quantity={products[0].quantity}
+                <span style={{ fontSize: '12px' }}>{productInfo.name}</span>
+                <Counter
+                  quantity={productInfo.stock}
                   onClickPlus={handleClickPlus}
                   onClickMinus={handleClickMinus}
                 />
-                <span className={styles['price-text']}>4,980원</span>
+                <span className={styles['price-text']}>
+                  {productInfo.price?.toLocaleString()}원
+                </span>
               </div>
-            </InfoList>  
-
+            </InfoList>
           </ul>
 
           {/* 총 상품 금액 */}
@@ -87,31 +144,43 @@ function ProductInfo(){
             <div className={styles['total-price-box']}>
               <span className={styles['total-price-title']}>총 상품금액:</span>
               <span className={styles['total-price']}>
-                {(products[0].quantity * products[0].price).toLocaleString()}
-                </span>
+                {(productInfo.stock * productInfo.price).toLocaleString()}
+              </span>
               <span className={styles.wonDegree}>원</span>
             </div>
 
             {/* 부가 사항 */}
             <div className={styles['earn-point-box']}>
               <span className={styles['earn-point']}>적립</span>
-              <span className={styles['earn-point-text']}>로그인 후, 적립 혜택 제공</span>
+              <span className={styles['earn-point-text']}>
+                로그인 후, 적립 혜택 제공
+              </span>
             </div>
           </div>
 
           {/* 버튼 */}
           <div className={styles['buttons-box']}>
-            <img className={styles['btn']} onClick={()=>{setLike(!like)}} src={like?heartFill:heartNoFill} alt="" />
-            <img className={styles['btn']} src="../../../src/assets/productDetail/Squrebell.png" alt="" />
-            <button className={styles['pick-cart']} onClick={handleAddCart}>장바구니 담기</button>
+            <img
+              className={styles['btn']}
+              onClick={() => {
+                setLike(!like);
+              }}
+              src={like ? heartFill : heartNoFill}
+              alt=""
+            />
+            <img
+              className={styles['btn']}
+              src="../../../src/assets/productDetail/Squrebell.png"
+              alt=""
+            />
+            <button className={styles['pick-cart']} onClick={handleAddCart}>
+              장바구니 담기
+            </button>
           </div>
-
         </div>
-
       </div>
-      
     </>
-  )
+  );
 }
 
 export default ProductInfo;

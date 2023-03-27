@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Btn } from '@/components/Register/Btn';
 import styles from '@/pages/Login/Login.module.css';
-import { auth } from '@/config/firebase';
+import { auth, googleProvider } from '@/config/firebase';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   isLoggedInState,
@@ -13,7 +13,6 @@ import {
 import {
   getAuth,
   signInWithPopup,
-  signOut,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
@@ -25,7 +24,8 @@ function Login() {
   const [password, setPassword] = useRecoilState(passwordState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [error, setError] = useRecoilState(errorState);
-  const navigate = useNavigate(); // useNavigate 훅 사용
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const auth = getAuth();
 
@@ -43,36 +43,33 @@ function Login() {
   console.log(auth?.currentUser?.email);
 
   const signIn = async () => {
+    if (!email || !password) {
+      setErrorMessage('아이디와 비밀번호를 입력해주세요.');
+      setError(true);
+      return;
+    }
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       console.log(result);
       setError(false);
-      setIsLoggedIn(true); // 로그인이 성공했을 때만 isLogin 값을 true로 업데이트
-      navigate('/'); // 로그인 성공 시 메인으로 리다이렉트
+      setIsLoggedIn(true);
+      navigate('/home');
     } catch (err) {
       console.error(err);
+      setErrorMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
       setError(true);
     }
   };
 
-  // const signInWithGoogle = async () => {
-  //   try {
-  //     await signInWithPopup(auth, googleProvider);
-  //     setError(false);
-  //   } catch (err) {
-  //     console.error(err);
-  //     setError(true);
-  //   }
-  // };
-
-  const logout = async () => {
+  const signInWithGoogle = async () => {
     try {
-      await signOut(auth);
-      setEmail('');
-      setPassword('');
-      setIsLoggedIn(false);
+      await signInWithPopup(auth, googleProvider);
+      setError(false);
+      setIsLoggedIn(true);
+      navigate('/home');
     } catch (err) {
       console.error(err);
+      //setError(true);
     }
   };
 
@@ -81,11 +78,7 @@ function Login() {
       <div className={styles['login-container']}>
         <section className={styles['login-wrapper']}>
           <h2 className={styles['login-title']}>로그인</h2>
-          <form
-            className={styles['login-form']}
-            onKeyDown={signIn}
-            method="POST"
-          >
+          <form className={styles['login-form']} method="POST">
             <fieldset>
               <legend>로그인 폼</legend>
               <Input
@@ -106,7 +99,9 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {useRecoilValue(errorState) && <LoginModal />}
+              {useRecoilValue(errorState) && (
+                <LoginModal errorMessage={errorMessage} />
+              )}
               <ul>
                 <li>
                   <a href="#">아이디 찾기</a>
@@ -123,11 +118,11 @@ function Login() {
               <Link to="/signup">
                 <Btn btnTitle="회원가입" buttonClassName="register-btn" />
               </Link>
-              {/* <Btn
+              <Btn
                 btnTitle="구글로 로그인"
                 buttonClassName="register-btn"
                 onClick={signInWithGoogle}
-              /> */}
+              />
             </fieldset>
           </form>
         </section>

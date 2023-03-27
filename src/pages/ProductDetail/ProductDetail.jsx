@@ -1,30 +1,43 @@
-import React from 'react';
+import React, { useLayoutEffect, useEffect, useState } from 'react';
 import ProductInfo from '@/components/ProductDetail/ProductInfo';
 import ProductTab from '@/components/ProductDetail/ProductTab';
 import ProductDetailInfo from '@/components/ProductDetail/ProductDetailInfo';
 import ProductReview from '@/components/ProductDetail/ProductReview';
 import ProductQnA from '@/components/ProductDetail/ProductQnA';
 import { Footer } from '@/components/Footer/Footer';
-import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
-function ProductDetail () {
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import firebaseApp from '../../firebase/app';
 
-    const img1 = useRef();
-    const img2 = useRef();
-    const review = useRef();
-    const qna = useRef();
-    const element = [img1,img2,review, qna];
+function ProductDetail() {
+  const { productId } = useParams();
+
+  const [product, setProduct] = useState({});
+
+  useLayoutEffect(() => {
+    const db = getFirestore(firebaseApp);
+    const productsRef = collection(db, 'products');
+
+    getDocs(productsRef).then((res) => {
+      res.forEach(async (data) => {
+        if (data.data().id === productId) {
+          setProduct(data.data());
+        }
+      });
+    });
+  }, []);
 
   return (
     <>
-      <ProductInfo />
-      <ProductTab element={element} />
-      <ProductDetailInfo ref1={img1} ref2={img2} />
-      <ProductReview ref3={review} />
-      <ProductQnA ref4={qna} />
-      <Footer />
+      <ProductInfo product={product} />
+      <ProductTab />
+      <ProductDetailInfo product={product} />
+      <ProductReview />
+      <ProductQnA />
     </>
-  )
+  );
 }
 
 export default ProductDetail;
+

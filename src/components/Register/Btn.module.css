@@ -25,6 +25,7 @@ button {
   background: var(--white);
   border: solid 1px var(--primary);
   border-radius: 3px;
+  margin-bottom: var(--spacing-sm);
 }
 
 .small-btn {

@@ -30,6 +30,12 @@ a {
 .banner-box p {
   margin-left: 383px;
 }
+
+.banner-box button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
 .banner-box img {
   margin-left: auto;
   transform: translateX(30%);
@@ -72,6 +78,12 @@ a {
 .member-wrapper .selected a {
   color: var(--primary);
 }
+
+.register {
+  color: var(--primary) !important;
+  font-weight: var(--text-600) !important;
+}
+
 .header-main {
   display: flex;
   align-items: center;
