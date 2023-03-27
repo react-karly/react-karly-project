@@ -1,6 +1,8 @@
 h3 {
+  margin-top: 48px;
   text-align: center;
-  font-size: 21.328px;
+  font-size: 21.33px;
+  font-weight: 600;
 }
 
 .wrapper {
@@ -8,4 +10,5 @@ h3 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  margin-top: 48px;
 }

@@ -17,6 +17,7 @@ export function SwiperComponent(props) {
   const nextRef = useRef(null);
 
   return (
+    <div className='wrapper'>
     <Swiper
       {...props}
       navigation={{
@@ -24,7 +25,6 @@ export function SwiperComponent(props) {
         nextEl: nextRef.current,
       }}
       onBeforeInit={(swiper) => {
-        // 초기 설정
         swiper.params.navigation.prevEl = prevRef.current;
         swiper.params.navigation.nextEl = nextRef.current;
         swiper.navigation.update();
@@ -35,20 +35,22 @@ export function SwiperComponent(props) {
           <SwiperContent data={el} isbanner={props.isbanner} />
         </SwiperSlide>
       ))}
-      <div ref={prevRef}>
-        <img
-          className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
-          src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev}
-          alt="prevButton"
-        />
-      </div>
-      <div ref={nextRef}>
-        <img
-          className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
-          src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext}
-          alt="nextButton"
-        />
-      </div>
+
     </Swiper>
+          <div ref={prevRef}>
+          <img
+            className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
+            src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev}
+            alt="이전 버튼"
+          />
+        </div>
+        <div ref={nextRef}>
+          <img
+            className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
+            src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext}
+            alt="다음 버튼"
+          />
+        </div>
+        </div>
   );
 }

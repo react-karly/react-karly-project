@@ -17,12 +17,17 @@ import { throttle } from '../../utils/throttle';
 // 유림 추가
 import { useRecoilState } from 'recoil';
 import { getAuth, signOut } from 'firebase/auth';
-import { isLoggedInState, emailState, passwordState } from '@/atoms/auth';
+import {
+  isLoggedInState,
+  emailState,
+  passwordState,
+  cartListState,
+  lastAddProductState,
+} from '@/@store';
 // -------------------------
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
-import { cartListState, lastAddProductState } from '../../@store/cartListState';
 import { useDidMountEffect } from '@/hooks/useDidMountEffect';
-const Header = (props) => {
+export const Header = (props) => {
   // 유림 추가
   const auth = getAuth();
   const [email, setEmail] = useRecoilState(emailState);
@@ -99,12 +104,24 @@ const Header = (props) => {
               </li>
             ) : (
               <>
-                <li className={pathname === '/signup' && styles.selected}>
-                  <Link to="/signup">회원가입</Link>
-                </li>
-                <li className={pathname === '/login' && styles.selected}>
-                  <Link to="/login">로그인</Link>
-                </li>
+                {pathname === '/signup' ? (
+                  <li className={styles.selected}>
+                    <Link to="/signup">회원가입</Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/signup">회원가입</Link>
+                  </li>
+                )}
+                {pathname === '/login' ? (
+                  <li className={styles.selected}>
+                    <Link to="/login">로그인</Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/login">로그인</Link>
+                  </li>
+                )}
               </>
             )}
             {/* 유림 추가 */}
@@ -168,4 +185,3 @@ const Header = (props) => {
     </header>
   );
 };
-export default Header;

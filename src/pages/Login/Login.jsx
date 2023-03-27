@@ -12,7 +12,7 @@ import {
   errorMessageState,
   errorTypeState,
   isOpenState,
-} from '@/atoms/auth';
+} from '@/@store';
 import {
   getAuth,
   signInWithPopup,
@@ -45,8 +45,6 @@ function Login() {
     return unsubscribe;
   }, []);
 
-  console.log(auth?.currentUser?.email);
-
   const signIn = async () => {
     if (!email || !password) {
       setErrorMessage('아이디와 비밀번호를 입력해주세요.');
@@ -57,10 +55,9 @@ function Login() {
     }
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
-      console.log(result);
       setError(false);
       setIsLoggedIn(true);
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       console.error(err);
       setErrorMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
