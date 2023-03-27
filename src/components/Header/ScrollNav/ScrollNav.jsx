@@ -55,14 +55,14 @@ function ScrollNav({ isShow }) {
         </div>
         <ul className={styles['icon-link']}>
           <li>
-            <span>
+            <Link to="/">
               <img src={location} alt="배송지 설정" width="36" height="36" />
-            </span>
+            </Link>
           </li>
           <li className={styles.heart}>
-            <span>
+            <Link to="/">
               <img src={heart} alt="찜" width="36" height="36" />
-            </span>
+            </Link>
           </li>
           <li className={styles.cart}>
             <Link to="/cart">
