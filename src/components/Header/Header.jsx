@@ -26,10 +26,14 @@ const Header = (props) => {
   const [isShow, setIsShow] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isShowBanner, setIsShowBanner] = useState(true);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const handleCloseBanner = () => {
+    setIsShowBanner(false);
+  };
   const toggleShow = () => {
     setIsShow(true);
     setTimeout(() => {
@@ -52,14 +56,18 @@ const Header = (props) => {
   }, []);
   return (
     <header className={styles.container}>
-      <div className={styles['banner-wrapper']}>
-        <div className={styles['banner-box']}>
-          <p>
-            지금 가입하고 인기상품<span> 100원</span> 에 받아가세요!
-          </p>
-          <img src={close} alt="배너 닫기" width="42" height="42" />
+      {isShowBanner && (
+        <div className={styles['banner-wrapper']}>
+          <div className={styles['banner-box']}>
+            <p>
+              지금 가입하고 인기상품<span> 100원</span> 에 받아가세요!
+            </p>
+            <button onClick={handleCloseBanner}>
+              <img src={close} alt="배너 닫기" width="42" height="42" />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
       <div className={styles.wrapper}>
         <section className={styles.member}>
           <ul className={styles['member-wrapper']}>
