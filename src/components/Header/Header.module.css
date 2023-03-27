@@ -75,11 +75,7 @@ a {
   margin-left: 10px;
 }
 
-.member-wrapper .selected a {
-  color: var(--primary);
-}
-
-.register {
+.selected a {
   color: var(--primary) !important;
   font-weight: var(--text-600) !important;
 }
