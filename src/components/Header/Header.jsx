@@ -27,7 +27,7 @@ import {
 // -------------------------
 import CartAddedModal from '../ProductDetail/ProductDetailItem/CartAddedModal/CartAddedModal';
 import { useDidMountEffect } from '@/hooks/useDidMountEffect';
-const Header = (props) => {
+export const Header = (props) => {
   // 유림 추가
   const auth = getAuth();
   const [email, setEmail] = useRecoilState(emailState);
@@ -185,4 +185,3 @@ const Header = (props) => {
     </header>
   );
 };
-export default Header;

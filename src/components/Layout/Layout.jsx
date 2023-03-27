@@ -1,6 +1,6 @@
 import { Container } from '@/components';
 import { Footer } from '../Footer/Footer';
-import Header from '../Header/header';
+import { Header } from '../Header/header';
 import classes from './Layout.module.css';
 
 /* Component ---------------------------------------------------------------- */
