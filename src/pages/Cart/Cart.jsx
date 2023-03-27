@@ -19,8 +19,12 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
 import ShippingModal from '@/components/ShippingModalWrapper/ShippingModal/ShippingModal';
 import OrderModal from '../../components/OrderModal/OrderModal';
+import { isLoggedInState } from '@/atoms/auth';
+import { useNavigate } from 'react-router';
 
 function Cart(props) {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [shipping, setShipping] = useRecoilState(shippingState);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -86,7 +90,8 @@ function Cart(props) {
   };
 
   const handleClickOrder = () => {
-    setIsShowOrder(true);
+    if (isLoggedIn) setIsShowOrder(true);
+    else navigate('/login');
   };
   useEffect(() => {
     if (isAllCheck) {
