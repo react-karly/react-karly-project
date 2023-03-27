@@ -49,7 +49,7 @@ export function AddCart({ data, onClose }) {
       setCartList([...cartList, { ...newItem }]);
     }
     setLastProduct(newItem);
-    onclose()
+   
   };
 
   useEffect(() => {
@@ -147,9 +147,14 @@ export function AddCart({ data, onClose }) {
                 취소
               </button>
               <button
-                onClick={()=>{
-                  addCart()
-                }}
+                onClick={
+                  ()=>{
+                    addCart()
+                    onClose()
+                  
+                  }
+      
+                }
                 className={styles['add-cart-btn']}
                 type="button"
               >

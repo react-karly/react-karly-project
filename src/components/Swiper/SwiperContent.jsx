@@ -9,6 +9,7 @@ export function SwiperContent({ data, isbanner }) {
 
   function handleClose() {
     setIsClick(!isClick);
+
   }
 
   return isbanner === 'true' ? (
