@@ -1,6 +1,6 @@
 import REACT, { useState } from 'react';
 import DaumPostCode from 'react-daum-postcode';
-import { shippingState } from '../../../@store/cartListState';
+import { shippingState } from '../../@store/cartListState';
 import { useRecoilState } from 'recoil';
 
 const DaumPost = ({ setIsShowShipping }) => {

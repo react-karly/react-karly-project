@@ -9,14 +9,12 @@
   display: none;
 }
 
-
 /* 메인배너 밑부분 전체 */
 .main {
   width: 1050px;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 /* 이 상품 어때요 h2텍스트 */
 .recommend-products-title {
@@ -29,7 +27,6 @@
   margin-top: 52px;
   margin-bottom: 40px;
 }
-
 
 /* 퍼플 위크 배너 */
 .line-banner {
@@ -63,11 +60,10 @@
   margin-bottom: 40px;
 }
 
-
 .swiper-prev,
 .swiper-next {
   position: absolute;
-  z-index: 100;
+  z-index: 50;
   margin-bottom: 50px;
 }
 .swiper-prev {

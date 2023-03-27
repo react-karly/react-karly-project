@@ -1,6 +1,6 @@
 import React from 'react';
 import DaumPost from './DaumPost';
-import styles from '../ShippingModal/ShippingModal.module.css';
+import styles from './ShippingModal.module.css';
 import close from '@/assets/header/Close.png';
 function ShippingModal({ setIsShowShipping }) {
   const handleCloseModal = () => {

@@ -4,14 +4,14 @@ import close from '@/assets/cart/Cancel.png';
 import styles from './CartListItem.module.css';
 import checked from '@/assets/cart/isChecked=true.png';
 import unChecked from '@/assets/cart/isChecked=false.png';
-import { priceTemplate } from '../../utils/priceTemplate';
+import { priceTemplate } from '@/utils/priceTemplate';
 import { useSetRecoilState, useRecoilState } from 'recoil';
 import {
   clickCheckButton,
   minusStock,
   plusStock,
   cartListState,
-} from '../../@store/cartListState';
+} from '@/@store/cartListState';
 function CartListItem({ index, product }) {
   const [cartList, setCartList] = useRecoilState(cartListState);
   const clickCheck = useSetRecoilState(clickCheckButton);

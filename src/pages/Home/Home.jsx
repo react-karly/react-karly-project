@@ -4,9 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination, Navigation, Autoplay } from 'swiper';
-import { SwiperComponent } from '../components/Swiper/SwiperComponent';
-import { MainPopup } from '../components/Popup/MainPopup';
-import { useReadData } from '../firebase/firestore/useReadData';
+import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
+import { MainPopup } from '@/components/Popup/MainPopup';
+import { useReadData } from '@/firebase/firestore/useReadData';
 
 function Home() {
   const {
@@ -25,7 +25,6 @@ function Home() {
   async function handleReadData() {
     readProductsData();
     readBannerData();
-;
   }
   useEffect(() => {
     handleReadData();
@@ -33,7 +32,6 @@ function Home() {
 
   return (
     <div>
-     
       <MainPopup />
 
       {/* 메인베너 */}
@@ -108,10 +106,6 @@ function Home() {
           />
         </section>
       </main>
-
-      <footer className={styles.footer}>
-        <h1>푸터 영역</h1>
-      </footer>
     </div>
   );
 }
