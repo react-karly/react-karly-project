@@ -6,24 +6,16 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '@/config/firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { authState } from '@/atoms/auth';
+import { authState, messageState } from '@/atoms/auth';
 import { useRecoilState } from 'recoil';
 
 function RegisterRefactor() {
   const navigate = useNavigate();
   const [authObj, setAuthObj] = useRecoilState(authState);
   const [passwordValid, setPasswordValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
   const [confirmValid, setConfirmValid] = useState(false);
-  const [message, setMessage] = useState({
-    // emailError: '',
-    passwordError: '',
-    passwordConfirmError: '',
-    //  nameError: '',
-    //  phoneNumberError: '',
-    //  birthYearError: '',
-    //  birthMonthError: '',
-    //  birthDayError: '',
-  });
+  const [message, setMessage] = useRecoilState(messageState);
 
   const usersCollectionRef = collection(db, 'users');
 
@@ -50,6 +42,11 @@ function RegisterRefactor() {
     const passwordRegex =
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{10,}$/;
     return passwordRegex.test(password);
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+    return emailRegex.test(email);
   };
 
   const signUp = async () => {
@@ -92,9 +89,22 @@ function RegisterRefactor() {
         </p>
         <form className={styles['register-form']} action="">
           <UserInput
-            onChangeEmail={(e) =>
-              setAuthObj({ ...authObj, email: e.target.value })
-            }
+            onChangeEmail={(e) => {
+              setAuthObj({ ...authObj, email: e.target.value });
+              setEmailValid(validateEmail(e.target.value));
+              if (
+                !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+                  e.target.value
+                )
+              ) {
+                setMessage({
+                  ...setMessage,
+                  emailError: '이메일 형식으로 입력해 주세요.',
+                });
+              } else {
+                setMessage('');
+              }
+            }}
             onChangePassword={(e) => {
               setAuthObj({ ...authObj, password: e.target.value });
               setPasswordValid(validatePassword(e.target.value));
