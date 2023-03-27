@@ -60,7 +60,7 @@ function Login() {
       console.log(result);
       setError(false);
       setIsLoggedIn(true);
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       console.error(err);
       setErrorMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
