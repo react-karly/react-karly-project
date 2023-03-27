@@ -9,6 +9,9 @@ import {
   errorState,
   emailState,
   passwordState,
+  errorMessageState,
+  errorTypeState,
+  isOpenState,
 } from '@/atoms/auth';
 import {
   getAuth,
@@ -20,11 +23,13 @@ import LoginModal from '@/components/LoginModal/LoginModal';
 import { Input } from '@/components/Register/Input';
 
 function Login() {
+  const [isOpen, setIsOpen] = useRecoilState(isOpenState);
   const [email, setEmail] = useRecoilState(emailState);
   const [password, setPassword] = useRecoilState(passwordState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [error, setError] = useRecoilState(errorState);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useRecoilState(errorMessageState);
+  const [errorType, setErrorType] = useRecoilState(errorTypeState);
   const navigate = useNavigate();
 
   const auth = getAuth();
@@ -45,7 +50,9 @@ function Login() {
   const signIn = async () => {
     if (!email || !password) {
       setErrorMessage('아이디와 비밀번호를 입력해주세요.');
+      setErrorType('로그인에러');
       setError(true);
+      setIsOpen(true);
       return;
     }
     try {
@@ -58,6 +65,7 @@ function Login() {
       console.error(err);
       setErrorMessage('아이디 또는 비밀번호가 올바르지 않습니다.');
       setError(true);
+      setIsOpen(true);
     }
   };
 
@@ -66,7 +74,7 @@ function Login() {
       await signInWithPopup(auth, googleProvider);
       setError(false);
       setIsLoggedIn(true);
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       console.error(err);
       //setError(true);
@@ -99,8 +107,13 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {useRecoilValue(errorState) && (
-                <LoginModal errorMessage={errorMessage} />
+              {useRecoilValue(errorState) && isOpen && (
+                <LoginModal
+                  errorMessage={errorMessage}
+                  errorType={errorType}
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                />
               )}
               <ul>
                 <li>

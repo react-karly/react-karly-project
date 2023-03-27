@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@/components/LoginModal/LoginModal.module.css';
 
-export default function LoginModal({ errorMessage }) {
-  const [isOpen, setIsOpen] = useState(true);
-
+export default function LoginModal({
+  errorMessage,
+  errorType,
+  isOpen,
+  setIsOpen,
+}) {
   function handleCloseModal() {
     setIsOpen(false);
-    location.reload();
   }
 
   return (
     <div className={`${isOpen ? styles.open : styles.closed}`}>
       <div className={styles.modalContent}>
         <div className={styles.modalBody}>
-          <h2 className={styles['a11y-hidden']}>로그인 오류</h2>
+          <h2 className={styles['a11y-hidden']}>{errorType}</h2>
           <p>{errorMessage}</p>
           <div className={styles['btn-container']}>
             <button

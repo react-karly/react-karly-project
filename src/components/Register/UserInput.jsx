@@ -2,10 +2,18 @@ import React, { useState } from 'react';
 import { Btn } from '@/components/Register/Btn';
 import { Input } from '@/components/Register/Input';
 import styles from '@/components/Register/UserInput.module.css';
-import { authState } from '@/atoms/auth';
+import {
+  authState,
+  errorMessageState,
+  errorTypeState,
+  errorState,
+  messageState,
+  isOpenState,
+} from '@/atoms/auth';
 import { useRecoilState } from 'recoil';
 import { db } from '@/config/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import LoginModal from '../LoginModal/LoginModal';
 
 export function UserInput({
   onChangeEmail,
@@ -17,20 +25,43 @@ export function UserInput({
   onChangeBirthYear,
   onChangeBirthMonth,
   onChangeBirthDay,
-  message,
 }) {
-  const [error, setError] = useState(true);
   const [authObj, setAuthObj] = useRecoilState(authState);
   const usersCollectionRef = collection(db, 'users');
+  const [error, setError] = useRecoilState(errorState);
+  const [errorMessage, setErrorMessage] = useRecoilState(errorMessageState);
+  const [message, setMessage] = useRecoilState(messageState);
+  const [isOpen, setIsOpen] = useRecoilState(isOpenState);
 
-  const checkEmail = async () => {
-    console.log(authObj.email);
+  const checkEmail = async (e) => {
     const q = query(usersCollectionRef, where('email', '==', authObj.email));
     const snapshot = await getDocs(q);
-    if (snapshot.empty) {
-      alert('사용 가능한 이메일입니다!');
+    const regExp =
+      /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    console.log(regExp.test(authObj.email));
+    if (!regExp.test(authObj.email)) {
+      setError('이메일 에러');
+      setMessage({
+        ...setMessage,
+        emailError: '이메일 형식으로 입력해 주세요.',
+      });
+      setIsOpen(true);
+    } else if (snapshot.empty) {
+      if (
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(authObj.email)
+      ) {
+        setMessage({
+          ...setMessage,
+          emailError: '사용 가능한 이메일입니다.',
+        });
+        setIsOpen(true);
+      }
     } else {
-      alert('이미 사용 중인 이메일입니다!');
+      setMessage({
+        ...setMessage,
+        emailError: '이미 사용중인 이메일입니다.',
+      });
+      setIsOpen(true);
     }
   };
 
@@ -53,6 +84,17 @@ export function UserInput({
             buttonClassName="small-btn"
             onClick={checkEmail}
           />
+          {error && (
+            <span className={styles['error']}>{message.emailError}</span>
+          )}
+          {error && (
+            <LoginModal
+              errorType={error}
+              errorMessage={message.emailError}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+            />
+          )}
         </li>
         <li>
           <Input
@@ -63,7 +105,9 @@ export function UserInput({
             type="password"
             onChange={onChangePassword}
           />
-          {error && <span>{message.passwordError}</span>}
+          {error && (
+            <span className={styles['error']}>{message.passwordError}</span>
+          )}
         </li>
         <li>
           <Input
@@ -74,7 +118,11 @@ export function UserInput({
             type="password"
             onChange={onChangePasswordConfirm}
           />
-          {error && <span>{message.passwordConfirmError}</span>}
+          {error && (
+            <span className={styles['error']}>
+              {message.passwordConfirmError}
+            </span>
+          )}
         </li>
         <li>
           <Input
@@ -140,6 +188,7 @@ export function UserInput({
               id="none"
               name="gender"
               value="none"
+              checked="checked"
               onChange={onChangeGender}
             />
             <label htmlFor="none">선택안함</label>
@@ -158,7 +207,6 @@ export function UserInput({
               id="birth-year"
               name="birth-year"
               placeholder="YYYY"
-              aria-hidden="true"
               onChange={onChangeBirthYear}
             />
             <span aria-hidden="true" className={styles['birth-between']}>
@@ -174,7 +222,6 @@ export function UserInput({
               id="birth-month"
               name="birth-month"
               placeholder="MM"
-              aria-hidden="true"
               onChange={onChangeBirthMonth}
             />
             <span aria-hidden="true" className={styles['birth-between']}>
@@ -190,7 +237,6 @@ export function UserInput({
               id="birth-day"
               name="birth-day"
               placeholder="DD"
-              aria-hidden="true"
               onChange={onChangeBirthDay}
             />
           </div>

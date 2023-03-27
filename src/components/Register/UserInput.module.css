@@ -140,7 +140,7 @@ input[type='radio'] + label {
   white-space: nowrap;
 }
 
-li > span {
+.error {
   color: var(--info-error);
   font-size: var(--text-sm);
   margin-top: 6px;
