@@ -19,7 +19,7 @@ export function ListCard({ props }) {
   const originPrice = props.price.toLocaleString(navigator.language);
 
   return (
-    <a href="#" className={styles['product-each']}>
+    <a href={`/product-detail/${props.id}`} className={styles['product-each']}>
       <img
         className={styles['card-image']}
         src={props.image.thumbnail}
