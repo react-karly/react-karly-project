@@ -1,25 +1,45 @@
 import React from 'react';
-import app from '../../App.module.css';
+import styles from '@/components/Register/RegisterTOS.module.css';
 
-const RegisterTOS = ({ requiredOrOptional, terms }) => {
+export function RegisterTOS({
+  requiredOrOptional,
+  terms,
+  id,
+  onChangeTermsOfUse,
+  onChangeTermsOfPersonalInfo,
+  onChangeTermsOfEvent,
+  onChangeTermsOfAge,
+}) {
+  const handleChange = (e) => {
+    console.log(e); // 이벤트 객체가 제대로 전달되었는지 확인
+    if (onChangeTermsOfUse && id === 'terms-of-use') {
+      onChangeTermsOfUse(e.target.checked);
+    } else if (onChangeTermsOfPersonalInfo && id === 'terms-of-personal') {
+      onChangeTermsOfPersonalInfo(e.target.checked);
+    } else if (onChangeTermsOfEvent && id === 'terms-of-event') {
+      onChangeTermsOfEvent(e.target.checked);
+    } else if (onChangeTermsOfAge && id === 'terms-of-age') {
+      onChangeTermsOfAge(e.target.checked);
+    }
+    console.log(e.target.checked);
+  };
+
   return (
-    <li>
-      <span className={app['a11y-hidden']}>
+    <li className={styles['term-container']}>
+      <span className={styles['a11y-hidden']}>
         이용약관 동의 여부 ({requiredOrOptional} 항목)
       </span>
-      <button>약관보기</button>
       <input
-        className="a11y-hidden terms"
         type="checkbox"
-        id="terms-of-use"
-        name="terms-of-use"
+        id={id}
+        name={id}
         required
+        onChange={handleChange}
       />
-      <label htmlFor="terms-of-use">
+      <label htmlFor={id}>
         {terms} ({requiredOrOptional})
       </label>
+      <button className={styles['show-term']}>약관보기 &gt;</button>
     </li>
   );
-};
-
-export default RegisterTOS;
+}

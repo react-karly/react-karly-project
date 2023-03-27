@@ -1,17 +1,27 @@
 import React from 'react';
 import styles from './ProductTab.module.css';
+import useMoveScroll from './ProductTab/useMoveScroll';
+import { useEffect } from 'react';
 
-export default function ProductTab(){
+const BUTTON_LIST=[
+  '상품설명','상세정보','후기','문의'
+]
 
+export default function ProductTab({element}){
+  
+  useEffect(()=>{
+    console.log(element)
+  },[])
 
   return (
     <>
       <div className={styles['button-container']}>
-          <button className={styles['btn-style']}>상품설명</button>
-          <button className={styles['btn-style']}>상세정보</button>
-          <button className={styles['btn-style']}>후기(1,000)</button>
-          <button className={[styles['btn-style'], styles['btn-style-border']].join(' ')}>문의</button>
-        </div>
+      {
+        BUTTON_LIST.map((item,index)=>{
+          return <button onClick={useMoveScroll(element[index])} className={index===3?[styles['btn-style'], styles['btn-style-border']].join(' '):styles['btn-style']} key={index}>{item}</button>
+        })
+      }
+      </div>
     </>
   )
-}
+} 

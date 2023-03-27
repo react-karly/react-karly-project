@@ -30,6 +30,12 @@ a {
 .banner-box p {
   margin-left: 383px;
 }
+
+.banner-box button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
 .banner-box img {
   margin-left: auto;
   transform: translateX(30%);
@@ -69,9 +75,11 @@ a {
   margin-left: 10px;
 }
 
-.member-wrapper .selected a {
-  color: var(--primary);
+.selected a {
+  color: var(--primary) !important;
+  font-weight: var(--text-600) !important;
 }
+
 .header-main {
   display: flex;
   align-items: center;
@@ -112,7 +120,7 @@ a {
 
 .quick-menu {
   margin-left: 172px;
-  transform: translateX(8px);
+  transform: translateX(-14px);
 }
 .quick-menu img:hover {
   filter: invert(14%) sepia(34%) saturate(6752%) hue-rotate(277deg)
@@ -169,4 +177,9 @@ a {
   line-height: 15px;
   text-align: center;
   white-space: nowrap;
+}
+
+.logout {
+  color: var(--primary);
+  cursor: pointer;
 }

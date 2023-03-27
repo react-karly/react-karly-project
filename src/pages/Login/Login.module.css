@@ -63,3 +63,17 @@ legend,
   content: '|';
   padding: 0 var(--spacing--xxs);
 }
+
+.login-form span {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  padding-bottom: 10px;
+  color: red;
+  font-size: 14px;
+}

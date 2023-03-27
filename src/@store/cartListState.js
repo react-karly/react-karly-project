@@ -16,6 +16,12 @@ export const lastAddProductState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+export const shippingState = atom({
+  key: 'shippingState',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
 //selector
 // 상품 선택관련 셀렉터
 export const filterType = selector({

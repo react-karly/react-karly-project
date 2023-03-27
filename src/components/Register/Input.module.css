@@ -6,33 +6,8 @@
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.login-input {
-  width: 340px;
-  height: 44px;
-  text-indent: var(--spacing-sm);
-  margin: 0 0 var(--spacing-sm) 0;
-  border: solid 1px var(--gray-300);
-  border-radius: 3px;
-}
-
-.register-span {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: polygon(0 0, 0 0, 0 0);
-}
-
-.register-input {
-  width: 333px;
-  height: 44px;
-  margin: 0 var(--spacing--xxs);
-  border: solid 1px var(--gray-300);
-  border-radius: 3px;
-}
-
-.register-label,
-.register-label p {
+.register-label-required,
+.register-label-required p {
   width: 139px;
   height: 44px;
   font-weight: var(--text-600);
@@ -42,4 +17,32 @@
   line-height: 44px;
   vertical-align: middle;
   position: relative;
+}
+
+.register-label-required::after {
+  content: '*';
+  color: var(--info-error);
+  font-weight: var(--text-600);
+  padding: var(--spacing--xxs);
+  position: absolute;
+  top: var(--minus-spacing-sm);
+}
+
+.register-input {
+  width: 333px;
+  height: 44px;
+  margin: 0 var(--spacing--xxs);
+  border: solid 1px var(--gray-300);
+  border-radius: 3px;
+  padding-left: 20px;
+  /* margin-bottom: var(--spacing-sm); */
+}
+
+.login-input {
+  width: 340px;
+  height: 44px;
+  text-indent: var(--spacing-sm);
+  margin: 0 0 var(--spacing-sm) 0;
+  border: solid 1px var(--gray-300);
+  border-radius: 3px;
 }
