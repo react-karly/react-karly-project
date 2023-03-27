@@ -4,15 +4,16 @@ import Question from "@/assets/productDetail/Question.png";
 import Answer from "@/assets/productDetail/Answer.png";
 import Lock from "@/assets/productDetail/Lock.png";
 import MoveButton from '@/components/ProductDetail/ProductDetailItem/MoveButton';
+import useMoveScroll from './ProductTab/useMoveScroll';
 
-function ProductQnA(){
+function ProductQnA({ref4}){
 
   return(
     <>
-     <div className={styles['review-container']}>
+    <div className={styles['review-container']} >
 
       {/* 상품문의 제목 부분 */}
-      <div className={styles['review-wrapper']}>
+      <div className={styles['review-wrapper']} ref={ref4}>
       <div className={styles['title-box']}>
         <h2 className={styles['review-title']}>상품문의</h2>
         <span className={styles['review-event-content']}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import Image2 from '@/assets/productDetail/goods_point.png';
 import styles from './ProductDetailInfo.module.css';
+import { useEffect } from 'react';
+
 
 function ProductDetailInfo({ product }) {
   return (
