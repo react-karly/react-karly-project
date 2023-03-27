@@ -14,6 +14,9 @@ import { useRecoilState } from 'recoil';
 import { db } from '@/config/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import LoginModal from '../LoginModal/LoginModal';
+import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
+import ShippingModal from '../ShippingModalWrapper/ShippingModal/ShippingModal';
+import { shippingState } from '../../@store/cartListState';
 
 export function UserInput({
   onChangeEmail,
@@ -32,6 +35,12 @@ export function UserInput({
   const [errorMessage, setErrorMessage] = useRecoilState(errorMessageState);
   const [message, setMessage] = useRecoilState(messageState);
   const [isOpen, setIsOpen] = useRecoilState(isOpenState);
+  const [isShowShipping, setIsShowShipping] = useState(false);
+  const [location, setLocation] = useRecoilState(shippingState);
+
+  const handleShowAddressModal = () => {
+    setIsShowShipping(true);
+  };
 
   const checkEmail = async (e) => {
     const q = query(usersCollectionRef, where('email', '==', authObj.email));
@@ -155,12 +164,25 @@ export function UserInput({
         <li>
           <div className={styles['address-wrapper']}>
             <label className={styles['register-label-required']}>주소</label>
-            <Btn btnTitle="주소 검색" buttonClassName="big-btn" />
+            {location ? (
+              <Btn btnTitle={location} onClick={handleShowAddressModal} />
+            ) : (
+              <Btn
+                btnTitle="주소 검색"
+                buttonClassName="big-btn"
+                onClick={handleShowAddressModal}
+              />
+            )}
             <p className={styles['address-desc']}>
               배송지에 따라 상품 정보가 달라질 수 있습니다.
             </p>
           </div>
         </li>
+        {isShowShipping && (
+          <ShippingModalWrapper>
+            <ShippingModal setIsShowShipping={setIsShowShipping} />
+          </ShippingModalWrapper>
+        )}
         <li>
           <label className={styles['register-label']}>성별</label>
           <div className={styles['gender-wrapper']}>
