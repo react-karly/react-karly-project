@@ -30,6 +30,12 @@ a {
 .banner-box p {
   margin-left: 383px;
 }
+
+.banner-box button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
 .banner-box img {
   margin-left: auto;
   transform: translateX(30%);
