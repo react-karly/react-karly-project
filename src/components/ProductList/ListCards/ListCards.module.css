@@ -43,3 +43,10 @@ li {
   flex-flow: row wrap;
   gap: 30px 17px;
 }
+
+.button--pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 36px;
+}
