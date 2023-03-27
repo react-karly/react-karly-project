@@ -42,3 +42,32 @@ export const authState = atom({
     termsOfAge: false,
   },
 });
+
+export const errorMessageState = atom({
+  key: 'errorMessage',
+  default: '',
+});
+
+export const errorTypeState = atom({
+  key: 'errorType',
+  default: '',
+});
+
+export const messageState = atom({
+  key: 'messageState',
+  default: {
+    emailError: '',
+    passwordError: '',
+    passwordConfirmError: '',
+    // nameError: '',
+    // phoneNumberError: '',
+    // birthYearError: '',
+    // birthMonthError: '',
+    // birthDayError: '',
+  },
+});
+
+export const isOpenState = atom({
+  key: 'isOpen',
+  default: false,
+});
