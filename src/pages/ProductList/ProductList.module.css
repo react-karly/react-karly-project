@@ -1,0 +1,11 @@
+h3 {
+  text-align: center;
+  font-size: 21.328px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

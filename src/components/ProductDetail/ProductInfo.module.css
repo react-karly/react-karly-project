@@ -1,0 +1,259 @@
+@import url('../../css/theme.module.css');
+@import url('@/components/ProductDetail/reset.css');
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.info-wrapper {
+  margin-left: 90px;
+}
+
+.satbyul {
+  margin-bottom: 16px;
+  font-weight: var(--text-600);
+  color: var(--gray-500);
+}
+
+.product-title {
+  font-size: 28.33px;
+  font-weight: var(--text-600);
+}
+
+.product-subtitle {
+  font-size: 16px;
+  color: var(--gray-400);
+  font-weight: var(--text-400);
+  margin-top: 8px;
+}
+
+.product-cost-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.product-cost {
+  font-size: 28.4px;
+  font-weight: var(--text-600);
+}
+
+.won {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 4px;
+  margin-top: 2px;
+}
+
+.benefit-after-login {
+  margin-top: 16px;
+  color: var(--primary);
+  font-weight: var(--text-600);
+}
+
+.text-wrapper {
+  margin-top: 20px;
+}
+
+
+/* .info-list {
+  width: 560px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-400);
+  font-weight: 350;
+}
+
+.info-list-border {
+  border-top: 1px solid var(--gray-100);
+}
+
+.info-list-title {
+  display: inline-block;
+  width: 120px;
+  font-size: 12px;
+}
+
+.info-list-contents {
+  font-size: 12px;
+} */
+
+.info-list-contents1 {
+  font-size: 12px;
+  display: inline-block;
+  width: 215px;
+  margin-top: 8px;
+}
+
+.counter-container {
+  border: 1px solid var(--gray-200);
+  display: flex;
+  flex-flow: column;
+  width: 422px;
+  height: 84px;
+  padding-left: 16px;
+  justify-content: center;
+}
+
+.counter-container span {
+  /* margin: var(--spacing-xs); */
+}
+
+.choice-title {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.button-box {
+  border: 1px solid #ccc;
+  margin-top: 12px;
+  width: 80px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  left: 40px;
+}
+
+.counter-price-wrapper {
+  margin-top: 12px;
+  display: flex;
+  /* position: relative; */
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-right: 6px;
+}
+
+.price-text {
+  font-size: 12px;
+  color: var(--content);
+  font-weight: 700;
+  display: block;
+  /* margin-top: 24px; */
+  /* position: absolute; */
+  /* right: 4px;
+  bottom: -8px; */
+  margin-right: 12px;
+}
+
+.number {
+  display: block;
+  padding-top: 4px;
+}
+
+.priceandpoint-box {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+.total-price-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.total-price-title {
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+.total-price {
+  display: inline-block;
+  font-size: 28.4px;
+  font-weight: 640;
+}
+
+.wonDegree {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.earn-point-box{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.earn-point {
+  background-color: var(--accent-yellow);
+  padding: 10px 12px 7px 12px;
+  font-size: 12px;
+  color: var(--white);
+  font-weight: 200;
+  border-radius: 999px;
+  margin-right: 8px;
+}
+
+.earn-point-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.buttons-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.pick-cart {
+  background-color: var(--primary);
+  border: none;
+  width: 424px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  color: var(--white);
+  border-radius: 4px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.counter-box {
+  display:flex;
+  gap:8px;
+  flex-direction: column;
+  border: 1px solid var(--gray-100);
+  padding: 20px 20px;
+  width: 400px;
+  position: relative;
+}
+
+.price-text {
+  font-size: 12px;
+  color: var(--content);
+  font-weight: 700;
+  display: block;
+  /* margin-top: 24px; */
+  position: absolute;
+  right: 4px;
+  bottom: 18px;
+  margin-right: 12px;
+}

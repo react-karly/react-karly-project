@@ -1,0 +1,64 @@
+/* 배너 이미지 */
+.banner-img {
+  width: 100%;
+
+}
+
+/* 상품 이미지 */
+.products-item__image {
+  width: 249px;
+  height: 320px;
+  position: relative;
+}
+
+/* 상품 이름 */
+.products-item__name {
+  font-weight: var(--text-500);
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 16px;
+  line-height: 150%;
+}
+
+/* 주황색 할인% */
+.products-item__sale-price {
+  font-weight: var(--text-500);
+  font-size: 19px;
+  color: var(--accent-yellow);
+  margin-right: 8px;
+}
+
+/* 상품 가격 */
+.products-item__price {
+  font-weight: var(--text-600);
+  font-size: 19px;
+}
+
+/*  줄쳐진 원가 */
+.products-item__origin-price {
+  display: block;
+  font-weight: var(--text-400);
+  font-size: 15px;
+  color: var(--gray-300);
+  margin-top: 5px;
+  text-decoration: line-through;
+}
+
+/* 상품 후기 */
+.products-item__review{
+  display: block;
+  color: #898989;
+  font-weight: 300;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* 장바구니 아이콘 버튼 */
+.products-item__cartIconBtn {
+  all: unset;
+  position: absolute;
+  top: 260px;
+  right: 15px;
+
+}
+

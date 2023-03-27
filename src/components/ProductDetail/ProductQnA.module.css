@@ -1,0 +1,194 @@
+@import url('../../css/theme.module.css');
+@import url('@/components/ProductDetail/reset.css');
+
+.review-container {
+  width: 1040px;
+  margin: 0 auto;
+}
+
+.review-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.title-box {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.review-title {
+  font-size: 28.4px;
+  font-weight: bold;
+}
+
+.review-event {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: var(--text-600);
+}
+
+.review-event-content{
+  line-height: 1.6;
+  font-size: 12px;
+  margin-top: 24px;
+  margin-bottom: 56px;
+}
+
+.write-review {
+  width: 155px;
+  height: 44px;
+  padding-top: 4px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 4px;
+  color: var(--white);
+}
+
+
+/* 상품문의 목록 스타일링 */
+
+.review-list-info {
+  margin-bottom: 16px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-content-box > li {
+  border-top: 1px solid #ccc;
+  padding: 20px 0 20px 20px;
+}
+
+.review-content-box:nth-of-type(1){
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.review-content-box:nth-child(2) {
+  border-bottom: 1px solid #ccc;
+}
+
+.review-sticker-notice {
+  background-color: var(--gray-100);
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--content);
+  margin-right: 20px;
+}
+
+.listBorder {
+  border-bottom: 1px solid #333;
+
+}
+
+.notice-text {
+  font-size: 16px;
+  font-weight: var(--text-600);
+}
+
+.review-sticker-best {
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 4px 8px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.review-sticker-purple {
+  background-color: var(--white);
+  box-shadow: 0 0 0 1px var(--primary) inset;
+  color: var(--content);
+  padding: 3.8px 8px;
+  border-radius: 2.3px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+ul>li {
+  display: flex;
+  align-items: center;
+}
+
+.qna-title-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  width: 1000px;
+}
+
+.best-review-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  width: 1000px;
+}
+
+.qna-list-title {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 36px;
+  font-size: 16px;
+  color: var(--content);
+  font-weight: 600;
+}
+
+.qna-content-box {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 24px;
+  font-size: 16px;
+  color: var(--gray-400);
+}
+
+
+.question-detail-wrapper {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  padding: 20px 0 20px 20px;
+  border-top: 1px solid #ccc;
+}
+
+.review-detail-box {
+  left: 24px;
+}
+
+.question-detail-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  line-height: 1.5;
+  font-size: 12px;
+  width: 800px;
+  margin-bottom: 40px;
+}
+
+.answer-detail-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 1.5;
+  width: 540px;
+}
+
+.answer-detail-date {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  font-size: 12px;
+  margin-top: 12px;
+  color: var(--gray-300);
+  padding-left: 36px;
+  line-height: 1.5;
+}
