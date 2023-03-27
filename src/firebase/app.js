@@ -9,7 +9,6 @@ const {
   VITE_APP_ID,
 } = import.meta.env;
 
-console.log(1515, VITE_API_KEY);
 
 const firebaseConfig = {
   apiKey: VITE_API_KEY,

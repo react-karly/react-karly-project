@@ -70,6 +70,8 @@ function Home() {
               slidesPerGroup={4}
               pagination={{ clickable: true, type: 'false' }}
               navigation={true}
+              observer={true}
+              observeParents={true}
               modules={[Pagination, Navigation]}
               data={productsData ? productsData : []}
             />
@@ -100,6 +102,8 @@ function Home() {
             pagination={{ clickable: true, type: 'false' }}
             navigation={true}
             modules={[Pagination, Navigation]}
+            observer={true}
+            observeParents={true}
             data={productsData ? productsData : []}
           />
         </section>

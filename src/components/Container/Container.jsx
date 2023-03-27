@@ -12,7 +12,7 @@ export function Container({
   const combineClassNames = `${classes.Container} ${className}`.trim();
 
   const location = useLocation();
-  console.log(1515, location);
+
   const HomeStyle = {
     width: '100%',
   };

@@ -41,14 +41,14 @@ export function SwiperComponent(props) {
           <img
             className={props.isbanner==="true" ? 'swiper-prev-banner' : 'swiper-prev-list'}
             src={props.isbanner==='true' ? BlackArrowPrev : WhiteArrowPrev}
-            alt="prevButton"
+            alt="이전 버튼"
           />
         </div>
         <div ref={nextRef}>
           <img
             className={props.isbanner==='true' ? 'swiper-next-banner' : 'swiper-next-list'}
             src={props.isbanner==='true' ? BlackArrowNext : WhiteArrowNext}
-            alt="nextButton"
+            alt="다음 버튼"
           />
         </div>
         </div>

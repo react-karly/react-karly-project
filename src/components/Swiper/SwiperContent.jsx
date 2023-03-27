@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styles from './SwiperContent.module.css';
 import cartIcon from '@/assets/icons/Icon/Cart.svg';
 import { AddCart } from '../AddCart/AddCart';
+import { priceTemplate } from '../../utils/priceTemplate';
 
 export function SwiperContent({ data, isbanner }) {
   const [isClick, setIsClick] = useState(false);
 
-  const handleClose = () => {
+  function handleClose() {
     setIsClick(!isClick);
-  };
+  }
 
   return isbanner === 'true' ? (
     <a href={data.href}>
@@ -16,7 +17,8 @@ export function SwiperContent({ data, isbanner }) {
     </a>
   ) : (
     <div href="/">
-      {isClick ? <AddCart data={data} onClose={handleClose } /> : null}
+      {isClick ? <AddCart data={data} onClose={handleClose} /> : null}
+
       <img
         className={styles['products-item__image']}
         src={data.image?.thumbnail}
@@ -42,17 +44,14 @@ export function SwiperContent({ data, isbanner }) {
             <span className={styles['products-item__sale-price']}>
               {data.saleRatio * 100}%
             </span>
-            {(data.price * (1 - data.saleRatio)).toLocaleString(
-              navigator.language
-            )}
-            원
+            {priceTemplate(data.price * (1 - data.saleRatio))}원
             <div className={styles['products-item__origin-price']}>
-              {data.price.toLocaleString(navigator.language)}원
+              {priceTemplate(data.price)}원
             </div>
           </span>
         ) : (
           <span className={styles['products-item__price']}>
-            {data.price.toLocaleString(navigator.language)}원
+            {priceTemplate(data.price)}원
           </span>
         )}
         <span className={styles['products-item__review']}>

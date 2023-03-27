@@ -12,7 +12,7 @@ import {
 } from '../../@store/cartListState';
 
 export function AddCart({ data, onClose }) {
-  const [countNum, setCountNum] = useState(1); // "카운터" 상태 관리
+  const [countNum, setCountNum] = useState(1); 
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
   const addItem = useSetRecoilState(addExistProduct);
@@ -49,6 +49,7 @@ export function AddCart({ data, onClose }) {
       setCartList([...cartList, { ...newItem }]);
     }
     setLastProduct(newItem);
+    onclose()
   };
 
   useEffect(() => {
@@ -76,18 +77,17 @@ export function AddCart({ data, onClose }) {
                   {data.saleRatio ? (
                     <div>
                       <span className={styles['product-price']}>
-                        {(data.price * (1 - data.saleRatio)).toLocaleString(
-                          navigator.language
+                        {priceTemplate((data.price * (1 - data.saleRatio))
                         )}
                         원
                       </span>
                       <span className={styles['original-price']}>
-                        {data.price.toLocaleString(navigator.language)}원
+                        {priceTemplate(data.price)}원
                       </span>
                     </div>
                   ) : (
                     <span className={styles['product-price']}>
-                      {data.price.toLocaleString(navigator.language)}원
+                      {priceTemplate(data.price)}원
                     </span>
                   )}
     
@@ -105,16 +105,16 @@ export function AddCart({ data, onClose }) {
               <span className={styles['total-price']}>합계</span>
               {data.saleRatio ? (
                 <span className={styles['total-price-number']}>
-                  {(
+                  {priceTemplate(
                     data.price *
                     (1 - data.saleRatio) *
                     countNum
-                  ).toLocaleString(navigator.language)}
+                  )}
                   원
                 </span>
               ) : (
                 <span className={styles['total-price-number']}>
-                  {(data.price * countNum).toLocaleString(navigator.language)}원
+                  {priceTemplate((data.price * countNum))}원
                 </span>
               )}
               <div className={styles['saving-wrapper']}>
@@ -147,7 +147,9 @@ export function AddCart({ data, onClose }) {
                 취소
               </button>
               <button
-                onClick={addCart}
+                onClick={()=>{
+                  addCart()
+                }}
                 className={styles['add-cart-btn']}
                 type="button"
               >
