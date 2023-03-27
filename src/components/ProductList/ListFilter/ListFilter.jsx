@@ -2,7 +2,7 @@ import styles from './ListFilter.module.css';
 import Notice from '../../../assets/productList/Notice.png';
 export function ListFilter({ list, index }) {
   return (
-    <li key={index}>
+    <li>
       <div className={styles['recommend']}>
         <button type="button" className={styles['divider']} aria-hidden="true">
           {list}
