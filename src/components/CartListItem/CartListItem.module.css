@@ -23,6 +23,7 @@
 }
 
 .price {
+  all: unset;
   width: 127px;
   font-weight: var(--text-600);
   font-size: var(--text-base);
