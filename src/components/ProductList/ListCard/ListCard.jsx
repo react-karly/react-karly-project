@@ -1,6 +1,6 @@
 import styles from './ListCard.module.css';
 
-import { CartModal } from '../CartModal/CartModal';
+import { AddCart } from '@/components/AddCart/AddCart';
 import { priceTemplate } from '@/utils/index';
 
 import { useState } from 'react';
@@ -11,6 +11,7 @@ export function ListCard({ props }) {
   const openModal = () => {
     setIsModalOpen(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -65,7 +66,7 @@ export function ListCard({ props }) {
         className={styles['cart-icon']}
         onClick={openModal}
       ></button>
-      {isModalOpen && <CartModal onClose={closeModal} item={props} />}
+      {isModalOpen && <AddCart onClose={closeModal} data={props} />}
     </div>
   );
 }

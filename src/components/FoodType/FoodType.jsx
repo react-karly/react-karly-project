@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styles from './FoodType.module.css';
+
 import frozenImg from '@/assets/cart/Type=Frozen.png';
 import normalImg from '@/assets/cart/Type=Normal.png';
 import directionUp from '@/assets/cart/Direction=Up.png';
 import directionDown from '@/assets/cart/Direction=Down.png';
 import refrigeratedImg from '@/assets/cart/Type=Refrigerated.png';
+
+import { cartListState } from '@/@store/cartListState';
 import { CartListItem } from '../CartListItem/CartListItem';
-import { useRecoilState } from 'recoil';
-import { cartListState } from '../../@store/cartListState';
 
 function FoodType({ type }) {
   const [cartList, setCartList] = useRecoilState(cartListState);

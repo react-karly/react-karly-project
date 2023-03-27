@@ -10,7 +10,6 @@ export function SubKategori({ menu, index, countCheck, setCountCheck }) {
         ...checkIndex,
         [event.target.name]: event.target.checked,
       });
-      console.log(checkIndex);
       if (checkIndex[index] === false || checkIndex[index] === undefined) {
         setCountCheck(countCheck + 1);
       } else {

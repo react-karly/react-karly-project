@@ -6,14 +6,13 @@
 .menu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: 600;
   line-height: 150%;
 }
 
 .list {
   display: flex;
-  margin: 0 0 0px 0;
-  padding: 0 0 20px 0;
 }
 
 li {

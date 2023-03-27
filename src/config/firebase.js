@@ -96,5 +96,5 @@ export async function addCollectionAndDocuments(
   // 일괄 처리 커밋(실행)
   await batch.commit();
 
-  console.log('콜렉션 생성 및 도큐멘트 생성 일괄 처리가 완료되었습니다.');
+  // console.log('콜렉션 생성 및 도큐멘트 생성 일괄 처리가 완료되었습니다.');
 }

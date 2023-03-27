@@ -1,20 +1,20 @@
 import styles from './Pagination.module.css';
 
-import first from '../../../assets/productList/pagination_firstbutton.png';
-import prev from '../../../assets/productList/pagination_prevButton.png';
-import next from '../../../assets/productList/pagination_nextButton.png';
-import last from '../../../assets/productList/pagination_lastButton.png';
+import first from '@/assets/productList/pagination_firstbutton.png';
+import prev from '@/assets/productList/pagination_prevButton.png';
+import next from '@/assets/productList/pagination_nextButton.png';
+import last from '@/assets/productList/pagination_lastButton.png';
 
 import { useCallback } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentPage, itemsPerPage, productList } from '../../../@store';
+import { currentPage, itemsPerPage, productList } from '@/@store';
 
 export function Pagination() {
   const [currentIndex, setCurrentIndex] = useRecoilState(currentPage);
-  const totalPage = useRecoilValue(productList).length;
+  const totalPage = useRecoilValue(productList);
   const itemsPerIndex = useRecoilValue(itemsPerPage);
 
-  const pageCount = Math.ceil(totalPage / itemsPerIndex);
+  const pageCount = Math.ceil(totalPage.length / itemsPerIndex);
 
   const handleClickPage = useCallback(
     (page) => {
@@ -41,7 +41,7 @@ export function Pagination() {
     }
   }, [currentIndex]);
   const handleClickLast = useCallback(() => {
-    setCurrentIndex(pageCount - 1);
+    setCurrentIndex(pageCount);
     window.scrollTo(0, 0);
   }, [currentIndex]);
 

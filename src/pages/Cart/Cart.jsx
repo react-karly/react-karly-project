@@ -16,10 +16,10 @@ import {
   filterType,
 } from '../../@store/cartListState';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
-import ShippingModal from '@/components/ShippingModalWrapper/ShippingModal/ShippingModal';
-import OrderModal from '../../components/OrderModal/OrderModal';
-import { isLoggedInState } from '@/atoms/auth';
+import Portal from '@/components/Portal/Portal';
+import ShippingModal from '@/components/ShippingModal/ShippingModal';
+import OrderModal from '@/components/OrderModal/OrderModal';
+import { isLoggedInState } from '@/@store';
 import { useNavigate } from 'react-router';
 
 function Cart(props) {
@@ -258,9 +258,9 @@ function Cart(props) {
             {shipping ? '주문하기' : '배송지 설정 후 주문 가능'}
           </button>
           {isShowOrder && (
-            <ShippingModalWrapper>
+            <Portal elementId="modal__root">
               <OrderModal setIsShowOrder={setIsShowOrder} />
-            </ShippingModalWrapper>
+            </Portal>
           )}
           <div className={styles['additional-info']}>
             <p>쿠폰&#47;적립금은 주문서에서 사용 가능합니다</p>
@@ -281,9 +281,9 @@ function Cart(props) {
         </section>
       </article>
       {isShowShipping && (
-        <ShippingModalWrapper>
+        <Portal elementId="modal__root">
           <ShippingModal setIsShowShipping={setIsShowShipping} />
-        </ShippingModalWrapper>
+        </Portal>
       )}
     </div>
   );

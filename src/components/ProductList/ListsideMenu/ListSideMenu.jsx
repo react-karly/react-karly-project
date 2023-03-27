@@ -2,7 +2,7 @@ import styles from './ListSideMenu.module.css';
 import Arrow from '../../../assets/cart/arrow.svg';
 import Down from '../../../assets/productList/Direction=Down.png';
 
-import { MENU_LIST } from './MenuList';
+import { MENU_LIST } from '../../../enum/MenuList';
 import { Kategori } from '../Kategori/Kategori';
 
 import { useState } from 'react';

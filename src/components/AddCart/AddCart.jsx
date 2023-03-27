@@ -1,18 +1,19 @@
-import React from 'react';
 import styles from './AddCart.module.css';
-import { useState, useEffect } from 'react';
-import { Counter } from '../Counter/Counter';
+
+import React from 'react';
 import Portal from '../Portal/Portal';
+import { Counter } from '../Counter/Counter';
+import { useState, useEffect } from 'react';
+import { priceTemplate } from '@/utils/priceTemplate';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { priceTemplate } from '../../utils/priceTemplate';
 import {
   addExistProduct,
   cartListState,
   lastAddProductState,
-} from '../../@store/cartListState';
+} from '@/@store/cartListState';
 
 export function AddCart({ data, onClose }) {
-  const [countNum, setCountNum] = useState(1); 
+  const [countNum, setCountNum] = useState(data.stock);
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
   const addItem = useSetRecoilState(addExistProduct);
@@ -24,20 +25,18 @@ export function AddCart({ data, onClose }) {
     alt: data.image.alt,
     price: data.price,
     salePrice: data.salePrice,
-    stock: data.stock,
+    stock: countNum,
     isChecked: true,
   };
 
   const handleMinus = () => {
     setCountNum(countNum - 1);
-    console.log('-');
   };
 
   const handlePlus = () => {
     setCountNum(countNum + 1);
   };
 
-  
   const addCart = () => {
     const titleList = [];
     cartList.map((product) => {
@@ -49,7 +48,6 @@ export function AddCart({ data, onClose }) {
       setCartList([...cartList, { ...newItem }]);
     }
     setLastProduct(newItem);
-   
   };
 
   useEffect(() => {
@@ -67,54 +65,48 @@ export function AddCart({ data, onClose }) {
 
   return (
     <Portal elementId="modal__root">
-        <div className={styles['Overlay']}>
-          <div>
-            <h2 className={styles['a11y-hidden']}>장바구니 담기</h2>
-            <div className={styles['add-cart-container']}>
-              <div className={styles['product-amount-wrapper']}>
-                <span className={styles['product-name']}>{data.name}</span>
-                <div className={styles['price-counter-wrapper']}>
-                  {data.saleRatio ? (
-                    <div>
-                      <span className={styles['product-price']}>
-                        {priceTemplate((data.price * (1 - data.saleRatio))
-                        )}
-                        원
-                      </span>
-                      <span className={styles['original-price']}>
-                        {priceTemplate(data.price)}원
-                      </span>
-                    </div>
-                  ) : (
+      <div className={styles['Overlay']}>
+        <div>
+          <h2 className={styles['a11y-hidden']}>장바구니 담기</h2>
+          <div className={styles['add-cart-container']}>
+            <div className={styles['product-amount-wrapper']}>
+              <span className={styles['product-name']}>{data.name}</span>
+              <div className={styles['price-counter-wrapper']}>
+                {data.saleRatio ? (
+                  <div>
                     <span className={styles['product-price']}>
+                      {priceTemplate(data.price * (1 - data.saleRatio))}원
+                    </span>
+                    <span className={styles['original-price']}>
                       {priceTemplate(data.price)}원
                     </span>
-                  )}
-    
-                  <div className={styles['counter-box']}>
-                    <Counter
-                      quantity={countNum}
-                      onClickPlus={handlePlus}
-                      onClickMinus={handleMinus}
-                    />
                   </div>
+                ) : (
+                  <span className={styles['product-price']}>
+                    {priceTemplate(data.price)}원
+                  </span>
+                )}
+
+                <div className={styles['counter-box']}>
+                  <Counter
+                    quantity={countNum}
+                    onClickPlus={handlePlus}
+                    onClickMinus={handleMinus}
+                  />
                 </div>
-              </div> 
-  
+              </div>
+            </div>
+
             <div className={styles['total-price-wrapper']}>
               <span className={styles['total-price']}>합계</span>
               {data.saleRatio ? (
                 <span className={styles['total-price-number']}>
-                  {priceTemplate(
-                    data.price *
-                    (1 - data.saleRatio) *
-                    countNum
-                  )}
+                  {priceTemplate(data.price * (1 - data.saleRatio) * countNum)}
                   원
                 </span>
               ) : (
                 <span className={styles['total-price-number']}>
-                  {priceTemplate((data.price * countNum))}원
+                  {priceTemplate(data.price * countNum)}원
                 </span>
               )}
               <div className={styles['saving-wrapper']}>
@@ -139,30 +131,26 @@ export function AddCart({ data, onClose }) {
               </div>
             </div>
 
-              <button
-                onClick={onClose}
-                className={styles['cancle-btn']}
-                type="button"
-              >
-                취소
-              </button>
-              <button
-                onClick={
-                  ()=>{
-                    addCart()
-                    onClose()
-                  
-                  }
-      
-                }
-                className={styles['add-cart-btn']}
-                type="button"
-              >
-                장바구니 담기
-              </button>
-            </div>
+            <button
+              onClick={onClose}
+              className={styles['cancle-btn']}
+              type="button"
+            >
+              취소
+            </button>
+            <button
+              onClick={() => {
+                addCart();
+                onClose();
+              }}
+              className={styles['add-cart-btn']}
+              type="button"
+            >
+              장바구니 담기
+            </button>
           </div>
         </div>
+      </div>
     </Portal>
   );
 }

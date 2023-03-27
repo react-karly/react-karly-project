@@ -1,6 +1,6 @@
 import styles from './ListCards.module.css';
 
-import { LIST_FILTER } from './ListFilter';
+import { LIST_FILTER } from '../../../enum/ListFilter';
 import { ListCard } from '../ListCard/ListCard';
 import { ListFilter } from '../ListFilter/ListFilter';
 

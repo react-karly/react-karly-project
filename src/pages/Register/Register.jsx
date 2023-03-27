@@ -6,7 +6,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '@/config/firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { authState, messageState } from '@/atoms/auth';
+import { authState, messageState } from '@/@store';
 import { useRecoilState } from 'recoil';
 
 function RegisterRefactor() {
@@ -27,7 +27,6 @@ function RegisterRefactor() {
           ...doc.data(),
           id: doc.id,
         }));
-        console.log({ filteredData });
       } catch (err) {
         console.error(err);
       }
@@ -50,14 +49,12 @@ function RegisterRefactor() {
   };
 
   const signUp = async () => {
-    console.log('authObj', authObj);
     try {
       const result = await createUserWithEmailAndPassword(
         auth,
         authObj.email,
         authObj.password
       );
-      console.log('result', result);
       const data = await addDoc(usersCollectionRef, {
         email: authObj.email,
         password: authObj.password,
@@ -74,7 +71,6 @@ function RegisterRefactor() {
         termsOfEvent: Boolean(authObj.termsOfEvent),
         termsOfAge: Boolean(authObj.termsOfAge),
       });
-      console.log('data', data);
       navigate('/');
     } catch (err) {
       console.error(err);

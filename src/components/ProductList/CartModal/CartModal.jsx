@@ -21,7 +21,6 @@ export function CartModal({ item, onClose }) {
     };
   }, []);
 
-  console.log(item);
   return (
     <div className={styles['modal']} tabIndex="-1">
       <div className={styles['modal__body']} tabIndex="0">
