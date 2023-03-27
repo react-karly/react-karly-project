@@ -9,13 +9,13 @@ import {
   errorState,
   messageState,
   isOpenState,
-} from '@/atoms/auth';
+} from '@/@store';
 import { useRecoilState } from 'recoil';
 import { db } from '@/config/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import LoginModal from '../LoginModal/LoginModal';
-import ShippingModalWrapper from '@/components/ShippingModalWrapper/ShippingModalWrapper';
-import ShippingModal from '../ShippingModalWrapper/ShippingModal/ShippingModal';
+import Portal from '../Portal/Portal';
+import ShippingModal from '../ShippingModal/ShippingModal';
 import { shippingState } from '../../@store/cartListState';
 
 export function UserInput({
@@ -47,7 +47,6 @@ export function UserInput({
     const snapshot = await getDocs(q);
     const regExp =
       /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    console.log(regExp.test(authObj.email));
     if (!regExp.test(authObj.email)) {
       setError('이메일 에러');
       setMessage({
@@ -179,9 +178,9 @@ export function UserInput({
           </div>
         </li>
         {isShowShipping && (
-          <ShippingModalWrapper>
+          <Portal elementId="modal__root">
             <ShippingModal setIsShowShipping={setIsShowShipping} />
-          </ShippingModalWrapper>
+          </Portal>
         )}
         <li>
           <label className={styles['register-label']}>성별</label>

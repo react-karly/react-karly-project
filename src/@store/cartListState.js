@@ -159,7 +159,6 @@ export const addExistProduct = selector({
       cartListState,
       cartList.map((product) => {
         if (product.title === newValue[0]) {
-          console.log(typeof product.stock, typeof newValue[1]);
           return {
             ...product,
             stock: Number(product.stock + newValue[1]),
