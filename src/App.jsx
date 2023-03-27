@@ -16,21 +16,20 @@ function App() {
         <div className="App">
           <BaseLayout>
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/signup" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              {/* 로그인 회원가입 텍스트 스타일 테스트  */}
-              {/* <Route path="/signup" element={<Cart />} /> */}
-              {/* <Route path="/login" element={<Cart />} /> */}
               <Route path="/product-list" element={<ProductList />} />
-              <Route path="/product-detail" element={<ProductDetail />} />
+              <Route
+                path="/product-detail/:productId"
+                element={<ProductDetail />}
+              />
               <Route path="/cart" element={<Cart />} />
             </Routes>
           </BaseLayout>
         </div>
       </Router>
     </RecoilRoot>
-    // import { MainPopup } from './components/Popup/MainPopup';
   );
 }
 export default App;
