@@ -75,7 +75,7 @@ export function UserInput({
   };
 
   return (
-    <div>
+    <div className={styles['user-input-container']}>
       <ul>
         <li>
           <Input
