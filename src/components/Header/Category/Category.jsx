@@ -4,8 +4,8 @@ import dropdown from '@/assets/header/hamburger.png';
 import dropdown_active from '@/assets/header/hamburger_active.png';
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 import { categoryName } from '../../../enum/categoryName';
+import { categoryImage } from '../../../enum/categoryName';
 function Category(props) {
-  const categoryImg = '/src/assets/header/menuIcon/Icon-0';
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseOver = useCallback(() => {
@@ -37,8 +37,8 @@ function Category(props) {
           {categoryName.map((name, index) => (
             <li key={index}>
               <CategoryItem
-                src={`${categoryImg}${index}.png`}
                 categoryName={name}
+                imageSrc={categoryImage[index]}
               />
             </li>
           ))}
