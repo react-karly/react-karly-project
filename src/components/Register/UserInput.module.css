@@ -84,7 +84,7 @@ input[type='radio']:checked + label::before {
   display: inline-block;
 }
 
-div > ul > li:nth-child(n + 1):nth-child(-n + 10) {
+.user-input-container > ul > li:nth-child(n + 1):nth-child(-n + 10) {
   padding: var(--spacing-md) 0;
   display: flex;
   flex-flow: row wrap;
