@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BaseLayout } from './components/Layout/Layout';
-import Home from './pages/Home';
+import Home from '@/pages/Home/Home';
 import './App.module.css';
 import Cart from '@/pages/Cart/Cart';
 import ProductDetail from '@/pages/ProductDetail/ProductDetail';

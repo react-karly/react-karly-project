@@ -1,0 +1,23 @@
+.button__number {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--gray-100);
+  color: var(--content);
+  background-color: inherit;
+}
+
+.button__number:disabled {
+  color: var(--content);
+  background-color: #f7f7f7;
+}
+
+.arrow_button {
+  background-color: inherit;
+  border: 1px solid var(--gray-100);
+  width: 34px;
+  height: 34px;
+}
+
+.arrow_button > img {
+  padding-bottom: 2px;
+}

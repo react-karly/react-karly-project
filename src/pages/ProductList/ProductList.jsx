@@ -1,10 +1,13 @@
 import styles from './ProductList.module.css';
 import { BaseLayout, ListSideMenu, ListCards } from '@/components';
-import { useLayoutEffect, useEffect, useState } from 'react';
+import { Suspense, useLayoutEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { productList } from '../../@store';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import firebaseApp from '../../firebase/app';
+
 function ProductList() {
-  const [productLists, setProductLists] = useState([]);
+  const [, setProductLists] = useRecoilState(productList);
 
   useLayoutEffect(() => {
     const db = getFirestore(firebaseApp);
@@ -18,12 +21,15 @@ function ProductList() {
       setProductLists(productList);
     });
   }, []);
+
   return (
     <>
       <h3>베스트</h3>
       <div className={styles['wrapper']}>
-        <ListSideMenu props={productLists} />
-        <ListCards props={productLists} />
+        <ListSideMenu />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ListCards />
+        </Suspense>
       </div>
     </>
   );

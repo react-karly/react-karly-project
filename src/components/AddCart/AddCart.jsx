@@ -1,23 +1,19 @@
-import React from 'react';
 import styles from './AddCart.module.css';
-import { useState } from 'react';
+
+import React from 'react';
+import Portal from '../Portal/Portal';
 import { Counter } from '../Counter/Counter';
+import { useState, useEffect } from 'react';
+import { priceTemplate } from '@/utils/priceTemplate';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { priceTemplate } from '../../utils/priceTemplate';
 import {
   addExistProduct,
   cartListState,
   lastAddProductState,
-} from '../../@store/cartListState';
+} from '@/@store/cartListState';
 
-export function AddCart(props) {
-  // console.log(666666, props)
-  const { data } = props;
-
-  // console.log(data);
-
-  const [modal, setModal] = React.useState(true); // "닫기" 상태 관리
-  const [countNum, setCountNum] = useState(1); // "카운터" 상태 관리
+export function AddCart({ data, onClose }) {
+  const [countNum, setCountNum] = useState(data.stock);
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
   const addItem = useSetRecoilState(addExistProduct);
@@ -29,21 +25,16 @@ export function AddCart(props) {
     alt: data.image.alt,
     price: data.price,
     salePrice: data.salePrice,
-    stock: data.stock,
+    stock: countNum,
     isChecked: true,
   };
 
   const handleMinus = () => {
     setCountNum(countNum - 1);
-    console.log('-');
   };
 
   const handlePlus = () => {
     setCountNum(countNum + 1);
-  };
-
-  const cancle = () => {
-    setModal(false);
   };
 
   const addCart = () => {
@@ -59,18 +50,22 @@ export function AddCart(props) {
     setLastProduct(newItem);
   };
 
-  // useEffect(() => {
-  //   document.body.style.cssText = `position: fixed; top: -${window.scrollY}px`;
-  //   return () => {
-  //     const scrollY = document.body.style.top;
-  //     document.body.style.cssText = `position: ""; top: "";`;
-  //     window.scrollTo(0, parseInt(scrollY || '0') * -1);
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
 
   return (
-    <div className={styles['modal-background']}>
-      {modal ? (
+    <Portal elementId="modal__root">
+      <div className={styles['Overlay']}>
         <div>
           <h2 className={styles['a11y-hidden']}>장바구니 담기</h2>
           <div className={styles['add-cart-container']}>
@@ -80,18 +75,15 @@ export function AddCart(props) {
                 {data.saleRatio ? (
                   <div>
                     <span className={styles['product-price']}>
-                      {(data.price * (1 - data.saleRatio)).toLocaleString(
-                        navigator.language
-                      )}
-                      원
+                      {priceTemplate(data.price * (1 - data.saleRatio))}원
                     </span>
                     <span className={styles['original-price']}>
-                      {data.price.toLocaleString(navigator.language)}원
+                      {priceTemplate(data.price)}원
                     </span>
                   </div>
                 ) : (
                   <span className={styles['product-price']}>
-                    {data.price.toLocaleString(navigator.language)}원
+                    {priceTemplate(data.price)}원
                   </span>
                 )}
 
@@ -109,16 +101,12 @@ export function AddCart(props) {
               <span className={styles['total-price']}>합계</span>
               {data.saleRatio ? (
                 <span className={styles['total-price-number']}>
-                  {(
-                    data.price *
-                    (1 - data.saleRatio) *
-                    countNum
-                  ).toLocaleString(navigator.language)}
+                  {priceTemplate(data.price * (1 - data.saleRatio) * countNum)}
                   원
                 </span>
               ) : (
                 <span className={styles['total-price-number']}>
-                  {(data.price * countNum).toLocaleString(navigator.language)}원
+                  {priceTemplate(data.price * countNum)}원
                 </span>
               )}
               <div className={styles['saving-wrapper']}>
@@ -144,14 +132,17 @@ export function AddCart(props) {
             </div>
 
             <button
-              onClick={cancle}
+              onClick={onClose}
               className={styles['cancle-btn']}
               type="button"
             >
               취소
             </button>
             <button
-              onClick={addCart}
+              onClick={() => {
+                addCart();
+                onClose();
+              }}
               className={styles['add-cart-btn']}
               type="button"
             >
@@ -159,7 +150,7 @@ export function AddCart(props) {
             </button>
           </div>
         </div>
-      ) : null}
-    </div>
+      </div>
+    </Portal>
   );
 }

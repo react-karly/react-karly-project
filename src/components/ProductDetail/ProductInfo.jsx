@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import minus from '@/assets/cart/count.png';
 import { Counter } from '../Counter/Counter';
 import styles from './ProductInfo.module.css';
-import plus from '../../assets/cart/plus.png';
+import plus from '@/assets/cart/plus.png';
 import heartFill from '@/assets/ProductDetail/heart-fill.png';
-import disabledMinus from '../../assets/cart/minus_disabled.png';
-import counter from '../../components/Counter/Counter.module.css';
-import ProductDetail from '../../pages/ProductDetail/ProductDetail';
+import disabledMinus from '@/assets/cart/minus_disabled.png';
+import counter from '@/components/Counter/Counter.module.css';
+import ProductDetail from '@/pages/ProductDetail/ProductDetail';
 import heartNoFill from '@/assets/productDetail/Disabled=false.png';
 import CartAddedModal from './ProductDetailItem/CartAddedModal/CartAddedModal';
 import InfoList from './ProductDetailItem/InfoList/InfoList';
@@ -18,11 +18,12 @@ import {
   addExistProduct,
   cartListState,
   lastAddProductState,
-} from '../../@store/cartListState';
+} from '@/@store/cartListState';
+import { isLoggedInState } from '@/@store/auth';
 
 function ProductInfo({ product }) {
   const [productInfo, setProductInfo] = useState(product);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [like, setLike] = useState(false);
   const [cartList, setCartList] = useRecoilState(cartListState);
   const [lastProduct, setLastProduct] = useRecoilState(lastAddProductState);
@@ -88,13 +89,8 @@ function ProductInfo({ product }) {
             <h4 className={styles.won}>원</h4>
           </div>
 
-          {isLoggedIn === true ? null : (
-            <p
-              className={styles['benefit-after-login']}
-              onChange={() => {
-                setIsLoggedIn(true);
-              }}
-            >
+          {!isLoggedIn && (
+            <p className={styles['benefit-after-login']}>
               로그인 후, 적립 혜택이 제공됩니다.
             </p>
           )}
@@ -121,8 +117,7 @@ function ProductInfo({ product }) {
             <InfoList type={'원산지'} content={'상세페이지 별도표기'} />
             <InfoList
               type={'알레르기정보'}
-              content={`-대두, 밀, 쇠고기 함유
-                -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조`}
+              content={`-대두, 밀, 쇠고기 함유`}
             />
             <InfoList type={'상품선택'}>
               <div className={styles['counter-box']}>
