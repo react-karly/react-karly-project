@@ -4,6 +4,7 @@ import { AddCart } from '@/components/AddCart/AddCart';
 import { priceTemplate } from '@/utils/index';
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function ListCard({ props }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +22,7 @@ export function ListCard({ props }) {
 
   return (
     <div className={styles['product-each']}>
-      <a href={`/product-detail/${props.id}`}>
+      <Link to={`/product-detail/${props.id}`}>
         <img
           className={styles['card-image']}
           src={props.image.thumbnail}
@@ -59,7 +60,7 @@ export function ListCard({ props }) {
             )}
           </div>
         </div>
-      </a>
+      </Link>
       <button
         type="button"
         aria-label="cart-icon"
