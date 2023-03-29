@@ -74,7 +74,7 @@ export function UserInput({
   };
 
   return (
-    <div>
+    <div className={styles['user-input-container']}>
       <ul>
         <li>
           <Input
@@ -209,7 +209,6 @@ export function UserInput({
               id="none"
               name="gender"
               value="none"
-              checked="checked"
               onChange={onChangeGender}
             />
             <label htmlFor="none">선택안함</label>
