@@ -42,16 +42,18 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ![image](https://github.com/user-attachments/assets/6636ab04-7fc6-4ed0-b4d9-72a3709734b3)
 
+#### <br>
 
 
-
+#### 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 ![image](https://github.com/user-attachments/assets/7d64f08b-bcba-40ef-914a-9846f7aa609e)
-파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 
-<br>
+
+#### <br>
+
+##### ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
 
 ![image](https://github.com/user-attachments/assets/62e0b45e-5a2e-418f-a600-811fe0543665)
-ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
 
 
 
