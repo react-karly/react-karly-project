@@ -33,8 +33,10 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### 1. 메인 페이지
 
-### 이벤트 팝업창은 useState로 제어하며, 닫기 및 오늘 하루 안 보기 기능은 로컬 스토리지와 useEffect를 사용해 마지막 모달 표시 시간과 현재 시간을 비교해 24시간 이내에 숨기도록 구현
-### autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
+#### - 이벤트 팝업창은 useState로 제어하며, 닫기 및 오늘 하루 안 보기 기능은 로컬 스토리지와 useEffect를 사용해 마지막 모달 표시 시간과 현재 시간을 비교해 24시간 이내에 숨기도록 구현
+#### - autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
+#### - 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
+#### - ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
   
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
 
@@ -45,13 +47,11 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 ### <br>
 
 
-### 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 ![image](https://github.com/user-attachments/assets/7d64f08b-bcba-40ef-914a-9846f7aa609e)
 
 
 ### <br>
 
-#### ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
 
 ![image](https://github.com/user-attachments/assets/62e0b45e-5a2e-418f-a600-811fe0543665)
 
