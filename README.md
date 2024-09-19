@@ -33,7 +33,7 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### 1. 메인 페이지
 <div align=center>
-![메인1](https://github.com/user-attachments/assets/0abcd047-3453-4ee0-a728-fe1569d65716)
+[![메인1](https://github.com/user-attachments/assets/0abcd047-3453-4ee0-a728-fe1569d65716)](https://github-production-user-asset-6210df.s3.amazonaws.com/119389723/368948764-6bd88c4b-0605-4c05-aef2-cc5bff54e3f0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240919%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240919T103035Z&X-Amz-Expires=300&X-Amz-Signature=c4db85328cf6ee2bbac828e62b9d1a1ad1fd69c3dd6e129f34298b10e5dd82c3&X-Amz-SignedHeaders=host&actor_id=119389723&key_id=0&repo_id=611276407)
 </div>
   
 
