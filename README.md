@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/180debcd-8045-486f-8bb0-28104c93ad32)![image](https://github.com/user-attachments/assets/cd9e60c9-436e-476f-8e08-516e0142b29a)# 멋쟁이 사자처럼 4기 React Final Project
+# **멋쟁이 사자처럼 4기 React Final Project**
 
 React, Module.css, Vite를 이용한 마켓컬리 사이트 클론코딩
 
@@ -27,18 +27,13 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 # 라우팅 설계
 
-- 제시된 시안을 기준으로 회원가입, 로그인, 메인, 상품리스트, 상품디테일로 페이지를 구성합니다.
+- 제시된 시안을 기준으로 회원가입, 로그인, 메인, 상품리스트, 상품디테일로 페이지를 구성
 
 ## 📌 주요 기능
 
 ### 1. 메인 페이지
 <div align=center>
-![image](https://github.com/user-attachments/assets/6bd88c4b-0605-4c05-aef2-cc5bff54e3f0)
-![image](https://github.com/user-attachments/assets/c240e322-ab31-4a64-bd52-c20c44a78c1f)
-![image](https://github.com/user-attachments/assets/2b4674e2-f763-477a-b8c8-42572ed7deec)
-![image](https://github.com/user-attachments/assets/23501202-4168-4b04-bde9-a24679cd3832)
-
-
+<img src="[https://user-images.githubusercontent.com/69625013/217636379-90d19282-4147-4989-a7c8-ce0edc9ccb6a.png](https://github.com/user-attachments/assets/6bd88c4b-0605-4c05-aef2-cc5bff54e3f0)" width="500">
 </div>
   
 
