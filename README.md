@@ -33,7 +33,7 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### 1. 메인 페이지
 <div align=center>
-![KakaoTalk_Photo_2024-09-19-19-44-54 001](https://github.com/user-attachments/assets/b51a3ed7-c103-449a-a6de-f260b0404c6f)
+![KakaoTalk_Photo_2024-09-19-19-44-54 001](https://github.com/user-attachments/assets/b51a3ed7-c103-449a-a6de-f260b0404c6f.jpg)
 
 </div>
   
