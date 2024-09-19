@@ -33,7 +33,8 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### 1. 메인 페이지
 <div align=center>
-<img src="[https://user-images.githubusercontent.com/69625013/217636379-90d19282-4147-4989-a7c8-ce0edc9ccb6a.png](https://github.com/user-attachments/assets/6bd88c4b-0605-4c05-aef2-cc5bff54e3f0)" width="500">
+![image](https://github.com/user-attachments/assets/4dfb5423-4b4e-4b02-9ced-38ee7bff161f)
+
 </div>
   
 
