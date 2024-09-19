@@ -1,16 +1,51 @@
-# 멋쟁이 사자처럼 4기 React Final Project
+![image](https://github.com/user-attachments/assets/180debcd-8045-486f-8bb0-28104c93ad32)![image](https://github.com/user-attachments/assets/cd9e60c9-436e-476f-8e08-516e0142b29a)# 멋쟁이 사자처럼 4기 React Final Project
 
-## Description
+React, Module.css, Vite를 이용한 마켓컬리 사이트 클론코딩
+
+## 💻 프로젝트 소개
 
 멋쟁이 사자처럼 프론트엔드스쿨 4기 교육생들의 React Final Project입니다.
 
-이 프로젝트는 [마켓컬리](https://www.kurly.com/main)을 본따 만들었으며,
+멋쟁이 사자처럼 프론트엔드 스쿨에서 제공한 시안을 토대로 구현한 Market Karly 사이트입니다.
 
 React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구현을 목표로 진행했습니다.
+
+## ⌛개발 기간
+
+- 2023.02 - 2023.04
+
+## **TYING 프로젝트의 구성원**
+
+- 황혜인, 오소민, 김강철, 전원근, 이현석, 박유림
+
+</br>
+
+## 개발환경
+
+- VScode
+- Vite
 
 # 라우팅 설계
 
 - 제시된 시안을 기준으로 회원가입, 로그인, 메인, 상품리스트, 상품디테일로 페이지를 구성합니다.
+
+## 📌 주요 기능
+
+### 1. 메인 페이지
+<div align=center>
+![image](https://github.com/user-attachments/assets/6bd88c4b-0605-4c05-aef2-cc5bff54e3f0)
+![image](https://github.com/user-attachments/assets/c240e322-ab31-4a64-bd52-c20c44a78c1f)
+![image](https://github.com/user-attachments/assets/2b4674e2-f763-477a-b8c8-42572ed7deec)
+![image](https://github.com/user-attachments/assets/23501202-4168-4b04-bde9-a24679cd3832)
+
+
+</div>
+  
+
+
+
+
+
 
 # 데이터 모델링
 
