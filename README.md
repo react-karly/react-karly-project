@@ -38,7 +38,7 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
   
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
 
-####
+#### <br>
 
 ![image](https://github.com/user-attachments/assets/6636ab04-7fc6-4ed0-b4d9-72a3709734b3)
 
