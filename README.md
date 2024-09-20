@@ -61,7 +61,7 @@ https://github.com/user-attachments/assets/838cf8b0-1494-446c-adc5-39474b4d9768
 
 ![image](https://github.com/user-attachments/assets/62e0b45e-5a2e-418f-a600-811fe0543665)
 
-
+## <br>
 
 ### 2. 상품 리스트 페이지 
 
@@ -82,7 +82,7 @@ https://github.com/user-attachments/assets/2b70a620-e1a6-4924-be65-498a1498e765
 
 https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
 
-
+## <br>
 
 ### 3. 상세 페이지 
 
@@ -90,6 +90,9 @@ https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
 #### - 스크롤 탭 : 원하는 상품 정보가 있는 위치로 쉽게 이동할 수 있도록 useRef를 사용해 관련 useMoveScroll 훅을 만들어 해당 탭을 클릭 시 원하는 위치로 스크롤 이동하는 기능을 구현
 #### - 장바구니 담기 팝업 : 장바구니 담기 버튼을 클릭해 사용자가 담은 상품을 쉽게 인지할 수 있도록 헤더영역에 notice popup이 뜨는 기능을 구현
 #### - 데이터 바인딩 : 파이어베이스에 저장된 상품 데이터 베이스가 상품에 따라 데이터가 정확하게 들어갈 수 있도록 useState 및 표현식을 활용해 데이터 바인딩
+
+
+https://github.com/user-attachments/assets/711b6f7e-7c04-4c1a-955d-95f5c75cf09e
 
 ### <br>
 
@@ -99,9 +102,9 @@ https://github.com/user-attachments/assets/c3c43f8b-1e11-45e8-a762-908c082bfde2
 
 https://github.com/user-attachments/assets/79b874a9-e0ea-4318-8688-315f32373dc8
 
-### <br>
+## <br>
 
-https://github.com/user-attachments/assets/711b6f7e-7c04-4c1a-955d-95f5c75cf09e
+
 
 
 
