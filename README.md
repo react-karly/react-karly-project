@@ -2,6 +2,8 @@
 
 React, Module.css, Vite를 이용한 마켓컬리 사이트 클론코딩
 
+<br>
+
 ## 💻 프로젝트 소개
 
 멋쟁이 사자처럼 프론트엔드스쿨 4기 교육생들의 React Final Project입니다.
@@ -10,9 +12,13 @@
 
 React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구현을 목표로 진행했습니다.
 
+<br>
+
 ## ⌛개발 기간
 
 - 2023.02 - 2023.04
+
+<br>
 
 ## **TYING 프로젝트의 구성원**
 
@@ -25,9 +31,7 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 - VScode
 - Vite
 
-# 라우팅 설계
-
-- 제시된 시안을 기준으로 회원가입, 로그인, 메인, 상품리스트, 상품디테일로 페이지를 구성
+<br>
 
 ## 📌 주요 기능
 
@@ -85,10 +89,19 @@ https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
 #### - 상품 카운트 : 상품 개수를 증가 시키거나 감소시킬 수 있는 기능과, 수량에 따라 누적 가격이 합산되어 사용자가 지불해야할 가격을 인지할 수 있도록 기능을 구현
 #### - 스크롤 탭 : 원하는 상품 정보가 있는 위치로 쉽게 이동할 수 있도록 useRef를 사용해 관련 useMoveScroll 훅을 만들어 해당 탭을 클릭 시 원하는 위치로 스크롤 이동하는 기능을 구현
 #### - 장바구니 담기 팝업 : 장바구니 담기 버튼을 클릭해 사용자가 담은 상품을 쉽게 인지할 수 있도록 헤더영역에 notice popup이 뜨는 기능을 구현
+#### - 데이터 바인딩 : 파이어베이스에 저장된 상품 데이터 베이스가 상품에 따라 데이터가 정확하게 들어갈 수 있도록 useState 및 표현식을 활용해 데이터 바인딩
 
+### <br>
 
+https://github.com/user-attachments/assets/c3c43f8b-1e11-45e8-a762-908c082bfde2
 
+### <br>
 
+https://github.com/user-attachments/assets/79b874a9-e0ea-4318-8688-315f32373dc8
+
+### <br>
+
+https://github.com/user-attachments/assets/711b6f7e-7c04-4c1a-955d-95f5c75cf09e
 
 
 
