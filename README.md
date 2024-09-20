@@ -49,6 +49,7 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 https://github.com/user-attachments/assets/45fc396c-7f4b-4583-a4de-b5656aad96af
 
+### <br>
 
 
 https://github.com/user-attachments/assets/8d2dcb44-cbb1-4c35-aa63-35e1a63b016e
@@ -73,6 +74,19 @@ https://github.com/user-attachments/assets/8d2dcb44-cbb1-4c35-aa63-35e1a63b016e
 #### - Recoil을 이용한 product list 전역 상태 관리 및 페이지네이션구현
 #### - 상품 리스트 카드를 눌렀을 때 해당 리스트 상세 페이지로 이동
 
+
+https://github.com/user-attachments/assets/e059c3b8-be89-4afa-b267-f86557b22dcb
+
+### <br>
+
+
+https://github.com/user-attachments/assets/2b70a620-e1a6-4924-be65-498a1498e765
+
+### <br>
+
+
+
+https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
 
 
 
