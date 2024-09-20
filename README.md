@@ -33,10 +33,10 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### 1. 메인 페이지
 
-#### - 이벤트 팝업창은 useState로 제어하며, 닫기 및 오늘 하루 안 보기 기능은 로컬 스토리지와 useEffect를 사용해 마지막 모달 표시 시간과 현재 시간을 비교해 24시간 이내에 숨기도록 구현
-#### - autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
-#### - 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
-#### - ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
+#### - 팝업창 : 이벤트 팝업창은 useState로 제어하며, 닫기 및 오늘 하루 안 보기 기능은 로컬 스토리지와 useEffect를 사용해 마지막 모달 표시 시간과 현재 시간을 비교해 24시간 이내에 숨기도록 구현
+#### - 배너 슬라이드 : autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
+#### - 데이터 렌더링 : 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
+#### - 모달 Portal : ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
   
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
 
@@ -46,22 +46,11 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ### <br>
 
-
 https://github.com/user-attachments/assets/45fc396c-7f4b-4583-a4de-b5656aad96af
 
 ### <br>
 
-
-https://github.com/user-attachments/assets/8d2dcb44-cbb1-4c35-aa63-35e1a63b016e
-
-
-
-
 https://github.com/user-attachments/assets/838cf8b0-1494-446c-adc5-39474b4d9768
-
-
-
-
 
 ### <br>
 
@@ -70,13 +59,11 @@ https://github.com/user-attachments/assets/838cf8b0-1494-446c-adc5-39474b4d9768
 
 
 
-
-
 ### 2. 상품 리스트 페이지 
 
-#### - 사이드 메뉴에서 체크박스 커스텀, 카테고리별 선택 개수 확인, 드롭다운 기능은 구현
+#### - 사이드 메뉴 드롭 다운 기능 : 사이드 메뉴에서 체크박스 커스텀, 카테고리별 선택 개수 확인, 드롭다운 기능은 구현
 #### - Recoil을 이용한 product list 전역 상태 관리 및 페이지네이션구현
-#### - 상품 리스트 카드를 눌렀을 때 해당 리스트 상세 페이지로 이동
+#### - 라우터 : 상품 리스트 카드를 눌렀을 때 해당 리스트 상세 페이지로 이동
 
 
 https://github.com/user-attachments/assets/e059c3b8-be89-4afa-b267-f86557b22dcb
@@ -89,8 +76,18 @@ https://github.com/user-attachments/assets/2b70a620-e1a6-4924-be65-498a1498e765
 ### <br>
 
 
-
 https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
+
+
+
+### 3. 상세 페이지 
+
+#### - 상품 카운트 : 상품 개수를 증가 시키거나 감소시킬 수 있는 기능과, 수량에 따라 누적 가격이 합산되어 사용자가 지불해야할 가격을 인지할 수 있도록 기능을 구현
+#### - 스크롤 탭 : 원하는 상품 정보가 있는 위치로 쉽게 이동할 수 있도록 useRef를 사용해 관련 useMoveScroll 훅을 만들어 해당 탭을 클릭 시 원하는 위치로 스크롤 이동하는 기능을 구현
+#### - 장바구니 담기 팝업 : 장바구니 담기 버튼을 클릭해 사용자가 담은 상품을 쉽게 인지할 수 있도록 헤더영역에 notice popup이 뜨는 기능을 구현
+
+
+
 
 
 
