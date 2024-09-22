@@ -41,9 +41,9 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 #### - 배너 슬라이드 : autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
 #### - 데이터 렌더링 : 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 #### - 모달 Portal : ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
-  <div align=center>
+
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
-  </div>
+
 
 ### <br>
 
@@ -106,9 +106,22 @@ https://github.com/user-attachments/assets/79b874a9-e0ea-4318-8688-315f32373dc8
 ## <br>
 
 
+### 4. 장바구니, 헤더, 푸터
 
+#### - 장바구니 : 상품을 장바구니에 담고, 전체 및 개별 선택, 삭제, 수량 조절 기능을 통해 금액 계산과 할인 적용이 가능하도록 구현, 배송지 설정 후에만 주문이 가능하며, 로그인 상태에 따라 주문 절차가 진행됨
+#### - 헤더 : 헤더에 각 페이지로 이동할 수 있는 링크와 카테고리 드롭다운 메뉴를 설정하고, 스크롤 시 헤더 형태가 변경되며, 장바구니 알림창과 상품 개수 표시 기능을 추가
+#### - 푸터 : sns 링크 연결
 
+https://github.com/user-attachments/assets/0219041d-69e9-495d-ace1-99b0a3dfad21
 
+## <br>
+<img width="848" alt="스크린샷 2024-09-22 오후 2 59 33" src="https://github.com/user-attachments/assets/cfee6345-8838-4e80-a62f-e4db2a0d905c">
+
+## <br>
+
+<img width="776" alt="스크린샷 2024-09-22 오후 2 57 18" src="https://github.com/user-attachments/assets/4abba310-1324-4525-836f-a958fd2de41e">
+
+## <br>
 
 
 # 데이터 모델링
