@@ -35,12 +35,13 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 
 ## 📌 주요 기능
 
-### 1. 메인 페이지
+## 1. 메인 페이지
 
 #### - 팝업창 : 이벤트 팝업창은 useState로 제어하며, 닫기 및 오늘 하루 안 보기 기능은 로컬 스토리지와 useEffect를 사용해 마지막 모달 표시 시간과 현재 시간을 비교해 24시간 이내에 숨기도록 구현
 #### - 배너 슬라이드 : autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
 #### - 데이터 렌더링 : 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 #### - 모달 Portal : ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
+## <br>
 
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
 
@@ -64,12 +65,12 @@ https://github.com/user-attachments/assets/838cf8b0-1494-446c-adc5-39474b4d9768
 
 ## <br>
 
-### 2. 상품 리스트 페이지 
+## 2. 상품 리스트 페이지 
 
 #### - 사이드 메뉴 드롭 다운 기능 : 사이드 메뉴에서 체크박스 커스텀, 카테고리별 선택 개수 확인, 드롭다운 기능은 구현
 #### - Recoil을 이용한 product list 전역 상태 관리 및 페이지네이션구현
 #### - 라우터 : 상품 리스트 카드를 눌렀을 때 해당 리스트 상세 페이지로 이동
-
+## <br>
 
 https://github.com/user-attachments/assets/e059c3b8-be89-4afa-b267-f86557b22dcb
 
@@ -85,13 +86,13 @@ https://github.com/user-attachments/assets/3c930a9e-fd4a-4d8d-9eb1-d1bcaefa9da2
 
 ## <br>
 
-### 3. 상세 페이지 
+## 3. 상세 페이지 
 
 #### - 상품 카운트 : 상품 개수를 증가 시키거나 감소시킬 수 있는 기능과, 수량에 따라 누적 가격이 합산되어 사용자가 지불해야할 가격을 인지할 수 있도록 기능을 구현
 #### - 스크롤 탭 : 원하는 상품 정보가 있는 위치로 쉽게 이동할 수 있도록 useRef를 사용해 관련 useMoveScroll 훅을 만들어 해당 탭을 클릭 시 원하는 위치로 스크롤 이동하는 기능을 구현
 #### - 장바구니 담기 팝업 : 장바구니 담기 버튼을 클릭해 사용자가 담은 상품을 쉽게 인지할 수 있도록 헤더영역에 notice popup이 뜨는 기능을 구현
 #### - 데이터 바인딩 : 파이어베이스에 저장된 상품 데이터 베이스가 상품에 따라 데이터가 정확하게 들어갈 수 있도록 useState 및 표현식을 활용해 데이터 바인딩
-
+## <br>
 
 https://github.com/user-attachments/assets/711b6f7e-7c04-4c1a-955d-95f5c75cf09e
 
@@ -106,11 +107,12 @@ https://github.com/user-attachments/assets/79b874a9-e0ea-4318-8688-315f32373dc8
 ## <br>
 
 
-### 4. 장바구니, 헤더, 푸터
+## 4. 장바구니, 헤더, 푸터
 
 #### - 장바구니 : 상품을 장바구니에 담고, 전체 및 개별 선택, 삭제, 수량 조절 기능을 통해 금액 계산과 할인 적용이 가능하도록 구현, 배송지 설정 후에만 주문이 가능하며, 로그인 상태에 따라 주문 절차가 진행됨
 #### - 헤더 : 헤더에 각 페이지로 이동할 수 있는 링크와 카테고리 드롭다운 메뉴를 설정하고, 스크롤 시 헤더 형태가 변경되며, 장바구니 알림창과 상품 개수 표시 기능을 추가
 #### - 푸터 : sns 링크 연결
+## <br>
 
 https://github.com/user-attachments/assets/0219041d-69e9-495d-ace1-99b0a3dfad21
 
@@ -122,6 +124,24 @@ https://github.com/user-attachments/assets/0219041d-69e9-495d-ace1-99b0a3dfad21
 <img width="776" alt="스크린샷 2024-09-22 오후 2 57 18" src="https://github.com/user-attachments/assets/4abba310-1324-4525-836f-a958fd2de41e">
 
 ## <br>
+
+## 5. 회원가입, 로그인
+#### - 회원가입 : 유효성 검사, 주소 api 사용, 회원정보를 Firebase에 저장
+#### - 로그인 : 유효성 검사, 구글 로그인 구현
+## <br>
+
+
+https://github.com/user-attachments/assets/219a86ee-6eea-4cb0-bb25-a63d5fa61a8a
+
+## <br>
+
+<img width="871" alt="스크린샷 2024-09-22 오후 3 17 58" src="https://github.com/user-attachments/assets/9ff027b8-a2b9-4858-93d7-cbf4c8bd2691">
+
+
+## <br>
+
+<img width="1029" alt="스크린샷 2024-09-22 오후 3 18 08" src="https://github.com/user-attachments/assets/0caf035b-a7de-4f00-b696-d68faffc51e4">
+
 
 
 # 데이터 모델링
