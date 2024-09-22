@@ -41,8 +41,9 @@ React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구�
 #### - 배너 슬라이드 : autoplay 옵션으로 메인 배너 슬라이드를 자동으로 이동하게 하고, useRef 훅을 사용해 prev/next 아이콘을 커스텀
 #### - 데이터 렌더링 : 파이어베이스에 데이터를 저장해두고 상품명, 가격, 할인률, 이미지, 후기 등을 콘텐츠 영역에 각자 동적으로 렌더링
 #### - 모달 Portal : ReactDOM.createPortal을 사용해 모달창을 부모 컴포넌트의 DOM 계층 밖에 렌더링하여 배경 클릭을 차단하고 모달 외부를 어둡게 처리
-  
+  <div align=center>
 ![image](https://github.com/user-attachments/assets/dc9dbabe-c089-4412-9d40-641ee69994bc)
+  </div>
 
 ### <br>
 
