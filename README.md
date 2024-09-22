@@ -142,7 +142,7 @@ https://github.com/user-attachments/assets/219a86ee-6eea-4cb0-bb25-a63d5fa61a8a
 
 <img width="1029" alt="스크린샷 2024-09-22 오후 3 18 08" src="https://github.com/user-attachments/assets/0caf035b-a7de-4f00-b696-d68faffc51e4">
 
-
+## <br>
 
 # 데이터 모델링
 
