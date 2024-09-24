@@ -1,6 +1,6 @@
 # **멋쟁이 사자처럼 4기 React Final Project**
 
-React, Module.css, Vite를 이용한 마켓컬리 사이트 클론코딩
+React, Module.css, Vite를 이용한 마켓컬리 사이트 클론코딩
 
 <br>
 
@@ -8,7 +8,7 @@
 
 멋쟁이 사자처럼 프론트엔드스쿨 4기 교육생들의 React Final Project입니다.
 
-멋쟁이 사자처럼 프론트엔드 스쿨에서 제공한 시안을 토대로 구현한 Market Karly 사이트입니다.
+멋쟁이 사자처럼 프론트엔드 스쿨에서 제공한 시안을 토대로 구현한 Market Karly 사이트입니다.
 
 React 경험을 쌓기 위해 기타 라이브러리를 제외하고 기능 구현을 목표로 진행했습니다.
 
